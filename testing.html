@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Live Wallet</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        :root {
+            --base-clr: #11121a;
+            --line-clr: #42434a;
+            --hover-clr: #222533;
+            --text-clr: #e6e6ef;
+            --accent-clr: #5e63ff;
+            --secondary-text-clr: #b0b3c1;
+            --negative-text-clr: rgb(255, 0, 0);
+            --positive-text-clr: rgb(0, 255, 106);
+            --positive-bg-clr: rgba(46, 204, 113, 0.15);
+            --negative-bg-clr: rgba(231, 76, 60, 0.15);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--base-clr);
+            color: var(--text-clr);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .app {
+            /* max-width: 600px; */
+            margin: 0 auto;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9CA3AF;
+        }
+
+        #searchInput {
+            background-color: var(--base-clr);
+            border: 1px solid var(--line-clr);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            color: var(--text-clr);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--accent-clr);
+            box-shadow: 0 0 0 4px rgba(94, 99, 255, 0.1);
+        }
+
+        #searchInput::placeholder {
+            color: #9CA3AF;
+        }
+
+
+
+        .coin-card {
+            background-color: var(--hover-clr);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateZ(0);
+            transition: transform 0.2s ease;
+        }
+
+        .coin-card:active {
+            transform: scale(0.98);
+        }
+
+        .coin-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .coin-image {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+        }
+
+        .coin-name-container h2 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .coin-symbol {
+            color: var(--secondary-text-clr);
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+
+        .price-container {
+            text-align: right;
+        }
+
+        .coin-price {
+            font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+            font-weight: bold;
+        }
+
+        .price-change {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .price-change.positive {
+            color: var(--positive-text-clr);
+        }
+
+        .price-change.negative {
+            color: var(--negative-text-clr);
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 3px solid #374151;
+            border-top-color: #3B82F6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes priceUpdate {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .price-flash {
+            animation: priceUpdate 0.5s ease-out;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1F2937;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4B5563;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B7280;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--hover-clr);
+            border-radius: 8px;
+        }
+
+        .retry-button {
+            background-color: var(--accent-clr);
+            color: var(--text-clr);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .retry-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div class="search-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" placeholder="Search cryptocurrencies...">
+            </div>
+        </header>
+
+        <main id="coinList" class="coin-list">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        const coinList = $('#coinList');
+        const searchInput = $('#searchInput');
+        let coins = [
+            { id: "bitcoin", symbol: "btc", name: "Bitcoin", image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png", current_price: 30000, price_change_percentage_24h: 2.5 },
+            { id: "ethereum", symbol: "eth", name: "Ethereum", image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png", current_price: 2000, price_change_percentage_24h: 1.8 },
+            { id: "tether", symbol: "usdt", name: "Tether", image: "https://assets.coingecko.com/coins/images/325/large/Tether.png", current_price: 1, price_change_percentage_24h: 0.1 },
+            { id: "binancecoin", symbol: "bnb", name: "BNB", image: "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png", current_price: 300, price_change_percentage_24h: -0.5 },
+            { id: "usd-coin", symbol: "usdc", name: "USD Coin", image: "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png", current_price: 1, price_change_percentage_24h: 0 },
+            { id: "ripple", symbol: "xrp", name: "XRP", image: "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png", current_price: 0.5, price_change_percentage_24h: 1.2 },
+            { id: "cardano", symbol: "ada", name: "Cardano", image: "https://assets.coingecko.com/coins/images/975/large/cardano.png", current_price: 0.3, price_change_percentage_24h: -0.8 },
+            { id: "solana", symbol: "sol", name: "Solana", image: "https://assets.coingecko.com/coins/images/4128/large/solana.png", current_price: 20, price_change_percentage_24h: 3.2 },
+            { id: "dogecoin", symbol: "doge", name: "Dogecoin", image: "https://assets.coingecko.com/coins/images/5/large/dogecoin.png", current_price: 0.07, price_change_percentage_24h: -1.5 },
+            { id: "polkadot", symbol: "dot", name: "Polkadot", image: "https://assets.coingecko.com/coins/images/12171/large/polkadot.png", current_price: 5, price_change_percentage_24h: 0.9 }
+        ];
+        let previousPrices = new Map();
+
+        const formatPrice = (price) => {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: price < 1 ? 8 : 2
+            }).format(price);
+        };
+
+        const createCoinCard = (coin) => {
+            const priceChange = coin.price_change_percentage_24h;
+            const isPositive = priceChange > 0;
+
+            return `
+                <div class="coin-card" data-coin-id="${coin.id}">
+                    <div class="coin-info">
+                        <img src="${coin.image}" alt="${coin.name}" class="coin-image">
+                        <div class="coin-name-container">
+                            <h2>${coin.name}</h2>
+                            <span class="coin-symbol">${coin.symbol}</span>
+                        </div>
+                    </div>
+                    <div class="price-container">
+                        <div class="coin-price">${formatPrice(coin.current_price)}</div>
+                        <div class="price-change ${isPositive ? 'positive' : 'negative'}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                ${isPositive 
+                                    ? '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline>'
+                                    : '<polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline>'}
+                            </svg>
+                            ${Math.abs(priceChange).toFixed(2)}%
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const updateUI = (coinsData) => {
+            const searchTerm = searchInput.val().toLowerCase();
+            const filteredCoins = coinsData.filter(coin => 
+                coin.name.toLowerCase().includes(searchTerm) || 
+                coin.symbol.toLowerCase().includes(searchTerm)
+            );
+
+            if (filteredCoins.length === 0) {
+                alert("Not found");
+                return;
+            }
+
+            coinList.html(filteredCoins.map(coin => createCoinCard(coin)).join(''));
+
+            filteredCoins.forEach(coin => {
+                const previousPrice = previousPrices.get(coin.id);
+                if (previousPrice && previousPrice !== coin.current_price) {
+                    const priceElement = $(`[data-coin-id="${coin.id}"] .coin-price`);
+                    if (priceElement.length) {
+                        priceElement.addClass('price-flash');
+                        setTimeout(() => priceElement.removeClass('price-flash'), 500);
+                    }
+                }
+                previousPrices.set(coin.id, coin.current_price);
+            });
+        };
+
+        const fetchData = () => {
+            coinList.html('<div class="loading"><div class="spinner"></div></div>');
+
+            setTimeout(() => {
+                // Simulate price changes
+                coins = coins.map(coin => ({
+                    ...coin,
+                    current_price: coin.current_price * (1 + (Math.random() - 0.5) * 0.02),
+                    price_change_percentage_24h: (Math.random() - 0.5) * 10
+                }));
+                updateUI(coins);
+            }, 6000);
+        };
+
+        fetchData();
+
+        setInterval(fetchData, 30000);
+
+        searchInput.on('input', () => {
+            updateUI(coins);
+        });
+    });
+    </script>
+</body>
+<script>
+    now give each card a unique id so that each of them will have there own pop up, not sharing one
+
+
+
+
+if (data.success && data.plans.length > 0) {
+                data.plans.forEach((plan, index) => {
+                    const planCard = `
+                        <div class="plans-card">
+                            <div class="plans-card-header">
+                                <h5>${plan.name}
+                                <div class="plans-card-dropdown">
+                                    <div class="plans-card-dropdown-item edit_mining">Edit <span>${plan.name}</span></div>
+                                    <div class="plans-card-dropdown-item delete_mining">Delete <span>${plan.name}</span></div>
+                                </div>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="price-range">
+                                    <h2>$${parseFloat(plan.minimum).toFixed(2)}</h2>
+                                    <i class="fas fa-long-arrow-alt-down"></i>
+                                    <h2>$${parseFloat(plan.maximum).toFixed(2)}</h2>
+                                </div>
+                                <h6>Includes:</h6>
+                                <ul>
+                                    <li>${parseFloat(plan.roi).toFixed(2)}% ROI</li>
+                                    <li>Contract: ${plan.duration_timeframe} Day(s)</li>
+                                    <li>Commission: ${parseFloat(plan.commission).toFixed(2)}%</li>
+                                    <li>Benefit: ${plan.benefit}</li>
+                                </ul>
+                                <div class="button-wrapper">
+                                    <button class="btn-invest">Invest Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <section class="edit_mining_popup action_overlay">
+                            <div class="wrapper">
+                                <header>
+                                    <h4>
+                                        <!-- backend will add the name here -->
+                                        Edit <span>XRP Trial</span> Mining
+                                    </h4>
+                                    <img class="close_mining" src="assets/images/c-close-svgrepo-com.svg" alt="Close" width="20">
+                                </header>
+                                <main style="display:flex; flex-direction:column; gap:10px;">
+                                    <form action="addPlan.php" method="POST">
+                                        <!-- Hidden field for crypto_id which will be dynamically set -->
+                                        <input type="hidden" id="selected_crypto_id" name="crypto_id" value="">
+                                        <label for="name">Name*</label>
+                                        <input id="name" name="name" value="" type="text" placeholder="Name*" style="width: 100%;" required>
+
+                                        <label for="roi">ROI*</label>
+                                        <input id="roi" name="roi" value="" type="text" placeholder="Enter ROI" style="width: 100%;" required>
+
+                                        <label for="roi_max">ROI Max*</label>
+                                        <input id="roi_max" name="roi_max" value="" type="text" placeholder="Enter ROI Max" style="width: 100%;" required>
+
+                                        <label for="minimum">Minimum*</label>
+                                        <input id="minimum" name="minimum" value="" type="text" placeholder="Enter Minimum" style="width: 100%;" required>
+
+                                        <label for="maximum">Maximum*</label>
+                                        <input id="maximum" name="maximum" value="" type="text" placeholder="Enter Maximum" style="width: 100%;" required>
+
+                                        <label for="earning_duration">Earning Duration*</label>
+                                        <input id="earning_duration" name="earning_duration" value="" type="text" placeholder="Enter Earning Duration" style="width: 100%;" required>
+
+                                        <label for="duration_timeframe">Duration Timeframe*</label>
+                                        <input id="duration_timeframe" name="duration_timeframe" value="" type="text" placeholder="Enter Duration Timeframe" style="width: 100%;" required>
+
+                                        <label for="duration">Duration*</label>
+                                        <select id="duration" name="duration" style="width: 100%;" required>
+                                            <option value="">Choose</option>
+                                            <option value="5">Every Five Minutes</option>
+                                            <option value="10">Every Ten Minutes</option>
+                                            <option value="30">Every Thirty Minutes</option>
+                                            <option value="60">Hourly</option>
+                                            <option value="360">Every Six Hours</option>
+                                            <option value="1440">Daily</option>
+                                            <option value="720">Twice Daily</option>
+                                        </select>
+
+                                        <label for="commission">Commission*</label>
+                                        <input id="commission" name="commission" value="" type="text" placeholder="Enter Commission" style="width: 100%;" required>
+
+                                        <label for="benefit">Benefit*</label>
+                                        <input id="benefit" name="benefit" value="" type="text" placeholder="Enter Benefit" style="width: 100%;" required>
+
+                                        <div class="rate">
+                                            <label for="rate">Fixed rate</label>
+                                        </div>
+
+                                        <div style="display: flex; gap:10px;">
+                                            <button id="close" class="close_addplan_popup negative_btn" type="button">Close</button>
+                                            <button id="edit_btn" class="positive_btn" name="button" type="submit">Add New</button>
+                                        </div>
+                                    </form>
+                                </main>
+
+                            </div>
+                        </section>
+
+                        <div class="modal delete_mining_popup" id=" ">
+                            <div class="modal-content">
+                                <!-- backend will add the name here -->
+                                <h2 class="modal-title">Delete <span>XRP Trial</span> Mining</h2>
+
+
+
+                                <!-- backend will add the name here -->
+                                <p>Are you sure you want to Delete <span>XRP Trial </span>Mining? </p>
+                                <div class="modal-buttons">
+                                    <button class="close_delete_mining modal-button cancel">Cancel</button>
+                                    <button class="modal-button confirm">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    plansContainer.insertAdjacentHTML('beforeend', planCard);
+                });
+
+                const planCardHeader = document.querySelectorAll('.plans-card-header');
+                const planCardDropdown = document.querySelectorAll('.plans-card-dropdown');
+                planCardHeader.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        planCardDropdown.forEach((dropdown, dropdownIndex) => {
+                            if (dropdownIndex === index) {
+                                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                            } else {
+                                dropdown.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+
+                
+                const editMining = document.querySelectorAll('.edit_mining');
+                const editMiningPopup = document.querySelector('.edit_mining_popup');
+                
+                const deleteMining = document.querySelectorAll('.delete_mining');
+                const deleteMiningPopup = document.querySelector('.delete_mining_popup');
+
+
+                editMining.forEach((edit_mining) => {
+                    
+                    edit_mining.addEventListener('click', () => {
+                        if (editMiningPopup) {
+                            editMiningPopup.style.visibility = 'visible';
+                            editMiningPopup.style.opacity = '1';
+                        } else {
+                            console.error('Edit mining popup element not found.');
+                        }
+                    });
+                });
+
+                deleteMining.forEach((delete_mining) => {
+
+                delete_mining.addEventListener('click', () => {
+                    deleteMiningPopup.style.visibility = 'visible';
+                    deleteMiningPopup.style.opacity = '1';
+                });
+                });
+
+                const closeMiningButtons = document.querySelectorAll('.close_mining');
+                const closeDeleteMining = document.querySelectorAll('.close_delete_mining');
+
+                closeMiningButtons.forEach((close) => {
+                close.addEventListener('click', () => {
+                    editMiningPopup.style.visibility = 'hidden';
+                    editMiningPopup.style.opacity = '0';
+                })
+                });
+
+                closeDeleteMining.forEach((close) => {
+                close.addEventListener('click', () => {
+                    deleteMiningPopup.style.visibility = 'hidden';
+                    deleteMiningPopup.style.opacity = '0';
+                })
+            });
+
+
+</script>
+</html>

@@ -1,0 +1,246 @@
+[2025-01-15 15:38:48] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 15:38:48] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 15:38:48] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 15:38:48] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 15:38:48] - Response sent: success = true, available_balance = 3000
+[2025-01-15 15:38:48] Received request for investment plan with plan_id: 2
+[2025-01-15 15:38:48] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:18:42] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:18:42] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:18:43] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:18:43] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:18:43] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:18:43] Received request for investment plan with plan_id: 2
+[2025-01-15 16:18:43] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:21:04] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:21:04] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:21:04] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:21:04] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:21:04] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:21:04] Received request for investment plan with plan_id: 2
+[2025-01-15 16:21:04] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:34:34] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:34:34] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:34:34] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:34:34] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:34:34] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:34:35] Received request for investment plan with plan_id: 2
+[2025-01-15 16:34:35] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:35:55] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:35:55] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:35:55] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:35:55] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:35:55] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:35:55] Received request for investment plan with plan_id: 2
+[2025-01-15 16:35:55] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:42:23] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:42:23] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:42:23] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:42:23] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:42:23] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:42:23] Received request for investment plan with plan_id: 2
+[2025-01-15 16:42:23] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:43:43] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:43:43] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:43:44] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:43:44] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:43:44] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:43:44] Received request for investment plan with plan_id: 2
+[2025-01-15 16:43:44] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:51:13] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:51:13] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:51:14] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:51:14] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:51:14] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:51:14] Received request for investment plan with plan_id: 2
+[2025-01-15 16:51:14] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:51:14] Missing required parameters for adding investment.
+[2025-01-15 16:58:46] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 16:58:46] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 16:58:46] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 16:58:46] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 16:58:46] - Response sent: success = true, available_balance = 3000
+[2025-01-15 16:58:46] Received request for investment plan with plan_id: 2
+[2025-01-15 16:58:46] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 16:58:46] Missing required parameters for adding investment.
+[2025-01-15 17:01:26] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 17:01:26] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 17:01:26] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 17:01:26] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 17:01:26] - Response sent: success = true, available_balance = 3000
+[2025-01-15 17:01:26] Received request for investment plan with plan_id: 2
+[2025-01-15 17:01:26] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 17:01:26] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 17:01:26] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 17:01:26] Investment added successfully for User ID: 274946.
+[2025-01-15 17:04:21] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-15 17:04:21] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-15 17:04:22] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-15 17:04:22] - Available balance for crypto_symbol (USDT): 101000
+[2025-01-15 17:04:22] - Response sent: success = true, available_balance = 101000
+[2025-01-15 17:04:22] Received request for investment plan with plan_id: 12
+[2025-01-15 17:04:22] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 08:08:37","updated_at":"2025-01-11 08:08:37"}
+[2025-01-15 17:04:22] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"1000.00"}
+[2025-01-15 17:04:22] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 12, Investment Amount: 1000
+[2025-01-15 17:04:22] Investment added successfully for User ID: 274946.
+[2025-01-15 17:11:20] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-15 17:11:20] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-15 17:11:20] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-15 17:11:20] - Available balance for crypto_symbol (USDT): 101000
+[2025-01-15 17:11:20] - Response sent: success = true, available_balance = 101000
+[2025-01-15 17:11:20] Received request for investment plan with plan_id: 12
+[2025-01-15 17:11:20] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 08:08:37","updated_at":"2025-01-11 08:08:37"}
+[2025-01-15 17:11:20] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"2000.00"}
+[2025-01-15 17:11:20] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 12, Investment Amount: 2000
+[2025-01-15 17:11:20] Investment added successfully for User ID: 274946.
+[2025-01-15 17:27:50] - Request received: user_id = 274946, crypto_id = 2
+[2025-01-15 17:27:50] - Success: Crypto symbol found: ETH for crypto_id = 2.
+[2025-01-15 17:27:51] - Request received: user_id = 274946, crypto_symbol = ETH
+[2025-01-15 17:27:51] - Available balance for crypto_symbol (ETH): 0
+[2025-01-15 17:27:51] - Response sent: success = true, available_balance = 0
+[2025-01-15 17:45:02] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 17:45:02] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 17:45:03] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 17:45:03] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 17:45:03] - Response sent: success = true, available_balance = 3000
+[2025-01-15 17:45:03] Received request for investment plan with plan_id: 2
+[2025-01-15 17:45:03] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 17:45:03] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 17:45:03] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 17:45:03] Investment added successfully for User ID: 274946.
+[2025-01-15 17:47:50] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 17:47:50] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 17:47:50] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 17:47:50] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 17:47:50] - Response sent: success = true, available_balance = 3000
+[2025-01-15 17:47:50] Received request for investment plan with plan_id: 3
+[2025-01-15 17:47:50] Investment plan found. Plan details: {"id":3,"crypto_id":1,"name":"BTC Bronze Mining","roi":"3.00","roi_max":"5.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:27:16","updated_at":"2025-01-15 01:29:50"}
+[2025-01-15 17:47:50] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"1000.00"}
+[2025-01-15 17:47:50] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 1000
+[2025-01-15 17:47:51] Investment validation failed. Amount not within range.
+[2025-01-15 17:48:01] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 17:48:01] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 17:48:01] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 17:48:01] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 17:48:01] - Response sent: success = true, available_balance = 3000
+[2025-01-15 17:48:01] Received request for investment plan with plan_id: 3
+[2025-01-15 17:48:01] Investment plan found. Plan details: {"id":3,"crypto_id":1,"name":"BTC Bronze Mining","roi":"3.00","roi_max":"5.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:27:16","updated_at":"2025-01-15 01:29:50"}
+[2025-01-15 17:48:01] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"3000.00"}
+[2025-01-15 17:48:01] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 3000
+[2025-01-15 17:48:01] Investment added successfully for User ID: 274946.
+[2025-01-15 17:48:11] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 17:48:11] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 17:48:11] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 17:48:11] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 17:48:11] - Response sent: success = true, available_balance = 3000
+Raw POST Data:
+
+
+Parsed Form Data:
+Array
+(
+    [crypto_id] => 1
+    [plan_id] => 2
+    [name] => BTC Trial Mining
+    [roi] => 2.00
+    [roi_max] => 5.00
+    [minimum] => 1000.00
+    [maximum] => 2999.00
+    [earning_duration] => 1440
+    [duration_timeframe] => 6
+    [duration] => 1440
+    [commission] => 5.00
+    [benefit] =>  Monitoring profits daily
+)
+
+
+Response:
+{"success":true,"message":"Investment plan updated successfully!"}
+
+[2025-01-15 20:27:10] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:27:10] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:27:10] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:27:10] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:27:10] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:27:11] Received request for investment plan with plan_id: 2
+[2025-01-15 20:27:11] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 20:27:11] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 20:27:11] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 20:27:11] Investment added successfully for User ID: 274946.
+[2025-01-15 20:29:36] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:29:36] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:29:36] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:29:36] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:29:36] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:29:36] Received request for investment plan with plan_id: 2
+[2025-01-15 20:29:36] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 20:29:36] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 20:29:36] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 20:29:36] Investment added successfully for User ID: 274946.
+[2025-01-15 20:29:53] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:29:53] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:29:53] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:29:53] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:29:53] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:29:53] Received request for investment plan with plan_id: 2
+[2025-01-15 20:29:53] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 20:29:54] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 20:29:54] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 20:29:54] Investment added successfully for User ID: 274946.
+[2025-01-15 20:30:42] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:30:42] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:30:42] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:30:42] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:30:42] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:30:42] Received request for investment plan with plan_id: 3
+[2025-01-15 20:30:42] Investment plan found. Plan details: {"id":3,"crypto_id":1,"name":"BTC Bronze Mining","roi":"3.00","roi_max":"5.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:27:16","updated_at":"2025-01-15 01:29:50"}
+[2025-01-15 20:30:42] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"3000.00"}
+[2025-01-15 20:30:42] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 3000
+[2025-01-15 20:30:42] Investment added successfully for User ID: 274946.
+[2025-01-15 20:38:45] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:38:45] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:38:45] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:38:45] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:38:45] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:38:45] Received request for investment plan with plan_id: 2
+[2025-01-15 20:38:45] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 20:38:45] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 20:38:45] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 20:38:53] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:38:53] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:38:53] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:38:53] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:38:53] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:38:54] Received request for investment plan with plan_id: 2
+[2025-01-15 20:38:54] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 20:38:54] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 20:38:54] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 20:39:18] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:39:18] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:39:18] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:39:18] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:39:18] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:39:18] Received request for investment plan with plan_id: 2
+[2025-01-15 20:39:18] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:20:33","updated_at":"2025-01-15 01:28:08"}
+[2025-01-15 20:39:18] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"1000.00"}
+[2025-01-15 20:39:18] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 2, Investment Amount: 1000
+[2025-01-15 20:39:39] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:39:39] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:39:39] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:39:39] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:39:39] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:39:39] Received request for investment plan with plan_id: 3
+[2025-01-15 20:39:39] Investment plan found. Plan details: {"id":3,"crypto_id":1,"name":"BTC Bronze Mining","roi":"3.00","roi_max":"5.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:27:16","updated_at":"2025-01-15 01:29:50"}
+[2025-01-15 20:39:40] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"3000.00"}
+[2025-01-15 20:39:40] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 3000
+[2025-01-15 20:39:40] Investment added successfully for User ID: 274946.
+[2025-01-15 20:40:24] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-15 20:40:24] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-15 20:40:24] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-15 20:40:25] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-15 20:40:25] - Response sent: success = true, available_balance = 3000
+[2025-01-15 20:40:25] Received request for investment plan with plan_id: 3
+[2025-01-15 20:40:25] Investment plan found. Plan details: {"id":3,"crypto_id":1,"name":"BTC Bronze Mining","roi":"3.00","roi_max":"5.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:27:16","updated_at":"2025-01-15 01:29:50"}
+[2025-01-15 20:40:25] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"3000.00"}
+[2025-01-15 20:40:25] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 3000
+[2025-01-15 20:40:25] Investment added successfully for User ID: 274946.
