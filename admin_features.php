@@ -2269,10 +2269,18 @@ background-color: var(--primary-dark);
                                                     const availableBalance = parseFloat(data.available_balance);
 
                                                     // Validate user's balance
-                                                    if (investmentAmount > availableBalance) {
-                                                        alert('You do not have enough balance to invest this amount.');
-                                                        return;
-                                                    }
+                                                     // Validate user's balance
+                                                     if (investmentAmount > availableBalance) {
+                                                            Toastify({
+                                                                text: 'You do not have enough balance to invest this amount.',
+                                                                duration: 3000, // Duration in milliseconds
+                                                                gravity: 'top', // 'top' or 'bottom'
+                                                                position: 'right', // 'left', 'center', or 'right'
+                                                                backgroundColor: 'linear-gradient(to right, #ff5f6d, #ffc3a0)', // Custom gradient
+                                                                stopOnFocus: true, // Stops the toast on hover
+                                                            }).showToast();
+                                                            return;
+                                                        }
 
                                                     // Fetch investment plan details
                                                     fetch('getInvestmentPlanDetails.php', {
@@ -2950,7 +2958,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <ul>
                 <li>
-                    <a href="features.php">
+                    <a href="admin_features.php">
                         <i class="material-icons">widgets</i>
                         <span>Features</span>
                     </a>

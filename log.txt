@@ -244,3 +244,93 @@ Response:
 [2025-01-15 20:40:25] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"3000.00"}
 [2025-01-15 20:40:25] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 3000
 [2025-01-15 20:40:25] Investment added successfully for User ID: 274946.
+[2025-01-16 00:29:29] - Request received: user_id = 810175, crypto_id = 2
+[2025-01-16 00:29:29] - Success: Crypto symbol found: ETH for crypto_id = 2.
+[2025-01-16 00:29:29] - Request received: user_id = 810175, crypto_symbol = ETH
+[2025-01-16 00:29:29] - Available balance for crypto_symbol (ETH): 500
+[2025-01-16 00:29:29] - Response sent: success = true, available_balance = 500
+[2025-01-16 00:34:09] - Request received: user_id = 810175, crypto_id = 1
+[2025-01-16 00:34:09] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:34:09] - Request received: user_id = 810175, crypto_symbol = BTC
+[2025-01-16 00:34:09] - Available balance for crypto_symbol (BTC): 0
+[2025-01-16 00:34:09] - Response sent: success = true, available_balance = 0
+[2025-01-16 00:34:29] - Request received: user_id = 810175, crypto_id = 1
+[2025-01-16 00:34:29] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:34:29] - Request received: user_id = 810175, crypto_symbol = BTC
+[2025-01-16 00:34:29] - Available balance for crypto_symbol (BTC): 0
+[2025-01-16 00:34:29] - Response sent: success = true, available_balance = 0
+[2025-01-16 00:34:43] - Request received: user_id = 810175, crypto_id = 1
+[2025-01-16 00:34:43] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:34:43] - Request received: user_id = 810175, crypto_symbol = BTC
+[2025-01-16 00:34:43] - Available balance for crypto_symbol (BTC): 0
+[2025-01-16 00:34:43] - Response sent: success = true, available_balance = 0
+[2025-01-16 00:50:15] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 00:50:15] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:50:15] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 00:50:16] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 00:50:16] - Response sent: success = true, available_balance = 3000
+[2025-01-16 00:50:29] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 00:50:29] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:50:29] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 00:50:29] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 00:50:29] - Response sent: success = true, available_balance = 3000
+[2025-01-16 00:50:29] Received request for investment plan with plan_id: 3
+[2025-01-16 00:50:29] Investment plan found. Plan details: {"id":3,"crypto_id":1,"name":"BTC Bronze Mining","roi":"3.00","roi_max":"5.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:27:16","updated_at":"2025-01-15 01:29:50"}
+[2025-01-16 00:50:29] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"3000.00"}
+[2025-01-16 00:50:29] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 3000
+[2025-01-16 00:50:29] Investment added successfully for User ID: 274946.
+[2025-01-16 00:50:40] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 00:50:40] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:50:40] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 00:50:40] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 00:50:40] - Response sent: success = true, available_balance = 3000
+[2025-01-16 00:50:40] Received request for investment plan with plan_id: 5
+[2025-01-16 00:50:40] Investment plan found. Plan details: {"id":5,"crypto_id":1,"name":"BTC Silver Mining","roi":"5.00","roi_max":"5.00","minimum":"5000.00","maximum":"9999.00","earning_duration":"1440","duration_timeframe":"4","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:44:01","updated_at":"2025-01-15 01:31:26"}
+[2025-01-16 00:50:40] Raw input: {"crypto_id":1,"plan_id":5,"investment_amount":"3000.00"}
+[2025-01-16 00:50:40] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 5, Investment Amount: 3000
+[2025-01-16 00:50:40] Investment validation failed. Amount not within range.
+[2025-01-16 00:51:01] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 00:51:01] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:51:01] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 00:51:01] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 00:51:01] - Response sent: success = true, available_balance = 3000
+[2025-01-16 00:51:01] Received request for investment plan with plan_id: 6
+[2025-01-16 00:51:01] Investment plan found. Plan details: {"id":6,"crypto_id":1,"name":"BTC Gold Minning","roi":"10.00","roi_max":"5.00","minimum":"10000.00","maximum":"500000.00","earning_duration":"1440","duration_timeframe":"7","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 07:49:31","updated_at":"2025-01-15 01:33:26"}
+[2025-01-16 00:51:01] Raw input: {"crypto_id":1,"plan_id":6,"investment_amount":"3000.00"}
+[2025-01-16 00:51:01] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 6, Investment Amount: 3000
+[2025-01-16 00:51:01] Investment validation failed. Amount not within range.
+[2025-01-16 00:51:49] - Request received: user_id = 810175, crypto_id = 1
+[2025-01-16 00:51:49] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:51:49] - Request received: user_id = 810175, crypto_symbol = BTC
+[2025-01-16 00:51:49] - Available balance for crypto_symbol (BTC): 0
+[2025-01-16 00:51:49] - Response sent: success = true, available_balance = 0
+[2025-01-16 00:53:59] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-16 00:53:59] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-16 00:53:59] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-16 00:53:59] - Available balance for crypto_symbol (USDT): 2500
+[2025-01-16 00:53:59] - Response sent: success = true, available_balance = 2500
+[2025-01-16 00:53:59] Received request for investment plan with plan_id: 15
+[2025-01-16 00:53:59] Investment plan found. Plan details: {"id":15,"crypto_id":7,"name":"USDT Gold Minning","roi":"10.00","roi_max":"10.00","minimum":"10000.00","maximum":"500000.00","earning_duration":"1440","duration_timeframe":"7","duration":"1440","commission":"5.00","benefit":"Monitoring Profits Daily","created_at":"2025-01-11 08:15:46","updated_at":"2025-01-11 08:15:46"}
+[2025-01-16 00:53:59] Raw input: {"crypto_id":7,"plan_id":15,"investment_amount":"2500.00"}
+[2025-01-16 00:53:59] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 15, Investment Amount: 2500
+[2025-01-16 00:54:00] Investment validation failed. Amount not within range.
+[2025-01-16 00:54:14] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-16 00:54:14] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-16 00:54:14] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-16 00:54:14] - Available balance for crypto_symbol (USDT): 2500
+[2025-01-16 00:54:14] - Response sent: success = true, available_balance = 2500
+[2025-01-16 00:54:14] Received request for investment plan with plan_id: 14
+[2025-01-16 00:54:14] Investment plan found. Plan details: {"id":14,"crypto_id":7,"name":"USDT Silver Minning","roi":"5.00","roi_max":"5.00","minimum":"5000.00","maximum":"9999.00","earning_duration":"1440","duration_timeframe":"4","duration":"1440","commission":"5.00","benefit":"Monitoring Profits Daily","created_at":"2025-01-11 08:13:08","updated_at":"2025-01-11 08:13:08"}
+[2025-01-16 00:54:14] Raw input: {"crypto_id":7,"plan_id":14,"investment_amount":"2500.00"}
+[2025-01-16 00:54:14] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 14, Investment Amount: 2500
+[2025-01-16 00:54:14] Investment validation failed. Amount not within range.
+[2025-01-16 00:54:23] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-16 00:54:23] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-16 00:54:23] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-16 00:54:23] - Available balance for crypto_symbol (USDT): 2500
+[2025-01-16 00:54:23] - Response sent: success = true, available_balance = 2500
+[2025-01-16 00:54:23] Received request for investment plan with plan_id: 12
+[2025-01-16 00:54:23] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 08:08:37","updated_at":"2025-01-11 08:08:37"}
+[2025-01-16 00:54:23] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"2500.00"}
+[2025-01-16 00:54:23] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 12, Investment Amount: 2500
+[2025-01-16 00:54:23] Investment added successfully for User ID: 810175.

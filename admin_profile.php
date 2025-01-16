@@ -131,7 +131,7 @@ $phone = $_SESSION['user_phone'];
                       <div class="profile_box">
                           <ul>
                               <li>
-                                  <a href="profile.php">
+                                  <a href="admin_profile.php">
                                       <i class="material-icons">person_outline</i>
                                       <span>Profile</span>
                                   </a>
@@ -197,25 +197,31 @@ $phone = $_SESSION['user_phone'];
               <div class="sidebar_menu">
                   <ul>
                       <li>
-                          <a href="dashboard.php">
+                          <a href="admin_dashboard.php">
                               <i class="material-icons">dashboard</i>
                               <span>Home</span>
                           </a>
                       </li>
                       <li>
-                          <a href="swap.php">
+                          <a href="admin_swap.php">
                               <i class="material-icons">swap_calls</i>
                               <span>Swap</span>
                           </a>
                       </li>
                       <li>
-                          <a href="history.php">
+                          <a href="users.php">
+                              <i class="fa fa-user-o"></i>
+                              <span>Users</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="admin_history.php">
                               <i class="material-icons">history</i>
                               <span>History</span>
                           </a>
                       </li>
                       <li>
-                          <a href="features.php">
+                          <a href="admin_features.php">
                               <i class="material-icons">widgets</i>
                               <span>Features</span>
                           </a>
@@ -440,7 +446,7 @@ $phone = $_SESSION['user_phone'];
         <div class="wrapper">
             <ul>
                 <li>
-                    <a href="dashboard.php">
+                    <a href="admin_dashboard.php">
                         <i class="material-icons">dashboard</i>
                         <span>Home</span>
                     </a>
@@ -449,16 +455,24 @@ $phone = $_SESSION['user_phone'];
 
             <ul>
                 <li>
-                    <a href="swap.php">
+                    <a href="admin_swap.php">
                         <i class="material-icons">swap_calls</i>
                         <span>Swap</span>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="users.php">
+                        <i class="fa fa-user-o">history</i>
+                        <span>Users</span>
                     </a>
                 </li>
             </ul>
 
             <ul>
                 <li>
-                    <a href="history.php">
+                    <a href="admin_history.php">
                         <i class="material-icons">history</i>
                         <span>History</span>
                     </a>
@@ -467,9 +481,9 @@ $phone = $_SESSION['user_phone'];
 
             <ul>
                 <li>
-                    <a href="features.php">
-                        <i class="material-icons">widgets</i>
-                        <span>Features</span>
+                    <a href="users.php">
+                        <i class="fa fa-user-o"></i>
+                        <span>Users</span>
                     </a>
                 </li>
             </ul>

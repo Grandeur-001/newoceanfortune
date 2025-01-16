@@ -315,7 +315,7 @@
 
             <ul>
                 <li>
-                    <a href="features.php">
+                    <a href="admin_features.php">
                         <i class="material-icons">widgets</i>
                         <span>Features</span>
                     </a>

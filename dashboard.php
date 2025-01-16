@@ -448,7 +448,7 @@ $email = $_SESSION['user_email'] ;
 
             <ul>
                 <li>
-                    <a href="404.php">
+                    <a href="features.php">
                         <i class="material-icons">widgets</i>
                         <span>Features</span>
                     </a>
