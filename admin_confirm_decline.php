@@ -1,6 +1,10 @@
 <?php
 session_start();
 include 'connection.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Include Composer's autoload file
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     global $conn;
@@ -41,31 +45,77 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $balanceUpdateQuery = "UPDATE users SET balance = balance + ? WHERE user_id = ?";
                         } elseif ($transactionType === 'Withdrawal') {
                             $balanceUpdateQuery = "UPDATE users SET balance = balance - ? WHERE user_id = ?";
-                        } else {
-                            echo json_encode(['status' => 'error', 'message' => 'Invalid transaction type']);
-                            exit;
                         }
 
                         $balanceStmt = $conn->prepare($balanceUpdateQuery);
                         $balanceStmt->bind_param('di', $amount, $userId);
-
-                        if ($balanceStmt->execute()) {
-                            echo json_encode([
-                                'status' => 'success',
-                                'message' => 'Transaction confirmed and balance updated successfully',
-                                'newStatus' => $newStatus
-                            ]);
-                        } else {
-                            echo json_encode(['status' => 'error', 'message' => 'Failed to update balance']);
-                        }
+                        $balanceStmt->execute();
                         $balanceStmt->close();
-                    } else {
-                        echo json_encode([
-                            'status' => 'success',
-                            'message' => 'Transaction updated successfully',
-                            'newStatus' => $newStatus
-                        ]);
                     }
+
+                    // Fetch user details for email notification
+                    $userQuery = "SELECT firstname, email FROM users WHERE user_id = ?";
+                    $userStmt = $conn->prepare($userQuery);
+                    $userStmt->bind_param('i', $userId);
+                    $userStmt->execute();
+                    $userResult = $userStmt->get_result();
+
+                    if ($userResult->num_rows > 0) {
+                        $user = $userResult->fetch_assoc();
+                        $userEmail = $user['email'];
+                        $userName = $user['firstname'];
+
+                        // Send email notification
+                        $mail = new PHPMailer(true);
+                        try {
+                            $mail->isSMTP();
+                            $mail->Host = 'server187.web-hosting.com'; // SMTP server
+                            $mail->SMTPAuth = true;
+                            $mail->Username = 'support@oceanfortune.bond'; // SMTP username
+                            $mail->Password = 'oceanfortune.bond'; // SMTP password
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                            $mail->Port = 587;
+
+                            // Recipients
+                            $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+                            $mail->addAddress($userEmail);
+
+                            // Email content
+                            $mail->isHTML(true);
+                            $mail->Subject = $action === 'confirm' ? 'Transaction Confirmed' : 'Transaction Declined';
+                            $mail->Body = "
+                                <p>Dear $userName,</p>
+                                <p>Your transaction has been <strong>" . ucfirst($newStatus) . "</strong> with the following details:</p>
+                                <ul>
+                                    <li><strong>Transaction ID:</strong> $transactionId</li>
+                                    <li><strong>Transaction Type:</strong> $transactionType</li>
+                                    <li><strong>Amount:</strong> $amount</li>
+                                </ul>
+                                <p>If you have any questions, please contact our support team.</p>
+                                <p>Thank you for choosing Ocean Fortune!</p>
+                            ";
+
+                            $mail->send();
+                        } catch (Exception $e) {
+                            error_log("Email could not be sent. Mailer Error: {$mail->ErrorInfo}");
+                        }
+                    }
+
+                     // Add notification for the user
+                     $notificationMessage = $action === 'confirm' ? "Your transaction with ID $transactionId has been confirmed and completed." : "Your transaction with ID $transactionId has been declined.";
+
+                     $notificationQuery = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+                     $notificationStmt = $conn->prepare($notificationQuery);
+                     $notificationStmt->bind_param('is', $userId, $notificationMessage);
+                     $notificationStmt->execute();
+                     $notificationStmt->close();
+ 
+
+                    echo json_encode([
+                        'status' => 'success',
+                        'message' => 'Transaction updated successfully and email sent',
+                        'newStatus' => $newStatus
+                    ]);
                 } else {
                     echo json_encode(['status' => 'error', 'message' => 'Failed to update transaction']);
                 }
@@ -82,6 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     exit; // End the script here for POST requests
 }
+
+
 
 
 

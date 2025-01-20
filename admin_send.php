@@ -61,37 +61,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     
-      <header class="dashboard_header">
+<header class="dashboard_header">
           <div class="wrapper">
             <div class="logo">
               <div class="image_wrapper">
                   <img src="assets/images/logo.png" width="42" height="42" alt="">
               </div>
             </div>
-
+            
             <div class="icons">
               <ul>
+                <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
+                  <span class="login-status"></span>
+                </h4>
                   <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
                       <div class="notification_box">
                         <div class="wrapper">
-                          <header>
-                              <span style="color: #fff;">Notifications</span>
-                              <a href="#">Clear All</a>
-                          </header>
-                          
-                          <ul>
-                              <li>
-                                  <a href="#">
-                                      <i class="fa fa-user"></i>
-                                      <span>Your OTP is <p>487887</p></span>
-                                  </a>
-                              </li>
-                          </ul>
+                        <header>
+                            <span>Notifications</span>
+                            <a href="#" id="clearAll">Clear All</a>
+                        </header>
 
-                          <div class="view_all"><a href="#">View All</a></div>
+                        <ul id="notificationList">
+                            <!-- Notifications will be dynamically loaded here -->
+                        </ul>
+
+                        <div class="view_all">
+                            <a href="#" id="viewToggleLink" style="display: none;">View All</a>
                         </div>
-                      </div>
-                  </li>
+
+
 
                   <li><a><i class="material-icons account-icon">account_circle</i></a>
                       <div class="profile_box">
@@ -103,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                   </a>
                               </li>
                               <li>
-                                  <a href="admin_wallet_page.php">
+                                  <a href="wallet_page.php">
                                       <i class="material-icons">account_balance_wallet</i>
                                       <span>Wallet</span>
                                   </a>
@@ -124,6 +123,84 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </ul>
             </div>
           </div>
+
+          <script>
+    // Fetch notifications when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchNotifications();
+    });
+
+    let allNotifications = []; // To store all notifications
+    let showAll = false; // Flag to track whether to show all notifications or not
+
+    // Function to fetch notifications
+    function fetchNotifications() {
+        fetch('fetch_notifications.php') // PHP file to fetch notifications from the database
+            .then(response => response.json())
+            .then(data => {
+                const notificationList = document.getElementById('notificationList');
+                notificationList.innerHTML = ''; // Clear previous notifications
+                allNotifications = data.notifications || [];
+
+                // If there are no notifications, display "No notifications"
+                if (allNotifications.length === 0) {
+                    notificationList.innerHTML = '<li>No notifications</li>';
+                } else {
+                    // Display notifications based on whether we're showing all or not
+                    const notificationsToDisplay = showAll ? allNotifications : allNotifications.slice(0, 3);
+                    
+                    // Loop through the notifications to append them
+                    notificationsToDisplay.forEach(notification => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>${notification.message}</span> <!-- Display the message -->
+                            </a>
+                        `;
+                        notificationList.appendChild(li);
+                    });
+
+                    // Toggle the "View All" and "View Less" link visibility and text
+                    const viewToggleLink = document.getElementById('viewToggleLink');
+                    if (allNotifications.length === 3) {
+                        viewToggleLink.style.display = 'block';
+                        viewToggleLink.textContent = 'View All';
+                    } else if (allNotifications.length > 3) {
+                        viewToggleLink.style.display = 'block';
+                        viewToggleLink.textContent = showAll ? 'View Less' : 'View All';
+                    } else {
+                        viewToggleLink.style.display = 'block'; // Hide button if there are 3 or fewer notifications
+                    }
+
+                    // Make the container scrollable if there are more than 5 notifications
+                    if (allNotifications.length > 5) {
+                        document.querySelector('.notification-container').style.maxHeight = '300px';
+                        document.querySelector('.notification-container').style.overflowY = 'auto'; // Enable scrolling
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching notifications:', error));
+    }
+
+    // Handle the toggle between "View All" and "View Less"
+    document.getElementById('viewToggleLink').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        showAll = !showAll; // Toggle the showAll flag
+        fetchNotifications(); // Reload notifications based on the new state
+    });
+
+    // Mark notifications as read when the user clicks 'Clear All'
+    document.getElementById('clearAll').addEventListener('click', function() {
+        fetch('clear_notifications.php', { method: 'POST' })
+            .then(response => response.text())
+            .then(data => {
+                // Refresh the notification list after clearing
+                fetchNotifications();
+            })
+            .catch(error => console.error('Error clearing notifications:', error));
+    });
+</script>
 
 
         <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->

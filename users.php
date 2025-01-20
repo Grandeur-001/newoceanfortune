@@ -1,3 +1,11 @@
+<?php
+// Include the database connection file
+include 'connection.php';
+
+// Get all users to display in the list
+$query = "SELECT user_id, status FROM users";
+$result = $conn->query($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <style>
@@ -64,89 +74,146 @@
     ?>
 
 
-    <header class="dashboard_header">
-        <div class="wrapper">
+<header class="dashboard_header">
+          <div class="wrapper">
             <div class="logo">
-                <div class="image_wrapper">
-                    <img src="assets/images/logo.png" width="42" height="42" alt="">
-                </div>
-                <!-- <div class="logo_name">Ocean </div> -->
+              <div class="image_wrapper">
+                  <img src="assets/images/logo.png" width="42" height="42" alt="">
+              </div>
             </div>
-
+            
             <div class="icons">
-                <ul>
-                    <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
-                        <div class="notification_box">
-                            <div class="wrapper">
-                            <header>
-                                <span>Notifications</span>
-                                <a href="#">Clear All</a>
-                            </header>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"></i>
-                                        <span>Your OTP is <p>487887</p></span>
-                                    </a>
-                                </li>
+              <ul>
+                <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
+                  <span class="login-status"></span>
+                </h4>
+                  <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
+                      <div class="notification_box">
+                        <div class="wrapper">
+                        <header>
+                            <span>Notifications</span>
+                            <a href="#" id="clearAll">Clear All</a>
+                        </header>
 
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"></i>
-                                        <span>Your OTP is <p>651902</p></span>
-                                    </a>
-                                </li>
+                        <ul id="notificationList">
+                            <!-- Notifications will be dynamically loaded here -->
+                        </ul>
 
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"></i>
-                                        <span>Your OTP is <p>651902</p></span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"></i>
-                                        <span>Your OTP is <p>651902</p></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="view_all"><a href="#">View All</a></div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li><a href="#"><i class="material-icons account-icon">account_circle</i></a>
-                        <div class="profile_box">
-                            <ul>
-                                <li>
-                                    <a href="admin_profile.php">
-                                        <i class="material-icons">person_outline</i>
-                                        <span>Profile</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="admin_wallet_page.php">
-                                        <i class="material-icons">account_balance_wallet</i>
-                                        <span>Wallet</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="logout.php">
-                                        <i class="material-icons">logout</i>
-                                        <span>Logout</span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="view_all">
+                            <a href="#" id="viewToggleLink" style="display: none;">View All</a>
                         </div>
 
-                        
-                    </li>
 
+
+                  <li><a><i class="material-icons account-icon">account_circle</i></a>
+                      <div class="profile_box">
+                          <ul>
+                              <li>
+                                  <a href="profile.php">
+                                      <i class="material-icons">person_outline</i>
+                                      <span>Profile </span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="wallet_page.php">
+                                      <i class="material-icons">account_balance_wallet</i>
+                                      <span>Wallet</span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="logout.php">
+                                      <i class="material-icons">logout</i>
+                                      <span>Logout</span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+
+                      
+                  </li>
+
+                
+              </ul>
+            </div>
+          </div>
+
+          <script>
+    // Fetch notifications when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchNotifications();
+    });
+
+    let allNotifications = []; // To store all notifications
+    let showAll = false; // Flag to track whether to show all notifications or not
+
+    // Function to fetch notifications
+    function fetchNotifications() {
+        fetch('fetch_notifications.php') // PHP file to fetch notifications from the database
+            .then(response => response.json())
+            .then(data => {
+                const notificationList = document.getElementById('notificationList');
+                notificationList.innerHTML = ''; // Clear previous notifications
+                allNotifications = data.notifications || [];
+
+                // If there are no notifications, display "No notifications"
+                if (allNotifications.length === 0) {
+                    notificationList.innerHTML = '<li>No notifications</li>';
+                } else {
+                    // Display notifications based on whether we're showing all or not
+                    const notificationsToDisplay = showAll ? allNotifications : allNotifications.slice(0, 3);
                     
-                </ul>
-                </div>
-        </div>
+                    // Loop through the notifications to append them
+                    notificationsToDisplay.forEach(notification => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>${notification.message}</span> <!-- Display the message -->
+                            </a>
+                        `;
+                        notificationList.appendChild(li);
+                    });
+
+                    // Toggle the "View All" and "View Less" link visibility and text
+                    const viewToggleLink = document.getElementById('viewToggleLink');
+                    if (allNotifications.length === 3) {
+                        viewToggleLink.style.display = 'block';
+                        viewToggleLink.textContent = 'View All';
+                    } else if (allNotifications.length > 3) {
+                        viewToggleLink.style.display = 'block';
+                        viewToggleLink.textContent = showAll ? 'View Less' : 'View All';
+                    } else {
+                        viewToggleLink.style.display = 'block'; // Hide button if there are 3 or fewer notifications
+                    }
+
+                    // Make the container scrollable if there are more than 5 notifications
+                    if (allNotifications.length > 5) {
+                        document.querySelector('.notification-container').style.maxHeight = '300px';
+                        document.querySelector('.notification-container').style.overflowY = 'auto'; // Enable scrolling
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching notifications:', error));
+    }
+
+    // Handle the toggle between "View All" and "View Less"
+    document.getElementById('viewToggleLink').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        showAll = !showAll; // Toggle the showAll flag
+        fetchNotifications(); // Reload notifications based on the new state
+    });
+
+    // Mark notifications as read when the user clicks 'Clear All'
+    document.getElementById('clearAll').addEventListener('click', function() {
+        fetch('clear_notifications.php', { method: 'POST' })
+            .then(response => response.text())
+            .then(data => {
+                // Refresh the notification list after clearing
+                fetchNotifications();
+            })
+            .catch(error => console.error('Error clearing notifications:', error));
+    });
+</script>
 
         <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
         <div class="crypto-ticker">
@@ -727,6 +794,7 @@
                                         <img src="https://api.dicebear.com/6.x/initials/svg?seed=<?= urlencode($user['name']) ?>&backgroundColor=4f46e5&textColor=ffffff" alt="<?= $user['name'] ?>'s Avatar">
                                     </a>
                                 </td>
+
                                 
                                 <!-- User Info -->
                                 <td class="user-info">
@@ -735,9 +803,10 @@
                                     <span class="sidetitle"><?= htmlspecialchars($user['email']) ?></span>
                                     <span class="location"><?= htmlspecialchars($user['nationality']) ?></span>
                                     <div class="balance">$<?= number_format($user['balance'], 2) ?></div>
-                                    <span class="badge <?= $user['status'] === 'Enabled' ? 'badge-success' : ($user['status'] === 'Disabled' ? 'badge-fail' : 'badge-danger') ?>">
-                                        <?= htmlspecialchars($user['status']) ?>
+                                    <span id="status-badge-<?= htmlspecialchars($user['user_id']) ?>" class="badge <?= $user['status'] === 'Enabled' ? 'badge-success' : ($user['status'] === 'Disabled' ? 'badge-fail' : 'badge-danger') ?>">
+                                    <?= htmlspecialchars(ucfirst($user['status'])) ?>
                                     </span>
+
                                     <span class="badge <?= $user['kyc_status'] === 'Verified' ? 'badge-success' : ($user['kyc_status'] === 'Disabled' ? 'badge-danger' : 'badge-danger') ?>">
                                         <?= htmlspecialchars($user['kyc_status']) ?>
                                     </span>
@@ -752,15 +821,19 @@
                                                 <circle cx="12" cy="5" r="1"></circle>
                                                 <circle cx="12" cy="19" r="1"></circle>
                                             </svg>
+                               
                                         </button>
                                         <div class="action-dropdown-menu">
                                             <button class="dropdown-item edit__user" name="edit" onclick="openEditUser('edit_user_<?= htmlspecialchars($user['user_id']) ?>')" >Edit</button>
                                             <button class="dropdown-item delete" name="delete" onclick="openDeleteUser('delete_user_<?= htmlspecialchars($user['user_id']) ?>')">Delete</button>
                                             <button class="dropdown-item toggle-status" 
+                                                    id="toggle-button-<?= htmlspecialchars($user['user_id']) ?>" 
                                                     data-user-id="<?= htmlspecialchars($user['user_id']) ?>" 
                                                     data-status="<?= htmlspecialchars($user['status']) ?>">
                                                 <?= $user['status'] === 'enabled' ? 'Disable' : 'Enable' ?>
                                             </button>
+
+
 
 
                                             <button class="dropdown-item add__balance" name="add_balance" onclick="openAddBalance('add_balance_<?= htmlspecialchars($user['user_id']) ?>')">Add Balance</button>
@@ -770,41 +843,74 @@
                                     </div>
                                 </td>
                             </tr>
+                            
+                            
                             <script>
-                                // Wait for the document to fully load before adding event listeners
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    // Add event listener to all toggle-status buttons
-                                    document.querySelectorAll('.toggle-status').forEach(button => {
-                                        button.addEventListener('click', function() {
-                                            const userId = this.getAttribute('data-user-id');
-                                            let currentStatus = this.getAttribute('data-status');
-                                            let newStatus = currentStatus === 'enabled' ? 'disabled' : 'enabled';
-                                            
-                                            // Send an AJAX request to toggle the status in the database
-                                            fetch('toggle_status_logic.php', {
-                                                method: 'POST',
-                                                headers: {
-                                                    'Content-Type': 'application/x-www-form-urlencoded',
-                                                },
-                                                body: `user_id=${userId}&status=${newStatus}`
-                                            })
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                if (data.success) {
-                                                    // Update the button text and data-status attribute
-                                                    this.textContent = newStatus === 'enabled' ? 'Disable' : 'Enable';
-                                                    this.setAttribute('data-status', newStatus);
+                                $(document).ready(function () {
+                                // Button click event for toggling the user status
+                                $('.toggle-status').on('click', function () {
+                                    const $button = $(this);  // The clicked button
+                                    const userId = $button.data('user-id');  // User ID
+                                    let currentStatus = $button.data('status');  // Current status from the data-status attribute
+                                    let newStatus = currentStatus === 'enabled' ? 'disabled' : 'enabled';  // Toggle status
+
+                                    // Optimistically update the UI (button text and badge color)
+                                    $button.text(newStatus === 'enabled' ? 'Disable' : 'Enable');
+                                    $button.data('status', newStatus);
+
+                                    const $badge = $('#status-badge-' + userId);  // Badge element for status
+                                    if (newStatus === 'enabled') {
+                                        $badge.removeClass('badge-fail badge-danger').addClass('badge-success').text('Enabled');
+                                    } else {
+                                        $badge.removeClass('badge-success badge-danger').addClass('badge-fail').text('Disabled');
+                                    }
+
+                                    // Send AJAX request to update the status in the backend
+                                    $.ajax({
+                                        url: 'update_user_status.php',  // Backend script to update the status
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: {
+                                            user_id: userId,
+                                            status: newStatus
+                                        },
+                                        success: function (response) {
+                                            if (response.success) {
+                                                console.log('Backend updated successfully:', response);
+                                            } else {
+                                                alert('Failed to update the status: ' + response.message);
+
+                                                // Revert UI changes if the backend update fails
+                                                $button.text(currentStatus === 'enabled' ? 'Disable' : 'Enable');
+                                                $button.data('status', currentStatus);
+
+                                                if (currentStatus === 'enabled') {
+                                                    $badge.removeClass('badge-fail').addClass('badge-success').text('Enabled');
                                                 } else {
-                                                    alert(data.message);
+                                                    $badge.removeClass('badge-success').addClass('badge-fail').text('Disabled');
                                                 }
-                                            })
-                                            .catch(error => {
-                                                alert('An error occurred while updating the status.');
-                                            });
-                                        });
+                                            }
+                                        },
+                                        error: function () {
+                                            alert('An error occurred while updating the status.');
+
+                                            // Revert UI changes if the AJAX request fails
+                                            $button.text(currentStatus === 'enabled' ? 'Disable' : 'Enable');
+                                            $button.data('status', currentStatus);
+
+                                            if (currentStatus === 'enabled') {
+                                                $badge.removeClass('badge-fail').addClass('badge-success').text('Enabled');
+                                            } else {
+                                                $badge.removeClass('badge-success').addClass('badge-fail').text('Disabled');
+                                            }
+                                        }
                                     });
                                 });
+                            });
+
                             </script>
+
+
 
 
 
@@ -908,27 +1014,34 @@
                         <!-- SEND EMAIL -->
                         <section class="send_email action_overlay" id="send_email_<?= htmlspecialchars($user['user_id']) ?>">
                             <div class="wrapper">
+                                <form action="send_email.php" method="POST" enctype="multipart/form-data">
                                 <header>
-                                    <h4>
-                                        Send Email
-                                    </h4>
+                                    <h4>Send Email</h4>
                                     <img class="close_action" src="assets/images/c-close-svgrepo-com.svg" alt="" width="20">
                                 </header>
                                 <main style="display:flex; flex-direction:column; gap:10px;">
-                                    <input type="text" placeholder="Subject*" style="width: 100%;">
-                                    <textarea name="" id="<?= htmlspecialchars($user['user_id']) ?>" placeholder="Message*"></textarea>
+                                    <!-- Subject Input -->
+                                    <input type="text" name="subject" placeholder="Subject*" style="width: 100%;" required>
+                                    
+                                    <!-- Message Input -->
+                                    <textarea name="message" id="<?= htmlspecialchars($user['user_id']) ?>" placeholder="Message*" required></textarea>
+                                    
                                     <p>Enable / Disable Notification</p>
-                                    <input type="file" name="" id="">
+                                    
+                                    <!-- File Input (optional for attachments) -->
+                                    <input type="file" name="attachment" id="attachment">
                                 </main>
                                 <div style="display: flex; gap:10px;">
-                                    <form action="" method="POST">
+                                    <!-- Form to Send Email -->
+                                        <input type="hidden" name="user_id" value="<?= htmlspecialchars($user['user_id']) ?>">
+                                        
                                         <button id="close" class="close_action negative_btn" type="button">Close</button>
-                                        <button id="delete_btn" class="positive_btn" name="" type="button">Send Mail</button>
+                                        <button id="send_email_btn" class="positive_btn" type="submit">Send Mail</button>
                                     </form>
-                               </div>
+                                </div>
                             </div>
                         </section>
-                        
+
 
                         
                         <!-- VERIFY KYC -->
