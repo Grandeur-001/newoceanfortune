@@ -219,7 +219,7 @@
                                 </label>
                                 
                             </div>
-                            <label id="terms-conditions_label" for="cbx-15">I agree to the <a href="#">Terms and Conditions</a></label>
+                            <label id="terms-conditions_label" for="cbx-15">I agree to the <a href="./terms_conditions.php">Terms and Conditions</a></label>
                         </div>
 
                             <div class="submit_btn_wrapper">

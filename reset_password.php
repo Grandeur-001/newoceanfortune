@@ -33,7 +33,11 @@
         <?php 
             
             
-            include 'signin_logic.php'
+            include 'reset_password_logic.php'; 
+            
+            // include the logic file for the reset password
+            // the logic file will contain the code to send the reset password link to the user's email address
+            // and also the code to update the user's password in the database
             
             
         ?>
@@ -88,7 +92,7 @@
                             </div>
                         </div>
                         <div class="text">
-                            <div class="span">Sign in to your Account</div>
+                            <div class="span">Forgot password?</div>
                         </div>
                     </header>
 
@@ -107,73 +111,19 @@
                         </div>
 
 
-                        <div class="input-group">
-                            <input type="password" id="password_input" name="password" required>
-                            <label for="">Password</label>
-                            <div class="show_password">
-                                <div class="image_wrapper">
-                                    <img id="show_hide" src="assets/svg/eye-off-svgrepo-com.svg" alt="">
-                                    <!-- <img src="assets/svg/eye-svgrepo-com.svg" alt=""> -->
-                                </div>
-                            </div>
-                            <script>
-                                const passwordInput = document.querySelector(`#password_input`);
-                                const showPassword = document.querySelector(`#show_hide`);
-                                const eyeIconWrapper = document.querySelector(`#eye_icon_container`);
-
-                                passwordInput.addEventListener(`keydown`, () => {
-                                    if(passwordInput.value === ``){
-                                        eyeIconWrapper.style.setProperty(
-                                            `display`,
-                                            `none`
-                                        )
-                                    }
-                                    else{
-                                        eyeIconWrapper.style.setProperty(
-                                            `display`,
-                                            `block`
-                                        )
-                                    };
-                                });
-
-                                showPassword.addEventListener(`click`, () => {
-
-                                    if(passwordInput.type === (`password`)) {
-                                        passwordInput.type = (
-                                            `text`
-                                        );
-                                        showPassword.src = (
-                                            `assets/svg/eye-svgrepo-com.svg`
-                                        );
-                                    }
-                                    else{
-                                        passwordInput.type = (
-                                            `password`
-                                        );
-                                        showPassword.src = (
-                                            `assets/svg/eye-off-svgrepo-com.svg`
-                                        );
-                                    }
-                                });
-                            </script>
-                        </div>
-
 
 
                         <div class="forgot_password">
-                            <span>Forgot password? <a id="" href="./reset_password.php">Reset</a></span>
+                            <span>Remember your password? <a id="" href="./login.php">Login here</a></span>
+                             
 
                         </div>
 
                         <div class="submit_btn_wrapper">
-                            <button type="submit" name="signin_btn">Sign in</button>
+                            <button type="submit" name="signin_btn">Reset Password</button>
                         </div>
 
-                        <!-- ALREADY HAVE AN ACCOUNT? LOGIN! -->
-                        <div class="already_have_an_account">
-                            <span>Don't have an Account?</span>
-                            <a class="links" href="signup.php">Create Account</a>
-                        </div>
+                     
 
                     </form>
                 </div>

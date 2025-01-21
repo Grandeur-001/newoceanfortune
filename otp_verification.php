@@ -1,3 +1,21 @@
+<?php 
+    
+    
+    include 'otp_verification_logic.php'; // include the logic file for the OTP verification
+    // the logic file will contain the code to send the OTP to the user's email address
+    
+    
+?>
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -109,6 +127,10 @@
     <script>
 
         // Timer for OTP
+        // The timer will start as soon as the page loads and will be set to 2 minutes
+        // If the user doesn't enter the OTP within 2 minutes the timer will stop and the user will be prompted to resend the OTP
+        // If the user enters the OTP within 2 minutes the timer will stop and the user will be redirected to the next page
+
         function startTimer(duration, display) {
             let timer = duration, minutes, seconds;
             let countdown = setInterval(function () {
@@ -126,7 +148,7 @@
                 }
             }, 1000);
         }
-
+        
         window.onload = function () {
             let twoMinutes = 120,
                 display = document.querySelector('#timer');
@@ -141,7 +163,7 @@
 
 
 
-
+        // OTP input field
         const inputs = document.querySelectorAll(".otp-field input");
         inputs.forEach((input, index) => {
             input.dataset.index = index;
