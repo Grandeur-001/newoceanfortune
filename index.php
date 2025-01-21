@@ -1529,7 +1529,7 @@
 </body>
 
     <!-- ============JAVASCRIPT-LINKS============= -->
-    <!-- <script src="assets/javascript/function.js"></script> -->
+    <script src="assets/javascript/function.js"></script>
     <script src="assets/javascript/notification.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
 

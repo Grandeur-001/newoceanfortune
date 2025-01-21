@@ -3,7 +3,7 @@
 	$server = 'localhost';
 	$username = 'root';
 	$password = '';
-	$db = 'oceanfortune_db';
+	$db = 'oceanfortune_db4';
 
 
 

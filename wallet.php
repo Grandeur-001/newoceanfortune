@@ -35,6 +35,9 @@
             padding: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .crypto-row:nth-last-child(1) {
+            margin-bottom: 50px;
+        }
 
         .crypto-left {
             display: flex;
@@ -99,6 +102,9 @@
             .crypto-row {
                 padding: 15px;
             }
+            .crypto-row:nth-last-child(1) {
+                margin-bottom: 130px;
+            }
 
             .crypto-left {
                 gap: 10px;
@@ -138,7 +144,6 @@
 <div id="cryptoContainer"></div> -->
 <div id="offlineBanner" style="display:none; color:red;">You are offline. Showing cached data.</div>
 <div id="cryptoContainer"></div>
- <br><br><br>
 
 <script>
     // Pass PHP data into JavaScript

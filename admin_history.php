@@ -54,6 +54,15 @@
         .main_content{
             margin-top: 8rem;
         }
+        .app-container{
+            margin-bottom: 70px;
+
+        }
+        @media (max-width: 768px) {
+            .app-container{
+                margin-bottom: 200px;
+            }
+        }
 
   
     </style>
@@ -426,125 +435,124 @@
 
      
         <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const popupTriggers = document.querySelectorAll('.popup_trigger');
-    const confirmDecline = document.querySelector('.confirm_decline');
-    const popupBox = document.querySelector('.popup_box');
-    const closeButtons = document.querySelectorAll('.close_confirm_decline, #close');
-    const toastContainer = document.getElementById('toastContainer');
+            document.addEventListener('DOMContentLoaded', function () {
+                    const popupTriggers = document.querySelectorAll('.popup_trigger');
+                    const confirmDecline = document.querySelector('.confirm_decline');
+                    const popupBox = document.querySelector('.popup_box');
+                    const closeButtons = document.querySelectorAll('.close_confirm_decline, #close');
+                    const toastContainer = document.getElementById('toastContainer');
 
-    let currentTransactionId = null;
+                    let currentTransactionId = null;
 
-    // Open popup on button click
-    popupTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function () {
-            const status = this.getAttribute('data-status').trim().toLowerCase();
-            currentTransactionId = this.getAttribute('data-transaction-id');
-            const firstname = this.getAttribute('data-firstname');
-            const lastname = this.getAttribute('data-lastname');
+                    // Open popup on button click
+                    popupTriggers.forEach(trigger => {
+                        trigger.addEventListener('click', function () {
+                            const status = this.getAttribute('data-status').trim().toLowerCase();
+                            currentTransactionId = this.getAttribute('data-transaction-id');
+                            const firstname = this.getAttribute('data-firstname');
+                            const lastname = this.getAttribute('data-lastname');
 
-            if (status === 'pending') {
-                confirmDecline.querySelector('.firstname').textContent = firstname + " ";
-                confirmDecline.querySelector('.lastname').textContent = lastname + " ";
-                confirmDecline.style.visibility = 'visible';
-                confirmDecline.style.opacity = '1';
-                popupBox.style.opacity = '1';
-                popupBox.style.transform = 'translateY(0)';
-            } else {
-                alert('This transaction cannot be confirmed or declined because it is not pending.');
-            }
-        });
-    });
+                            if (status === 'pending') {
+                                confirmDecline.querySelector('.firstname').textContent = firstname + " ";
+                                confirmDecline.querySelector('.lastname').textContent = lastname + " ";
+                                confirmDecline.style.visibility = 'visible';
+                                confirmDecline.style.opacity = '1';
+                                popupBox.style.opacity = '1';
+                                popupBox.style.transform = 'translateY(0)';
+                            } else {
+                                alert('This transaction cannot be confirmed or declined because it is not pending.');
+                            }
+                        });
+                    });
 
-    // Close popup on button click
-    closeButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            confirmDecline.style.visibility = 'hidden';
-            confirmDecline.style.opacity = '0';
-            popupBox.style.opacity = '0';
-            popupBox.style.transform = 'translateY(-90%)';
-        });
-    });
+                    // Close popup on button click
+                    closeButtons.forEach(btn => {
+                        btn.addEventListener('click', function () {
+                            confirmDecline.style.visibility = 'hidden';
+                            confirmDecline.style.opacity = '0';
+                            popupBox.style.opacity = '0';
+                            popupBox.style.transform = 'translateY(-90%)';
+                        });
+                    });
 
-    // Show toast message
-    function showToast(type, message) {
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = `
-            <div class="toast-icon">${type === 'success' ? '✓' : '✕'}</div>
-            <div class="toast-content">
-                <div class="toast-title">${type === 'success' ? 'Success' : 'Error'}</div>
-                <div class="toast-message">${message}</div>
-            </div>
-            <button class="close-btn" onclick="this.parentElement.remove()">×</button>
-        `;
-        toastContainer.appendChild(toast);
-        setTimeout(() => toast.remove(), 4000);
-    }
+                    // Show toast message
+                    function showToast(type, message) {
+                        const toast = document.createElement('div');
+                        toast.className = `toast ${type}`;
+                        toast.innerHTML = `
+                            <div class="toast-icon">${type === 'success' ? '✓' : '✕'}</div>
+                            <div class="toast-content">
+                                <div class="toast-title">${type === 'success' ? 'Success' : 'Error'}</div>
+                                <div class="toast-message">${message}</div>
+                            </div>
+                            <button class="close-btn" onclick="this.parentElement.remove()">×</button>
+                        `;
+                        toastContainer.appendChild(toast);
+                        setTimeout(() => toast.remove(), 4000);
+                    }
 
-    // Confirm transaction
-    window.confirmTransaction = function () {
-        
-        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
+                    // Confirm transaction
+                    window.confirmTransaction = function () {
+                        
+                        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
 
-        fetch('admin_confirm_decline.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'confirm' })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                showToast('success', 'Transaction confirmed successfully.');
-                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
-                if (transactionCard) {
-                    const statusBadge = transactionCard.querySelector('.status-badge');
-                    statusBadge.textContent = 'Completed';
-                }
-            } else {
-                showToast('error', data.message || 'Failed to confirm transaction.');
-            }
-        })
-        .catch(() => showToast('error', 'An error occurred while confirming the transaction.'))
-        .finally(() => closePopup());
-    };
+                        fetch('admin_confirm_decline.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'confirm' })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === 'success') {
+                                showToast('success', 'Transaction confirmed successfully.');
+                                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
+                                if (transactionCard) {
+                                    const statusBadge = transactionCard.querySelector('.status-badge');
+                                    statusBadge.textContent = 'Completed';
+                                }
+                            } else {
+                                showToast('error', data.message || 'Failed to confirm transaction.');
+                            }
+                        })
+                        .catch(() => showToast('error', 'An error occurred while confirming the transaction.'))
+                        .finally(() => closePopup());
+                    };
 
-    // Decline transaction
-    window.declineTransaction = function () {
-        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
+                    // Decline transaction
+                    window.declineTransaction = function () {
+                        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
 
-        fetch('admin_confirm_decline.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'decline' })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                showToast('success', 'Transaction declined successfully.');
-                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
-                if (transactionCard) {
-                    const statusBadge = transactionCard.querySelector('.status-badge');
-                    statusBadge.textContent = 'Failed';
-                }
-            } else {
-                showToast('error', data.message || 'Failed to decline transaction.');
-            }
-        })
-        .catch(() => showToast('error', 'An error occurred while declining the transaction.'))
-        .finally(() => closePopup());
-    };
+                        fetch('admin_confirm_decline.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'decline' })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === 'success') {
+                                showToast('success', 'Transaction declined successfully.');
+                                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
+                                if (transactionCard) {
+                                    const statusBadge = transactionCard.querySelector('.status-badge');
+                                    statusBadge.textContent = 'Failed';
+                                }
+                            } else {
+                                showToast('error', data.message || 'Failed to decline transaction.');
+                            }
+                        })
+                        .catch(() => showToast('error', 'An error occurred while declining the transaction.'))
+                        .finally(() => closePopup());
+                    };
 
-    // Close popup helper
-    function closePopup() {
-        confirmDecline.style.visibility = 'hidden';
-        confirmDecline.style.opacity = '0';
-        popupBox.style.opacity = '0';
-        popupBox.style.transform = 'translateY(-90%)';
-    }
-});
-
-</script>
+                    // Close popup helper
+                    function closePopup() {
+                        confirmDecline.style.visibility = 'hidden';
+                        confirmDecline.style.opacity = '0';
+                        popupBox.style.opacity = '0';
+                        popupBox.style.transform = 'translateY(-90%)';
+                    }
+            });
+        </script>
 </body>
 <script src="assets/user/javascript/popup.js"></script>
 <script src="assets/user/javascript/function.js"></script>

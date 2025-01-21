@@ -214,7 +214,7 @@ function displayTransactions()
                     </div>
                     <div class="detail-row">
                         <span class="label">Wallet:</span>
-                        <span class="value"><?php echo $wallet; ?></span>
+                        <span class="value"  style="width: 100px; float:right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;"><?php echo $wallet; ?></span>
                     </div>
                     <div class="status-row">
                         <div>

@@ -71,8 +71,19 @@ addLoginNotification($user_lname);
             bottom: auto;
             z-index: auto;
         }
+
+        .main_content{
+            margin-bottom: 70px;
+
+        }
+        @media (max-width: 768px) {
+            .main_content{
+                margin-bottom: 200px;
+            }
+        }
   
     </style>
+
 <body>
     
 <header class="dashboard_header">

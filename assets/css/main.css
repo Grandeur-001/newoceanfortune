@@ -24,7 +24,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'MTN Brighter Sans';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
 
 
     .move_in{
@@ -55,15 +56,18 @@ html{
     overscroll-behavior: none;
     scroll-behavior: smooth;
     animation: flash 2s linear;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 
 /* ============STYLING FOR THE BODY TAG============= */
 body{
     overscroll-behavior: none;
-    font-family: 'MTN Brighter Sans';
     background: radial-gradient(at top right, var(--color-three-darkblue) 25%, #222633 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+
 
 /* ============STYLING AND ANIMATION FOR THE SCROLL WATCHER============= */
 .scroll_watcher{
@@ -95,7 +99,7 @@ body{
     top: 0;
     font-family: 'MTN Brighter Sans';
     background: var(--color-three-darkblue);
-    display: none;
+    /* display: none; */
 
 
 

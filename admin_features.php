@@ -25,12 +25,18 @@ function addLoginNotification($userName) {
 addLoginNotification($user_lname);  
 
 // Display notifications
+
+
+
+include "toastify.php";
+echo '<script defer src="./assets/javascript/toastify.js"></script>';
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -59,7 +65,6 @@ addLoginNotification($user_lname);
         <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 
-  
 
 
         <style>
@@ -757,6 +762,28 @@ background-color: var(--primary-dark);
 .plans-container {
   grid-template-columns: 1fr;
 }
+
+.modal-content {
+    scale: 0.88;
+}
+
+}
+@media (max-width: 500px) {
+    .action_overlay > .wrapper{
+        scale: 0.88;
+    }
+}
+@media (max-width: 400px) {
+    .action_overlay > .wrapper{
+        scale: 0.68;
+    }
+}
+
+@media (max-width: 400px) {
+.modal-content {
+    scale: 0.68;
+}
+
 }
 
         </style>
@@ -2067,7 +2094,8 @@ background-color: var(--primary-dark);
 
                                     // Ensure the crypto ID is set before submitting the form
                                     if (!selectedCryptoId) {
-                                        alert('Please select a cryptocurrency first!');
+                                        showToast('error', 'Please select a cryptocurrency first!');
+
                                         return;
                                     }
 
@@ -2895,7 +2923,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Make sure the cryptoId is set before submitting the form
         if (!selectedCryptoId) {
-            alert('Please select a cryptocurrency first!');
+            showToast('error', 'Please select a cryptocurrency first!');
             return;
         }
 

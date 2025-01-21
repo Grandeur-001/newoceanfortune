@@ -268,7 +268,7 @@ input, button {
 }
 
 .crypto-option.selected .crypto-name,
-.crypto-option.selected .crypto-ticker {
+.crypto-option.selected .crypto-ticker{
     color: var(--text-color);
 }
 

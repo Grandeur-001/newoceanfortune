@@ -71,6 +71,19 @@ $phone = $_SESSION['user_phone'];
             bottom: auto;
             z-index: auto;
         }
+     
+        .app-container{
+            margin-bottom: 70px;
+
+        }
+        @media (max-width: 768px) {
+        .main_content{
+            margin-top: 3rem;
+        }
+            .app-container{
+                margin-bottom: 130px;
+            }
+        }
   
     </style>
 <body>
@@ -384,9 +397,9 @@ $phone = $_SESSION['user_phone'];
                 </form>
             </section>
             
-                <?php if ($update_success): ?>
-                    <p style="color: green;"><?php echo htmlspecialchars($update_success); ?></p>
-                <?php endif; ?>
+            <?php if ($update_success): ?>
+                <p style="color: green;"><?php echo htmlspecialchars($update_success); ?></p>
+            <?php endif; ?>
 
     
             <section class="profile-section">
@@ -447,8 +460,7 @@ $phone = $_SESSION['user_phone'];
                     <button type="submit" name="submit_kyc" class="btn-primary">Submit KYC</button>
                 </form>
             </section>
-            <br><br>
-
+    
         </div>
         <script>
             import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";

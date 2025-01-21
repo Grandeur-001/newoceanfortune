@@ -5,7 +5,7 @@
 -->
 <?php
 
-    session_start();
+    // session_start();
         
     $user_lname = $_SESSION['user_lastname'] ;
     $email = $_SESSION['user_email'] ;

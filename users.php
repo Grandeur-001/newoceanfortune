@@ -58,7 +58,23 @@ $result = $conn->query($query);
 #toast.error {
     background-color: #f44336; /* Red for error */
 }
-  
+
+
+@media (max-width: 500px) {
+    .action_overlay > .wrapper{
+        scale: 0.88;
+    }
+}
+@media (max-width: 400px) {
+    .action_overlay > .wrapper{
+        scale: 0.68;
+    }
+}
+@media (max-width: 370px) {
+    .action_overlay > .wrapper{
+        scale: 0.58;
+    }
+}
 </style>
 
 <body>
@@ -1152,7 +1168,7 @@ $result = $conn->query($query);
             let currentPage = 1;
             const usersPerPage = 10;
 
-            const searchInput = document.getElementById('searchInput');
+            const searchInput = document.getElementById('searchInput'); 
             const usersTableBody = document.getElementById('usersTableBody');
             const paginationContainer = document.getElementById('pagination');
 

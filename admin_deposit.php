@@ -26,6 +26,17 @@
             include 'session_handler.php';
 
         ?>
+        <style>
+            .app-container{
+                margin-bottom: 70px;
+
+            }
+            @media (max-width: 768px) {
+                .app-container{
+                    margin-bottom: 200px;
+                }
+            }
+        </style>
 <body>
 
 <header class="dashboard_header">
@@ -357,7 +368,9 @@
             <form id="cryptoForm" action="payment.php" method="POST">
                 <input type="hidden" id="selectedCryptoData" name="selectedCryptoData">
                 <div id="error" class="error_message">Error Message !!!</div>
-                <button type="" class="deposit-button" id="depositButton">
+           
+                <button type="" class="deposit-button" id="depositButton" style="">
+
                     <i class="fas fa-arrow-right"></i>
                     <span>Continue to Deposit</span>
                 </button>
