@@ -19,7 +19,12 @@ $phone = $_SESSION['user_phone'];
 
 ?>
 
+<?php
+include 'access_control.php';
+checkAdminAccess(); // Ensure only admins can access this page
 
+// The rest of the admin dashboard code goes here
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,6 +76,19 @@ $phone = $_SESSION['user_phone'];
             bottom: auto;
             z-index: auto;
         }
+        
+         .app-container{
+            margin-bottom: 70px;
+
+        }
+        @media (max-width: 768px) {
+        .main_content{
+            margin-top: 3rem;
+        }
+            .app-container{
+                margin-bottom: 130px;
+            }
+        }
   
     </style>
 <body>
@@ -110,13 +128,13 @@ $phone = $_SESSION['user_phone'];
                       <div class="profile_box">
                           <ul>
                               <li>
-                                  <a href="profile.php">
+                                  <a href="admin_profile.php">
                                       <i class="material-icons">person_outline</i>
                                       <span>Profile </span>
                                   </a>
                               </li>
                               <li>
-                                  <a href="wallet_page.php">
+                                  <a href="admin_wallet_page.php">
                                       <i class="material-icons">account_balance_wallet</i>
                                       <span>Wallet</span>
                                   </a>
@@ -218,28 +236,145 @@ $phone = $_SESSION['user_phone'];
 
 
         <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
-        <div class="crypto-ticker">
-          <div style="height:62px; background-color: #1e293b; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
-              <div style="height:40px; padding:0px; margin:0px; width: 100%;">
-                  <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
-                  <script>
-                      document.addEventListener('contextmenu', (event) => event.preventDefault());
-                          document.onkeydown = function(e) {
-                              // Disable F12, Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Console), Ctrl+U (View Source)
-                              if (e.keyCode == 123 || // F12
-                                  (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-                                  (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-                                  (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
-                                  return false; // Prevent the event
-                              }
-                          };
-                  </script>
-              </div>
-              <div style="color: #1e293b; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
-                  <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a>
-              </div>
-          </div>
+
+<style>
+
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--base-clr);
+    padding: 12px 0;
+    margin-top: 25px;
+
+}
+
+.ticker {
+    white-space: nowrap;
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+    width: 100%;
+}
+.ticker:hover {
+    animation-play-state: paused;
+}
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    border-right: 1px solid var(--border-color);
+}
+
+.crypto-symbol {
+    color: var(--secondary-text-clr);
+    margin: 0 8px;
+}
+
+.crypto-price {
+    margin-right: 8px;
+}
+
+.crypto-change {
+    font-size: 0.9em;
+}
+
+.crypto-change.positive {
+    color: #00ff88;
+}
+
+.crypto-change.negative {
+    color: #ff4444;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.crypto-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+</style>
+
+<div class="ticker-container">
+<div class="ticker" id="ticker">
+    <!-- Content will be populated by Jquery -->
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/crypto_ticker.js"></script>
+
+<script>
+  const COINGECKO_API = 'https://api.coingecko.com/api/v3';
+const REFRESH_INTERVAL = 30000; 
+
+function fetchTopCryptos() {
+    return $.ajax({
+        url: `${COINGECKO_API}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&sparkline=false&price_change_percentage=1h`,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            return data;
+        },
+        error: function(error) {
+            console.error('Error fetching crypto data:', error);
+            return [];
+        }
+    });
+}
+
+function formatPrice(price) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(price);
+}
+
+function formatPercentage(percentage) {
+    return percentage.toFixed(2);
+}
+
+function createTickerItem(crypto) {
+    return `
+        <div class="ticker-item">
+            <img src="${crypto.image}" alt="${crypto.name}" class="crypto-icon">
+            <span>${crypto.name}</span>
+            <span class="crypto-symbol">[${crypto.symbol.toUpperCase()}]</span>
+            <span class="crypto-price">${formatPrice(crypto.current_price)}</span>
+            <!-- 1-hour price change -->
+            <span class="crypto-change ${crypto.price_change_percentage_1h_in_currency >= 0 ? 'positive' : 'negative'}">
+                ${crypto.price_change_percentage_1h_in_currency >= 0 ? '+' : ''}${formatPercentage(crypto.price_change_percentage_1h_in_currency)}%
+            </span>
         </div>
+    `;
+}
+
+function updateTicker() {
+    fetchTopCryptos().then(function(cryptos) {
+        if (cryptos.length === 0) return;
+
+        const tickerElement = $('#ticker');
+        const tickerContent = cryptos.map(createTickerItem).join('');
+        
+        tickerElement.html(tickerContent + tickerContent);
+    });
+}
+ 
+updateTicker();
+
+setInterval(updateTicker, REFRESH_INTERVAL);
+</script>
+
+
+
       </header>
 
 
@@ -284,7 +419,7 @@ $phone = $_SESSION['user_phone'];
                           </a>
                       </li>
                       <li>
-                          <a href="market.php">
+                          <a href="admin_market.php">
                               <i class="material-icons">store</i>
                               <span>Market</span>
                           </a>
@@ -328,19 +463,19 @@ $phone = $_SESSION['user_phone'];
             </div>
 
             <nav class="quick-actions">
-                <a href="#" class="action-item">
+                <a href="admin_features.php" class="action-item">
                     <span class="icon">💰</span>
                     <span>Invests</span>
                 </a>
-                <a href="#" class="action-item">
+                <a href="admin_wallet_page.php" class="action-item">
                     <span class="icon">👛</span>
                     <span>Wallet</span>
                 </a>
-                <a href="#" class="action-item">
+                <a href="admin_deposit.php" class="action-item">
                     <span class="icon">⬇️</span>
                     <span>Receive</span>
                 </a>
-                <a href="#" class="action-item">
+                <a href="admin_send.php" class="action-item">
                     <span class="icon">⬆️</span>
                     <span>Send</span>
                 </a>
@@ -518,14 +653,6 @@ $phone = $_SESSION['user_phone'];
                     </a>
                 </li>
             </ul>
-            <ul>
-                <li>
-                    <a href="users.php">
-                        <i class="fa fa-user-o">history</i>
-                        <span>Users</span>
-                    </a>
-                </li>
-            </ul>
 
             <ul>
                 <li>
@@ -547,7 +674,7 @@ $phone = $_SESSION['user_phone'];
 
             <ul>
                 <li>
-                    <a href="market.php">
+                    <a href="admin_market.php">
                         <i class="material-icons">store</i>
                         <span>Market</span>
                     </a>

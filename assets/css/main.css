@@ -4,16 +4,36 @@
     --color-one-purple: #AC01FF;
     --color-two-blue2: #1dcffc56;
     --color-two-blue: #1DCFFC;
-    --color-three-darkblue: #1F232F;
-    --color-three-darkblue2: #2b3141;
+    --background: #1F232F;
+    /* --surface: #222222; */
     --color-four-gray: #9AA0A7; 
-    --color-four-gray2: #9aa0a752;
-    --color-five-white: #ffffff;
-    --color-six-black: #1b1e28;
+    /* --border-color: #9aa0a752; */
+    /* --text-color: #F5F5F5; */
+    --background: #1b1e28;
     --border-radius:26px 26px 26px 26px;
     --box-shadow: 7px 7px 15px 0px #0E1015;
     
 }
+/* background: linear-gradient(135deg, #C9A227, #B68E2E); */
+
+
+:root {
+    --background: #1a1a1a;
+    --surface: #222222;
+    --text-color: #F5F5F5;
+    --secondary-text: #A9A9A9;
+    --primary-dark: #A6841C;
+    --primary-color: #C9A227;
+    --border-color: #383838;
+    --hover-color: rgba(255, 255, 255, 0.05);
+    --positive-color: #00c853;
+    --negative-color: #ff3d3d;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+}
+
+
+
 
 /* ============THE FONTS FOR THE WEBSITE============= */
 
@@ -63,17 +83,18 @@ html{
 /* ============STYLING FOR THE BODY TAG============= */
 body{
     overscroll-behavior: none;
-    background: radial-gradient(at top right, var(--color-three-darkblue) 25%, #222633 100%);
+    background-color: var(--background);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
 
 
 
 /* ============STYLING AND ANIMATION FOR THE SCROLL WATCHER============= */
 .scroll_watcher{
     height: 5px;
-    background: var(--color-five-white);
-    /* background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%); */
+    background: var(--text-color);
+    /* background: linear-gradient(135deg, #C9A227, #B68E2E); */
     width: 100%;
     position: fixed;
     top: 0px;
@@ -98,7 +119,7 @@ body{
     position: sticky;
     top: 0;
     font-family: 'MTN Brighter Sans';
-    background: var(--color-three-darkblue);
+    background: var(--background);
     /* display: none; */
 
 
@@ -111,7 +132,7 @@ body{
     position: sticky;
     top: 0;
     z-index: 10000;
-    background: var(--color-three-darkblue);
+    background: var(--background);
 
 
 
@@ -121,7 +142,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--color-four-gray2);
+    border-bottom: 1px solid var(--border-color);
     width: 100%;
 
 
@@ -145,7 +166,7 @@ body{
     width: 50px;
     height: 5px;
     /* background: white; */
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     display: flex;
     flex-direction: column;
     margin: 9px auto;
@@ -224,13 +245,15 @@ body{
 }
 .desktop_navbar .wrapper > nav .logo .logo_name, 
 .footer .logo .logo_name{
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: LOGO-FONT;
     font-size: 20px;
     font-weight: inherit;
 
 }
 .desktop_navbar .wrapper > nav > ul{
+    /* background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a); */
+
     display: flex;
     gap: 30px;
     padding-inline-end: 30px;
@@ -241,7 +264,7 @@ body{
     list-style: none;
 }
 .desktop_navbar .wrapper > nav > ul > li a{
-    color: var(--color-five-white);
+    color: var(--text-color);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -251,7 +274,7 @@ body{
 
 }
 .desktop_navbar .wrapper > nav > ul > li a:hover{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -285,7 +308,7 @@ body{
     list-style: none;
     height: 100%;
     display: flex;
-    background: var(--color-three-darkblue);
+    background: var(--background);
 
     
 
@@ -315,7 +338,7 @@ body{
 .desktop_navbar .wrapper > nav > ul > li:nth-of-type(5) > a{
     padding-inline: 45px;
     padding-block: 15px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,7 +346,7 @@ body{
     border-radius: var(--border-radius);
     transition: all 0.6s ease;
     cursor: pointer;
-    /* color: var(--color-five-white); */
+    /* color: var(--text-color); */
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -339,7 +362,7 @@ body{
     position: absolute;
     height: 107%;
     width: 103%;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     border-radius: inherit;
     transition: all 0.6s ease;
     z-index: -2;
@@ -348,7 +371,7 @@ body{
 }
 
 .desktop_navbar .wrapper > nav > ul > li:nth-of-type(5):hover a{
-    background: radial-gradient(at top left, var(--color-five-white) 30%, var(--color-five-white) 100%);
+    background: radial-gradient(at top left, var(--text-color) 30%, var(--text-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -419,7 +442,7 @@ body{
     
 }
 .desktop_navbar .wrapper > nav .notification_icon i{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -459,7 +482,7 @@ body{
     padding-block-end: 30px;
     box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.406);
     transform: translateX(-50vh);
-    background: var(--color-three-darkblue);
+    background: var(--background);
     transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 10000;
     overflow-x: hidden;
@@ -498,7 +521,7 @@ body{
 .mobile_navbar .wrapper ul li span > a{
     transform: translateX(20px);
     font-family: 'MTN Brighter Sans';
-    color: var(--color-five-white);
+    color: var(--text-color);
     text-decoration: none;
     transition: all 0.5s ease;
 
@@ -514,13 +537,13 @@ body{
     background: #242834;
 }
 .mobile_navbar .wrapper ul li:nth-of-type(1)  span a{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 .mobile_navbar .wrapper ul li span:hover a{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -568,10 +591,10 @@ body{
     font-size: 42px;
     padding-inline: 50px;
     margin-block-start: 7%;
-    color: var(--color-five-white);
+    color: var(--text-color);
 }
 .home_banner .text_content .big_text > span{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -617,7 +640,7 @@ body{
 .home_banner .evoloution > .wrapper .left_axiz .btn a{
     padding-inline: 45px;
     padding-block: 15px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -625,7 +648,7 @@ body{
     border-radius: var(--border-radius);
     transition: all 0.6s ease;
     cursor: pointer;
-    color: var(--color-five-white);
+    color: var(--text-color);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -637,8 +660,8 @@ body{
 }
 .home_banner .evoloution > .wrapper .left_axiz .btn a:nth-of-type(1){
     box-shadow: var(--box-shadow);
-    background: var(--color-five-white);
-    color: var(--color-three-darkblue);
+    background: var(--text-color);
+    color: var(--background);
     font-weight: bold;
 
 }
@@ -648,7 +671,7 @@ body{
     position: absolute;
     height: 107%;
     width: 103%;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     border-radius: inherit;
     z-index: -1;
     transition: all 0.6s ease;
@@ -673,7 +696,7 @@ body{
 }
 .home_banner .evoloution > .wrapper .right_axiz .big_text{
     font-size: 33px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -730,13 +753,13 @@ body{
 }
 .section_1 > .wrapper .text header > div:nth-of-type(1){
     font-size: 20px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     text-transform: uppercase;
 
 }
 .section_1 > .wrapper .text header > div:nth-of-type(2){
     font-size: 33px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -755,7 +778,7 @@ body{
 .section_1 > .wrapper .text .btn a{
     padding-inline: 45px;
     padding-block: 15px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -763,7 +786,7 @@ body{
     border-radius: var(--border-radius);
     transition: all 0.6s ease;
     cursor: pointer;
-    color: var(--color-five-white);
+    color: var(--text-color);
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -781,13 +804,13 @@ body{
     position: absolute;
     height: 107%;
     width: 103%;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     border-radius: inherit;
     z-index: -1;
     transition: all 0.6s ease;
 }
 .section_1 > .wrapper .text .btn a:hover{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
 
@@ -826,7 +849,7 @@ body{
 }
 
 .section_2 > .wrapper > .card{
-    background: var(--color-three-darkblue);
+    background: var(--background);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
@@ -840,14 +863,14 @@ body{
     position: absolute;
     height: 101%;
     width: 101%;
-    background: radial-gradient(at top left, var(--color-three-darkblue2) 30%, var(--color-three-darkblue2) 100%);
+    background: radial-gradient(at top left, var(--surface) 30%, var(--surface) 100%);
     border-radius: inherit;
     z-index: -1;
     padding-block-start: 2px;
     transition: all 0.6s ease;
 }
 .section_2 > .wrapper > .card:hover:after{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
 .section_2 > .wrapper > .card .wrapper{
@@ -857,7 +880,7 @@ body{
 }
 .section_2 > .wrapper > .card .wrapper .big_text{
     font-size: 20px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
     margin-block-end: 10px;
@@ -889,7 +912,7 @@ body{
 }
 .section_3 .wrapper header .big_text{
     font-size: 32px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
     margin-block-end: 10px;
@@ -919,7 +942,7 @@ body{
 
     transition: all 0.6s ease;
     cursor: pointer;
-    color: var(--color-five-white);
+    color: var(--text-color);
     text-decoration: none;
     font-family: 'MTN Brighter Sans';
     letter-spacing: 0.8px;
@@ -945,7 +968,7 @@ body{
 .section_3 .wrapper .card_wrapper .card{
     /* height: 300px; */
     padding-block: 50px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
@@ -959,13 +982,13 @@ body{
     position: absolute;
     height: 101%;
     width: 101%;
-    background: radial-gradient(at top left, var(--color-three-darkblue2) 30%, var(--color-three-darkblue2) 100%);
+    background: radial-gradient(at top left, var(--surface) 30%, var(--surface) 100%);
     border-radius: inherit;
     z-index: -1;
     transition: all 0.6s ease;
 }
 .section_3 .wrapper .card_wrapper .card:hover:after{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
 
@@ -995,7 +1018,7 @@ body{
 
 .section_3 .wrapper .card_wrapper .card > .wrapper .text .big_text{
     font-size: 22px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
     margin-block-end: 10px;
@@ -1026,7 +1049,7 @@ body{
     position: relative;
     /* max-width: 800px; */
     margin: auto;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     padding: 25px;
     border-radius: var(--border-radius);
     height: 400px;
@@ -1042,7 +1065,7 @@ body{
     position: absolute;
     height: 101.2%;
     width: 100.2%;
-    background: radial-gradient(at top left, var(--color-three-darkblue2) 30%, var(--color-three-darkblue2) 100%);
+    background: radial-gradient(at top left, var(--surface) 30%, var(--surface) 100%);
     border-radius: inherit;
     transition: all 0.6s ease;
     z-index: -1;
@@ -1211,7 +1234,7 @@ body{
  }
   .blog-slider__title {
     font-size: 32px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -1228,7 +1251,7 @@ body{
  }
   .blog-slider__button {
     display: inline-flex;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     padding: 15px 35px;
     border-radius: 50px;
     color: #fff;
@@ -1298,7 +1321,7 @@ body{
  }
   .blog-slider__pagination .swiper-pagination-bullet-active {
     opacity: 1;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
     height: 30px;
     box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
@@ -1332,7 +1355,7 @@ body{
 }
 .section_4 > .wrapper > header .head_text{
     font-size: 32px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
     margin-block-end: 10px;
@@ -1340,7 +1363,7 @@ body{
 .section_4 > .wrapper > header .dash{
     width: 60px;
     height: 3px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
 .section_4 > .wrapper > .card_wrapper{
@@ -1355,7 +1378,7 @@ body{
 
 .section_4 > .wrapper > .card_wrapper  > .card{
     /* padding-block: 50px; */
-    background: var(--color-three-darkblue);
+    background: var(--background);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
@@ -1370,13 +1393,13 @@ body{
     position: absolute;
     height: 101%;
     width: 101%;
-    background: radial-gradient(at top left, var(--color-three-darkblue2) 30%, var(--color-three-darkblue2) 100%);
+    background: radial-gradient(at top left, var(--surface) 30%, var(--surface) 100%);
     border-radius: inherit;
     transition: all 0.6s ease;
     z-index: -1;
 }
 .section_4 > .wrapper > .card_wrapper  > .card:hover:after{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper{
@@ -1398,7 +1421,7 @@ body{
 
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper header .big_text{
     font-size: 22px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     background: radial-gradient(at top left, var(--color-two-blue), var(--color-one-purple) 90%);
     -webkit-background-clip: text;
@@ -1415,7 +1438,7 @@ body{
 
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper header .percentage > span:nth-of-type(1){
     font-size: 60px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     font-weight: 600;
 
@@ -1434,7 +1457,7 @@ body{
 }
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper header .small_text{
     font-size: 15px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
 }
@@ -1462,7 +1485,7 @@ body{
     gap: 16px;
 }
 .section_4 > .wrapper > .card_wrapper  > .card:hover li{
-    color: var(--color-five-white);
+    color: var(--text-color);
 }
 
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper .list ul li span:nth-of-type(1){
@@ -1487,7 +1510,7 @@ body{
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper .btn a{
     padding-inline: 45px;
     padding-block: 15px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1495,7 +1518,7 @@ body{
     border-radius: var(--border-radius);
     transition: all 0.6s ease;
     cursor: pointer;
-    color: var(--color-five-white);
+    color: var(--text-color);
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'MTN Brighter Sans';
@@ -1515,13 +1538,13 @@ body{
     position: absolute;
     height: 107%;
     width: 103%;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     border-radius: inherit;
     transition: all 0.6s ease;
     z-index: -1;
 }
 .section_4 > .wrapper > .card_wrapper  > .card .btn a:hover{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
 
@@ -1562,22 +1585,22 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-five-white);
-    box-shadow: 0 0 5px 20px var(--color-three-darkblue);
+    color: var(--text-color);
+    box-shadow: 0 0 5px 20px var(--background);
 
 }
 .section_5 > .wrapper > .card .number_line > .line{
     /* width: 22vw; */
     width: 80%;
     height: 1.5px ;
-    /* background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%); */
+    /* background: linear-gradient(135deg, #C9A227, #B68E2E); */
     background: var(--color-four-gray);
 
 }
 
 .section_5 > .wrapper > .card .big_text{
     font-size: 22px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
 
 }
@@ -1590,7 +1613,7 @@ body{
     color: var(--color-four-gray);
 }
 .section_5 > .wrapper > .card .small_text:hover{
-    color: var(--color-five-white);
+    color: var(--text-color);
 }
 
 .section_6{
@@ -1609,7 +1632,7 @@ body{
 
 .section_6 > header .head_text{
     font-size: 32px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
     margin-block-end: 10px;
@@ -1618,14 +1641,14 @@ body{
 .section_6 > header .dash{
     width: 60px;
     height: 3px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 
 }
 
 /* ============FOOTER SECTION============= */
 .footer{
-	/* background: var(--color-six-black); */
+	/* background: var(--background); */
     padding: 70px 10px;
     font-family: sans-serif;
     /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; */
@@ -1647,7 +1670,7 @@ body{
 }
 .footer-card  h4{
 	font-size: 18px;
-	color: var(--color-five-white);
+	color: var(--text-color);
 	text-transform: capitalize;
 	margin-bottom: 15px;
 	font-weight: 500;
@@ -1672,7 +1695,7 @@ body{
 }
 .footer-card ul span{
     line-height: 28px;
-	color: var(--color-five-white);
+	color: var(--text-color);
 	font-size: 16px;
 	font-weight: 300;
 
@@ -1688,23 +1711,23 @@ body{
 	transition: all 0.3s ease;
 }
 .footer-card ul li a:hover{
-	color: var(--color-five-white);
+	color: var(--text-color);
 }
 .footer-card .social-links a{
 	display: inline-block;
 	height: 40px;
 	width: 40px;
-	background-color: var(--color-five-white);
+	background-color: var(--text-color);
 	margin:0 10px 10px 0;
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	color: var(--color-three-darkblue);
+	color: var(--background);
 	transition: all 0.5s ease;
 }
 .footer-card .social-links a:hover{
-	color: var(--color-five-white);
-    background: var(--color-three-darkblue);
+	color: var(--text-color);
+    background: var(--background);
 
 }
 .footer-card .signup{
@@ -1713,13 +1736,13 @@ body{
     width: 150px;
     border-radius: 30px;
     margin-top: 30px;
-    color: var(--color-five-white);
-    box-shadow: inset 0 0 0 2px var(--color-five-white);
+    color: var(--text-color);
+    box-shadow: inset 0 0 0 2px var(--text-color);
 }
 .footer-card .signup:hover{
-    background: var(--color-five-white);
-    box-shadow: inset 0 0 0 0px var(--color-five-white);
-    color: var(--color-three-darkblue);
+    background: var(--text-color);
+    box-shadow: inset 0 0 0 0px var(--text-color);
+    color: var(--background);
 
 
 }
@@ -1737,7 +1760,7 @@ body{
     height: 100vh;
     width: 100%;
     top: 0;
-    background-color: var(--color-three-darkblue);
+    background-color: var(--background);
  }
  .preloader_animation > .wrapper{
     display: flex;

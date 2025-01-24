@@ -82,19 +82,41 @@ if (
                 $mail->isHTML(true);
                 $mail->Subject = 'Deposit Received';
                 $mail->Body = "
-                    <p>Dear $userName,</p>
-                    <p>We have received your deposit request with the following details:</p>
+                    <p>Dear $userName,</p> 
+                    <p>We have received your deposit request. Please find the details of your transaction below:</p> 
+                    <ul> <li><strong>Transaction ID:</strong> $transactionId</li> 
+                    <li><strong>Crypto Symbol:</strong> $cryptoSymbol</li> 
+                    <li><strong>Amount:</strong> $amount</li> 
+                    <li><strong>Wallet Address:</strong> $walletAddress</li> </ul> 
+                    <p>At this time, your deposit is <strong>Pending</strong>. We will notify you as soon as the transaction is confirmed.</p> 
+                    <p>If you have any questions, feel free to reach out to our support team.</p>
+                    <p>Thank you for choosing Ocean Fortune!</p>
+                ";
+
+                $mail->send();
+
+                // Notify Admin
+                $mail->clearAddresses(); // Clear previous recipient
+                $mail->addAddress('support@oceanfortune.bond'); // Admin email
+                $mail->Subject = 'New Deposit Notification';
+                $mail->Body = "
+                    <p>Admin,</p>
+                    <p>A new deposit request has been received with the following details:</p>
                     <ul>
+                        <li><strong>User Name:</strong> $userName</li>
+                        <li><strong>User ID:</strong> $userId</li>
                         <li><strong>Transaction ID:</strong> $transactionId</li>
                         <li><strong>Crypto Symbol:</strong> $cryptoSymbol</li>
                         <li><strong>Amount:</strong> $amount</li>
                         <li><strong>Wallet Address:</strong> $walletAddress</li>
                     </ul>
-                    <p>Your deposit status is currently <strong>Pending</strong>. We will notify you once it is confirmed.</p>
-                    <p>Thank you for choosing Ocean Fortune!</p>
+                    <p>Kindly review and confirm the deposit status in the admin panel.</p>
+                    <p>Ocean Fortune Admin</p>
                 ";
 
                 $mail->send();
+
+                
             } catch (Exception $e) {
                 error_log("Email could not be sent. Mailer Error: {$mail->ErrorInfo}");
             }
@@ -130,5 +152,3 @@ function sendDepositNotification($userId, $amount) {
 // Close the database connection
 mysqli_close($conn);
 ?>
-
-

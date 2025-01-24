@@ -195,7 +195,7 @@ if (!isset($_SESSION["email"])) {
                 if (xhr.status == 200) {
                     let response = JSON.parse(xhr.responseText);
                     if (response.success) {
-                        window.location.href = "login.php"; // Redirect to login page
+                        window.location.href = "dashboard.php"; // Redirect to login page
                     } else {
                         alert("Invalid or expired OTP. Please try again.");
                         inputs.forEach((input) => {
@@ -265,4 +265,3 @@ if (!isset($_SESSION["email"])) {
 </body>
 
 </html>
-

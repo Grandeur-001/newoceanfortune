@@ -77,3 +77,6 @@ logToFile("Response sent: success = true, available_balance = $availableBalance"
 
 // Exit after the response has been sent
 exit;
+
+
+

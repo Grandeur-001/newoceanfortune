@@ -3,13 +3,13 @@
 
     
     --pending-color: #eab308;
-    --background: #0f172a;
-    --surface: #1e293b;
-    --text-color: #ffffff;
-    --secondary-text: #8b8ca7;
-    --primary-dark: #4f46e5;
-    --primary-color: #6366f1;
-    --border-color: #2a2f3e;
+    --background: #1a1a1a;
+    --surface: #222222;
+    --text-color: #F5F5F5;
+    --secondary-text: #A9A9A9;
+    --primary-dark: #A6841C;
+    --primary-color: #C9A227;
+    --border-color: #2A2A2A;
     --hover-color: rgba(255, 255, 255, 0.05);
     --positive-color: #00c853;
     --negative-color: #ff3d3d;
@@ -46,7 +46,7 @@
 
 .app-header .dropdown  .dropdown-button {
     background-color: var(--surface); 
-    color: #ffffff; 
+    color: #F5F5F5; 
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -537,8 +537,8 @@
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     :root {
-        --background-color: #0f172a;
-        --card-background: #1e293b;
+        --background-color: #1a1a1a;
+        --card-background: #222222;
         --text-primary: #f1f5f9;
         --text-secondary: #94a3b8;
     }

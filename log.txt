@@ -1,28 +1,986 @@
-[2025-01-19 23:00:33] Investment 49: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 50: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 51: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 52: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 53: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 54: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 55: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 56: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 57: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 58: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 59: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 60: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 61: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:33] Investment 62: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 49: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 50: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 51: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 52: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 53: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 54: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 55: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 56: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 57: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 58: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 59: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 60: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 61: Not enough time has elapsed for earnings to be added.
-[2025-01-19 23:00:39] Investment 62: Not enough time has elapsed for earnings to be added.
+
+[2025-01-16 00:01:05] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 00:01:05] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 00:01:05] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 00:01:05] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 00:01:05] - Response sent: success = true, available_balance = 3000
+[2025-01-16 00:01:05] Received request for investment plan with plan_id: 5
+[2025-01-16 00:01:05] Investment plan found. Plan details: {"id":5,"crypto_id":1,"name":"BTC Silver Mining","roi":"5.00","roi_max":"5.00","minimum":"5000.00","maximum":"9999.00","earning_duration":"1440","duration_timeframe":"4","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 10:44:01","updated_at":"2025-01-15 04:31:26"}
+[2025-01-16 00:01:06] Raw input: {"crypto_id":1,"plan_id":5,"investment_amount":"3000.00"}
+[2025-01-16 00:01:06] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 5, Investment Amount: 3000
+[2025-01-16 00:01:06] Investment validation failed. Amount not within range.
+[2025-01-16 07:20:43] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 07:20:43] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 07:20:43] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 07:20:43] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 07:20:43] - Response sent: success = true, available_balance = 3000
+[2025-01-16 07:20:44] Received request for investment plan with plan_id: 3
+[2025-01-16 07:20:44] Investment plan found. Plan details: {"id":3,"crypto_id":1,"name":"BTC Bronze Mining","roi":"3.00","roi_max":"5.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 10:27:16","updated_at":"2025-01-15 04:29:50"}
+[2025-01-16 07:20:44] Raw input: {"crypto_id":1,"plan_id":3,"investment_amount":"3000.00"}
+[2025-01-16 07:20:44] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 3, Investment Amount: 3000
+[2025-01-16 07:20:44] Investment added successfully for User ID: 274946.
+[2025-01-16 07:21:08] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 07:21:08] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 07:21:08] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 07:21:08] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 07:21:08] - Response sent: success = true, available_balance = 3000
+[2025-01-16 07:21:09] Received request for investment plan with plan_id: 5
+[2025-01-16 07:21:09] Investment plan found. Plan details: {"id":5,"crypto_id":1,"name":"BTC Silver Mining","roi":"5.00","roi_max":"5.00","minimum":"5000.00","maximum":"9999.00","earning_duration":"1440","duration_timeframe":"4","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 10:44:01","updated_at":"2025-01-15 04:31:26"}
+[2025-01-16 07:21:09] Raw input: {"crypto_id":1,"plan_id":5,"investment_amount":"3000.00"}
+[2025-01-16 07:21:09] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 5, Investment Amount: 3000
+[2025-01-16 07:21:09] Investment validation failed. Amount not within range.
+[2025-01-16 07:21:29] - Request received: user_id = 274946, crypto_id = 1
+[2025-01-16 07:21:29] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-16 07:21:29] - Request received: user_id = 274946, crypto_symbol = BTC
+[2025-01-16 07:21:29] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-16 07:21:29] - Response sent: success = true, available_balance = 3000
+[2025-01-16 07:21:30] Received request for investment plan with plan_id: 5
+[2025-01-16 07:21:30] Investment plan found. Plan details: {"id":5,"crypto_id":1,"name":"BTC Silver Mining","roi":"5.00","roi_max":"5.00","minimum":"5000.00","maximum":"9999.00","earning_duration":"1440","duration_timeframe":"4","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 10:44:01","updated_at":"2025-01-15 04:31:26"}
+[2025-01-16 07:21:30] Raw input: {"crypto_id":1,"plan_id":5,"investment_amount":"3000.00"}
+[2025-01-16 07:21:30] Received investment request. User ID: 274946, Crypto ID: 1, Plan ID: 5, Investment Amount: 3000
+[2025-01-16 07:21:30] Investment validation failed. Amount not within range.
+[2025-01-17 18:02:27] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-17 18:02:27] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-17 18:02:28] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-17 18:02:28] - Available balance for crypto_symbol (USDT): 2500
+[2025-01-17 18:02:28] - Response sent: success = true, available_balance = 2500
+[2025-01-17 18:02:28] Received request for investment plan with plan_id: 12
+[2025-01-17 18:02:28] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-17 18:02:28] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"2000.00"}
+[2025-01-17 18:02:28] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 12, Investment Amount: 2000
+[2025-01-17 18:02:28] Investment added successfully for User ID: 810175.
+[2025-01-18 18:26:46] - Request received: user_id = 810175, crypto_id = 1
+[2025-01-18 18:26:46] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-18 18:26:46] - Request received: user_id = 810175, crypto_symbol = BTC
+[2025-01-18 18:26:46] - Available balance for crypto_symbol (BTC): 3000
+[2025-01-18 18:26:46] - Response sent: success = true, available_balance = 3000
+[2025-01-18 18:26:47] Received request for investment plan with plan_id: 2
+[2025-01-18 18:26:47] Investment plan found. Plan details: {"id":2,"crypto_id":1,"name":"BTC Trial Mining","roi":"2.00","roi_max":"5.00","minimum":"1000.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"6","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 10:20:33","updated_at":"2025-01-15 04:28:08"}
+[2025-01-18 18:26:47] Raw input: {"crypto_id":1,"plan_id":2,"investment_amount":"2000.00"}
+[2025-01-18 18:26:47] Received investment request. User ID: 810175, Crypto ID: 1, Plan ID: 2, Investment Amount: 2000
+[2025-01-18 18:26:47] Investment added successfully for User ID: 810175.
+[2025-01-18 21:19:51] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-18 21:19:51] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-18 21:19:52] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-18 21:19:52] - Available balance for crypto_symbol (USDT): 8500
+[2025-01-18 21:19:52] - Response sent: success = true, available_balance = 8500
+[2025-01-18 21:19:52] Received request for investment plan with plan_id: 13
+[2025-01-18 21:19:52] Investment plan found. Plan details: {"id":13,"crypto_id":7,"name":"USDT Bronze Minning","roi":"3.00","roi_max":"3.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitoring Profits Daily","created_at":"2025-01-11 11:10:45","updated_at":"2025-01-11 11:10:45"}
+[2025-01-18 21:19:52] Raw input: {"crypto_id":7,"plan_id":13,"investment_amount":"3000.00"}
+[2025-01-18 21:19:52] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 13, Investment Amount: 3000
+[2025-01-18 21:19:52] Investment added successfully for User ID: 810175.
+[2025-01-18 21:20:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-18 21:20:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-18 21:20:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-18 21:25:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-18 21:25:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-18 21:25:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-18 22:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-18 22:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-18 22:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-18 23:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-18 23:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-18 23:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 00:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 00:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 00:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 01:00:01] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 01:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 01:00:01] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 02:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 02:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 02:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 03:00:01] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 03:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 03:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 04:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 04:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 04:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 05:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 05:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 05:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 06:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 06:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 06:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 07:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 07:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 07:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 08:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 08:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 08:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 09:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 09:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 09:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 09:53:46] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-19 09:53:46] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 09:53:46] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-19 09:53:46] - Available balance for crypto_symbol (USDT): 8500
+[2025-01-19 09:53:46] - Response sent: success = true, available_balance = 8500
+[2025-01-19 09:53:47] Received request for investment plan with plan_id: 12
+[2025-01-19 09:53:47] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 09:53:47] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"2000.00"}
+[2025-01-19 09:53:47] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 12, Investment Amount: 2000
+[2025-01-19 09:53:47] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 09:53:47] User 810175's balance updated. New balance: 11000
+[2025-01-19 09:53:47] Investment added successfully for User ID: 810175
+[2025-01-19 09:53:47] Transaction added successfully. Transaction ID: txn_678ccbab8fcfd, User ID: 810175, Amount: 2000
+[2025-01-19 10:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 10:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 10:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 10:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 11:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 11:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 11:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 11:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 12:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 12:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 12:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 12:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 12:10:37] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-19 12:10:37] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 12:10:38] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-19 12:10:38] - Available balance for crypto_symbol (USDT): 6500
+[2025-01-19 12:10:38] - Response sent: success = true, available_balance = 6500
+[2025-01-19 12:10:38] Received request for investment plan with plan_id: 12
+[2025-01-19 12:10:38] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 12:10:38] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"1000.00"}
+[2025-01-19 12:10:38] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 12, Investment Amount: 1000
+[2025-01-19 12:10:38] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 12:10:38] User 810175's balance updated. New balance: 10000
+[2025-01-19 12:10:38] Investment added successfully for User ID: 810175
+[2025-01-19 12:10:38] Transaction added successfully. Transaction ID: txn_678cebbededc2, User ID: 810175, Amount: 1000
+[2025-01-19 12:52:26] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-19 12:52:26] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 12:52:27] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-19 12:52:27] - Available balance for crypto_symbol (USDT): 101000
+[2025-01-19 12:52:27] - Response sent: success = true, available_balance = 101000
+[2025-01-19 12:52:27] Received request for investment plan with plan_id: 12
+[2025-01-19 12:52:27] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 12:52:27] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"2000.00"}
+[2025-01-19 12:52:27] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 12, Investment Amount: 2000
+[2025-01-19 12:52:27] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 12:52:27] User 274946's balance updated. New balance: 103000
+[2025-01-19 12:52:27] Investment added successfully for User ID: 274946
+[2025-01-19 12:52:27] Transaction added successfully. Transaction ID: txn_678cf58bea989, User ID: 274946, Amount: 2000
+[2025-01-19 12:52:28] Investment email notification sent to admin@oceanfortune.com for Transaction ID: txn_678cf58bea989
+[2025-01-19 12:54:14] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-19 12:54:14] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 12:54:14] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-19 12:54:14] - Available balance for crypto_symbol (USDT): 99000
+[2025-01-19 12:54:14] - Response sent: success = true, available_balance = 99000
+[2025-01-19 12:54:15] Received request for investment plan with plan_id: 12
+[2025-01-19 12:54:15] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 12:54:15] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"3000.00"}
+[2025-01-19 12:54:15] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 12, Investment Amount: 3000
+[2025-01-19 12:54:15] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 12:54:15] Investment validation failed. Amount not within range.
+[2025-01-19 12:54:31] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-19 12:54:31] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 12:54:32] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-19 12:54:32] - Available balance for crypto_symbol (USDT): 99000
+[2025-01-19 12:54:32] - Response sent: success = true, available_balance = 99000
+[2025-01-19 12:54:32] Received request for investment plan with plan_id: 12
+[2025-01-19 12:54:32] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 12:54:33] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"1500.00"}
+[2025-01-19 12:54:33] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 12, Investment Amount: 1500
+[2025-01-19 12:54:33] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 12:54:33] User 274946's balance updated. New balance: 101500
+[2025-01-19 12:54:33] Investment added successfully for User ID: 274946
+[2025-01-19 12:54:33] Transaction added successfully. Transaction ID: txn_678cf60926b0f, User ID: 274946, Amount: 1500
+[2025-01-19 12:54:33] Investment email notification sent to admin@oceanfortune.com for Transaction ID: txn_678cf60926b0f
+[2025-01-19 12:55:44] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-19 12:55:44] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 12:55:44] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-19 12:55:44] - Available balance for crypto_symbol (USDT): 97500
+[2025-01-19 12:55:44] - Response sent: success = true, available_balance = 97500
+[2025-01-19 12:55:45] Received request for investment plan with plan_id: 12
+[2025-01-19 12:55:45] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 12:55:45] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"500.00"}
+[2025-01-19 12:55:45] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 12, Investment Amount: 500
+[2025-01-19 12:55:45] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 12:55:45] User 274946's balance updated. New balance: 101000
+[2025-01-19 12:55:45] Investment added successfully for User ID: 274946
+[2025-01-19 12:55:45] Transaction added successfully. Transaction ID: txn_678cf65173e56, User ID: 274946, Amount: 500
+[2025-01-19 13:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 13:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 13:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 13:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 13:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 13:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 13:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 13:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 14:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 14:00:02] Investment 8 updated. Incremental earnings added: 40, Total earnings: 40
+[2025-01-19 14:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 14:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 14:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 14:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 14:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 14:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 15:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 16:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 17:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 17:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 17:00:02] Investment 9 updated. Incremental earnings added: 90, Total earnings: 90
+[2025-01-19 17:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 17:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 17:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 17:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 17:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 18:00:01] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 19:00:01] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 7: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 20:47:10] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-19 20:47:10] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 20:47:11] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-19 20:47:11] - Available balance for crypto_symbol (USDT): 98000
+[2025-01-19 20:47:11] - Response sent: success = true, available_balance = 98000
+[2025-01-19 20:47:11] Received request for investment plan with plan_id: 13
+[2025-01-19 20:47:11] Investment plan found. Plan details: {"id":13,"crypto_id":7,"name":"USDT Bronze Minning","roi":"3.00","roi_max":"3.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitoring Profits Daily","created_at":"2025-01-11 11:10:45","updated_at":"2025-01-11 11:10:45"}
+[2025-01-19 20:47:11] Raw input: {"crypto_id":7,"plan_id":13,"investment_amount":"3000.00"}
+[2025-01-19 20:47:11] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 13, Investment Amount: 3000
+[2025-01-19 20:47:11] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 20:47:11] User 274946's balance updated. New balance: 99000
+[2025-01-19 20:47:11] Investment added successfully for User ID: 274946
+[2025-01-19 20:47:11] Transaction added successfully. Transaction ID: txn_678d64cfab25a, User ID: 274946, Amount: 3000
+[2025-01-19 21:00:02] Investment 7 completed. Total earnings: 80
+[2025-01-19 21:00:02] User 810175's balance updated. New balance: 13080
+[2025-01-19 21:00:02] Transaction added successfully. Transaction ID: txn_678d67d267c19, User ID: 810175, Amount: 80, Crypto Symbol: USDT
+[2025-01-19 21:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 21:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 21:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 21:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 21:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 21:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 21:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 21:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-19 22:18:34] - Request received: user_id = 274946, crypto_id = 7
+[2025-01-19 22:18:34] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 22:18:35] - Request received: user_id = 274946, crypto_symbol = USDT
+[2025-01-19 22:18:35] - Available balance for crypto_symbol (USDT): 95000
+[2025-01-19 22:18:35] - Response sent: success = true, available_balance = 95000
+[2025-01-19 22:18:35] Received request for investment plan with plan_id: 12
+[2025-01-19 22:18:35] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 22:18:35] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"2000.00"}
+[2025-01-19 22:18:35] Received investment request. User ID: 274946, Crypto ID: 7, Plan ID: 12, Investment Amount: 2000
+[2025-01-19 22:18:35] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 22:18:35] User 274946's balance updated. New balance: 97000
+[2025-01-19 22:18:35] Investment added successfully for User ID: 274946
+[2025-01-19 22:18:35] Transaction added successfully. Transaction ID: txn_678d7a3beaf54, User ID: 274946, Amount: 2000
+[2025-01-19 22:18:36] Investment email notification sent to admin@oceanfortune.com for Transaction ID: txn_678d7a3beaf54
+[2025-01-19 22:18:36] Investment notification inserted for User ID: 274946
+[2025-01-19 22:30:46] - Request received: user_id = 424983, crypto_id = 7
+[2025-01-19 22:30:46] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 22:30:47] - Request received: user_id = 424983, crypto_symbol = USDT
+[2025-01-19 22:30:47] - Available balance for crypto_symbol (USDT): 1000
+[2025-01-19 22:30:47] - Response sent: success = true, available_balance = 1000
+[2025-01-19 22:30:47] Received request for investment plan with plan_id: 12
+[2025-01-19 22:30:47] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 22:30:47] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"200.00"}
+[2025-01-19 22:30:47] Received investment request. User ID: 424983, Crypto ID: 7, Plan ID: 12, Investment Amount: 200
+[2025-01-19 22:30:47] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 22:30:47] Investment validation failed. Amount not within range.
+[2025-01-19 22:31:07] - Request received: user_id = 424983, crypto_id = 7
+[2025-01-19 22:31:07] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-19 22:31:08] - Request received: user_id = 424983, crypto_symbol = USDT
+[2025-01-19 22:31:08] - Available balance for crypto_symbol (USDT): 1000
+[2025-01-19 22:31:08] - Response sent: success = true, available_balance = 1000
+[2025-01-19 22:31:08] Received request for investment plan with plan_id: 12
+[2025-01-19 22:31:08] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-19 22:31:08] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"1000.00"}
+[2025-01-19 22:31:08] Received investment request. User ID: 424983, Crypto ID: 7, Plan ID: 12, Investment Amount: 1000
+[2025-01-19 22:31:08] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-19 22:31:08] User 424983's balance updated. New balance: 1000
+[2025-01-19 22:31:08] Investment added successfully for User ID: 424983
+[2025-01-19 22:31:08] Transaction added successfully. Transaction ID: txn_678d7d2ccc573, User ID: 424983, Amount: 1000
+[2025-01-19 22:31:08] Investment email notification sent to tamunosajeminimiema@gmail.com for Transaction ID: txn_678d7d2ccc573
+[2025-01-19 22:31:08] Investment notification inserted for User ID: 424983
+[2025-01-19 23:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-19 23:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 00:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 01:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 02:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 03:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 04:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 10 updated. Incremental earnings added: 40, Total earnings: 40
+[2025-01-20 05:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 05:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 06:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 07:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 08:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 08:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 08:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 08:00:02] Investment 11 updated. Incremental earnings added: 20, Total earnings: 20
+[2025-01-20 08:00:02] Investment 12 updated. Incremental earnings added: 40, Total earnings: 40
+[2025-01-20 08:00:02] Investment 13 updated. Incremental earnings added: 30, Total earnings: 30
+[2025-01-20 08:00:02] Investment 14 updated. Incremental earnings added: 10, Total earnings: 10
+[2025-01-20 08:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 08:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 08:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 09:20:44] - Request received: user_id = 219584, crypto_id = 1
+[2025-01-20 09:20:44] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-20 09:20:44] - Request received: user_id = 219584, crypto_symbol = BTC
+[2025-01-20 09:20:44] - Available balance for crypto_symbol (BTC): 5820
+[2025-01-20 09:20:44] - Response sent: success = true, available_balance = 5820
+[2025-01-20 09:20:45] Received request for investment plan with plan_id: 5
+[2025-01-20 09:20:45] Investment plan found. Plan details: {"id":5,"crypto_id":1,"name":"BTC Silver Mining","roi":"5.00","roi_max":"5.00","minimum":"5000.00","maximum":"9999.00","earning_duration":"1440","duration_timeframe":"4","duration":"1440","commission":"5.00","benefit":" Monitoring profits daily","created_at":"2025-01-11 10:44:01","updated_at":"2025-01-15 04:31:26"}
+[2025-01-20 09:20:45] Raw input: {"crypto_id":1,"plan_id":5,"investment_amount":"5200.00"}
+[2025-01-20 09:20:45] Received investment request. User ID: 219584, Crypto ID: 1, Plan ID: 5, Investment Amount: 5200
+[2025-01-20 09:20:45] Crypto symbol found: BTC for crypto_id: 1
+[2025-01-20 09:20:45] User 219584's balance updated. New balance: 620
+[2025-01-20 09:20:45] Investment added successfully for User ID: 219584
+[2025-01-20 09:20:45] Transaction added successfully. Transaction ID: txn_678e156d585c7, User ID: 219584, Amount: 5200
+[2025-01-20 09:20:45] Investment email notification sent to laneraig@gmail.com for Transaction ID: txn_678e156d585c7
+[2025-01-20 09:20:45] Investment notification inserted for User ID: 219584
+[2025-01-20 09:21:01] - Request received: user_id = 683543, crypto_id = 7
+[2025-01-20 09:21:01] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-20 09:21:02] - Request received: user_id = 683543, crypto_symbol = USDT
+[2025-01-20 09:21:02] - Available balance for crypto_symbol (USDT): 1000
+[2025-01-20 09:21:02] - Response sent: success = true, available_balance = 1000
+[2025-01-20 09:21:02] Received request for investment plan with plan_id: 12
+[2025-01-20 09:21:02] Investment plan found. Plan details: {"id":12,"crypto_id":7,"name":"USDT Trial plan","roi":"2.00","roi_max":"2.00","minimum":"300.00","maximum":"2999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitor Profits Daily","created_at":"2025-01-11 11:08:37","updated_at":"2025-01-11 11:08:37"}
+[2025-01-20 09:21:02] Raw input: {"crypto_id":7,"plan_id":12,"investment_amount":"1000.00"}
+[2025-01-20 09:21:02] Received investment request. User ID: 683543, Crypto ID: 7, Plan ID: 12, Investment Amount: 1000
+[2025-01-20 09:21:02] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-20 09:21:02] User 683543's balance updated. New balance: 0
+[2025-01-20 09:21:02] Investment added successfully for User ID: 683543
+[2025-01-20 09:21:02] Transaction added successfully. Transaction ID: txn_678e157ec7b1b, User ID: 683543, Amount: 1000
+[2025-01-20 09:21:02] Investment email notification sent to tacosabrina2@gmail.com for Transaction ID: txn_678e157ec7b1b
+[2025-01-20 09:21:02] Investment notification inserted for User ID: 683543
+[2025-01-20 10:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 10:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 11:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 12:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 13:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 8 updated. Incremental earnings added: 40, Total earnings: 80
+[2025-01-20 14:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 14:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 15:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 9: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 15 updated. Incremental earnings added: 90, Total earnings: 90
+[2025-01-20 16:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 16:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 17:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 17:00:02] Investment 9 completed. Total earnings: 180
+[2025-01-20 17:00:02] User 810175's balance updated. New balance: 13260
+[2025-01-20 17:00:02] Transaction added successfully. Transaction ID: txn_678e8112393ac, User ID: 810175, Amount: 180, Crypto Symbol: USDT
+[2025-01-20 17:00:02] Investment completion email sent to dannywiz480@gmail.com for Transaction ID: txn_678e8112393ac
+[2025-01-20 17:00:02] Investment completion notification sent to User ID: 810175
+[2025-01-20 18:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 16 updated. Incremental earnings added: 40, Total earnings: 40
+[2025-01-20 18:00:02] Investment 17 updated. Incremental earnings added: 20, Total earnings: 20
+[2025-01-20 18:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 18:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 19:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 20:00:01] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 21:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 22:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-20 23:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 00:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 01:00:01] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 02:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 03:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 10: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 04:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 05:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 05:00:02] Investment 10 completed. Total earnings: 80
+[2025-01-21 05:00:02] User 810175's balance updated. New balance: 15340
+[2025-01-21 05:00:02] Transaction added successfully. Transaction ID: txn_678f29d26714e, User ID: 810175, Amount: 80, Crypto Symbol: USDT
+[2025-01-21 05:00:02] Investment completion email sent to dannywiz480@gmail.com for Transaction ID: txn_678f29d26714e
+[2025-01-21 05:00:02] Investment completion notification sent to User ID: 810175
+[2025-01-21 06:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 06:00:02] Investment 18 updated. Incremental earnings added: 260, Total earnings: 260
+[2025-01-21 06:00:02] Investment 19 updated. Incremental earnings added: 20, Total earnings: 20
+[2025-01-21 07:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 11: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 12: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 13: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 14: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 07:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 08:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 08:00:02] Investment 11 completed. Total earnings: 40
+[2025-01-21 08:00:02] User 810175's balance updated. New balance: 16380
+[2025-01-21 08:00:02] Transaction added successfully. Transaction ID: txn_678f5402b9a21, User ID: 810175, Amount: 40, Crypto Symbol: USDT
+[2025-01-21 08:00:02] Investment completion email sent to dannywiz480@gmail.com for Transaction ID: txn_678f5402b9a21
+[2025-01-21 08:00:02] Investment completion notification sent to User ID: 810175
+[2025-01-21 09:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 09:00:02] Investment 12 completed. Total earnings: 80
+[2025-01-21 09:00:02] User 274946's balance updated. New balance: 99080
+[2025-01-21 09:00:02] Transaction added successfully. Transaction ID: txn_678f6212960ab, User ID: 274946, Amount: 2080, Crypto Symbol: USDT
+[2025-01-21 09:00:02] Investment completion email sent to admin@oceanfortune.com for Transaction ID: txn_678f6212960ab
+[2025-01-21 09:00:02] Investment completion notification sent to User ID: 274946
+[2025-01-21 10:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 10:00:02] Investment 13 completed. Total earnings: 60
+[2025-01-21 10:00:02] User 274946's balance updated. New balance: 100640
+[2025-01-21 10:00:02] Transaction added successfully. Transaction ID: txn_678f7022e291c, User ID: 274946, Amount: 1560, Crypto Symbol: USDT
+[2025-01-21 10:00:03] Investment completion email sent to admin@oceanfortune.com for Transaction ID: txn_678f7022e291c
+[2025-01-21 10:00:03] Investment completion notification sent to User ID: 274946
+[2025-01-21 11:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 11:00:02] Investment 14 completed. Total earnings: 20
+[2025-01-21 11:00:02] User 274946's balance updated. New balance: 101160
+[2025-01-21 11:00:02] Transaction added successfully. Transaction ID: txn_678f7e322ce3d, User ID: 274946, Amount: 520, Crypto Symbol: USDT
+[2025-01-21 11:00:02] Investment completion email sent to admin@oceanfortune.com for Transaction ID: txn_678f7e322ce3d
+[2025-01-21 11:00:02] Investment completion notification sent to User ID: 274946
+[2025-01-21 12:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 12:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 12:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 12:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 12:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 12:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 13:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 13:00:01] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 13:00:01] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 13:00:01] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 13:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 13:00:01] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 14:00:02] Investment 8 updated. Incremental earnings added: 40, Total earnings: 120
+[2025-01-21 14:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 14:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 14:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 14:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 14:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 15:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 15:00:02] Investment 15: Not enough time has elapsed for earnings to be added.
+[2025-01-21 15:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 15:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 15:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 15:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 16:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 16:00:02] Investment 15 completed. Total earnings: 180
+[2025-01-21 16:00:02] User 274946's balance updated. New balance: 104340
+[2025-01-21 16:00:02] Transaction added successfully. Transaction ID: txn_678fc4827a288, User ID: 274946, Amount: 3180, Crypto Symbol: USDT
+[2025-01-21 16:00:02] Investment completion email sent to admin@oceanfortune.com for Transaction ID: txn_678fc4827a288
+[2025-01-21 16:00:02] Investment completion notification sent to User ID: 274946
+[2025-01-21 17:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 17:00:02] Investment 16: Not enough time has elapsed for earnings to be added.
+[2025-01-21 17:00:02] Investment 17: Not enough time has elapsed for earnings to be added.
+[2025-01-21 17:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 17:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 18:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 18:00:02] Investment 16 completed. Total earnings: 80
+[2025-01-21 18:00:02] User 274946's balance updated. New balance: 106420
+[2025-01-21 18:00:02] Transaction added successfully. Transaction ID: txn_678fe0a25da11, User ID: 274946, Amount: 2080, Crypto Symbol: USDT
+[2025-01-21 18:00:02] Investment completion email sent to admin@oceanfortune.com for Transaction ID: txn_678fe0a25da11
+[2025-01-21 18:00:02] Investment completion notification sent to User ID: 274946
+[2025-01-21 19:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 19:00:01] Investment 17 completed. Total earnings: 40
+[2025-01-21 19:00:01] User 424983's balance updated. New balance: 2040
+[2025-01-21 19:00:01] Transaction added successfully. Transaction ID: txn_678feeb1c4a1d, User ID: 424983, Amount: 1040, Crypto Symbol: USDT
+[2025-01-21 19:00:01] Investment completion email sent to tamunosajeminimiema@gmail.com for Transaction ID: txn_678feeb1c4a1d
+[2025-01-21 19:00:01] Investment completion notification sent to User ID: 424983
+[2025-01-21 20:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 20:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 20:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 21:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 21:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 21:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 22:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 22:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 22:00:01] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-21 23:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-21 23:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-21 23:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-22 00:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 00:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 00:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-22 01:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 01:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 01:00:01] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-22 02:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 02:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 02:00:01] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-22 03:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 03:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 03:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-22 04:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 04:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 04:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-22 05:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 05:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 05:00:02] Investment 19: Not enough time has elapsed for earnings to be added.
+[2025-01-22 06:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 06:00:02] Investment 18 updated. Incremental earnings added: 260, Total earnings: 520
+[2025-01-22 06:00:02] Investment 19 completed. Total earnings: 40
+[2025-01-22 06:00:02] User 683543's balance updated. New balance: 2040
+[2025-01-22 06:00:02] Transaction added successfully. Transaction ID: txn_67908962a792c, User ID: 683543, Amount: 1040, Crypto Symbol: USDT
+[2025-01-22 06:00:02] Investment completion email sent to tacosabrina2@gmail.com for Transaction ID: txn_67908962a792c
+[2025-01-22 06:00:02] Investment completion notification sent to User ID: 683543
+[2025-01-22 07:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 07:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 08:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 08:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 09:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 09:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+Response: {"success":true,"message":"A new OTP has been sent to your email."}[2025-01-22 10:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 10:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+Response: {"success":true,"message":"A new OTP has been sent to your email."}Response: {"success":true,"message":"A new OTP has been sent to your email."}[2025-01-22 11:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 11:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 12:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 12:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 12:41:50] - Request received: user_id = 916003, crypto_id = 1
+[2025-01-22 12:41:50] - Success: Crypto symbol found: BTC for crypto_id = 1.
+[2025-01-22 12:41:50] - Request received: user_id = 916003, crypto_symbol = BTC
+[2025-01-22 12:41:50] - Available balance for crypto_symbol (BTC): 0
+[2025-01-22 12:41:50] - Response sent: success = true, available_balance = 0
+[2025-01-22 13:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 13:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+Response: {"success":true,"message":"A new OTP has been sent to your email."}Response: {"success":true,"message":"A new OTP has been sent to your email."}[2025-01-22 14:00:02] Investment 8 updated. Incremental earnings added: 40, Total earnings: 160
+[2025-01-22 14:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 15:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 15:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 16:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 16:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 17:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 17:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 18:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 18:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 18:36:42] - Request received: user_id = 810175, crypto_id = 9
+[2025-01-22 18:36:42] - Success: Crypto symbol found: XRP for crypto_id = 9.
+[2025-01-22 18:36:42] - Request received: user_id = 810175, crypto_symbol = XRP
+[2025-01-22 18:36:42] - Available balance for crypto_symbol (XRP): 0
+[2025-01-22 18:36:42] - Response sent: success = true, available_balance = 0
+[2025-01-22 18:37:13] - Request received: user_id = 810175, crypto_id = 7
+[2025-01-22 18:37:13] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-22 18:37:13] - Request received: user_id = 810175, crypto_symbol = USDT
+[2025-01-22 18:37:13] - Available balance for crypto_symbol (USDT): 8880
+[2025-01-22 18:37:13] - Response sent: success = true, available_balance = 8880
+[2025-01-22 18:37:13] Received request for investment plan with plan_id: 14
+[2025-01-22 18:37:13] Investment plan found. Plan details: {"id":14,"crypto_id":7,"name":"USDT Silver Minning","roi":"5.00","roi_max":"5.00","minimum":"5000.00","maximum":"9999.00","earning_duration":"1440","duration_timeframe":"4","duration":"1440","commission":"5.00","benefit":"Monitoring Profits Daily","created_at":"2025-01-11 11:13:08","updated_at":"2025-01-11 11:13:08"}
+[2025-01-22 18:37:14] Raw input: {"crypto_id":7,"plan_id":14,"investment_amount":"5000.00"}
+[2025-01-22 18:37:14] Received investment request. User ID: 810175, Crypto ID: 7, Plan ID: 14, Investment Amount: 5000
+[2025-01-22 18:37:14] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-22 18:37:14] User 810175's balance updated. New balance: 11380
+[2025-01-22 18:37:14] Investment added successfully for User ID: 810175
+[2025-01-22 18:37:14] Transaction added successfully. Transaction ID: txn_67913ada14d17, User ID: 810175, Amount: 5000
+[2025-01-22 18:37:14] Investment email notification sent to dannywiz480@gmail.com for Transaction ID: txn_67913ada14d17
+[2025-01-22 18:37:14] Investment notification inserted for User ID: 810175
+[2025-01-22 19:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 19:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 19:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+Response: {"success":true,"message":"A new OTP has been sent to your email."}[2025-01-22 20:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 20:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 20:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-22 21:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 21:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 21:00:01] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-22 22:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 22:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 22:00:01] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-22 22:30:53] - Request received: user_id = 233216, crypto_id = 7
+[2025-01-22 22:30:53] - Success: Crypto symbol found: USDT for crypto_id = 7.
+[2025-01-22 22:30:53] - Request received: user_id = 233216, crypto_symbol = USDT
+[2025-01-22 22:30:53] - Available balance for crypto_symbol (USDT): 25000
+[2025-01-22 22:30:53] - Response sent: success = true, available_balance = 25000
+[2025-01-22 22:30:53] Received request for investment plan with plan_id: 15
+[2025-01-22 22:30:53] Investment plan found. Plan details: {"id":15,"crypto_id":7,"name":"USDT Gold Minning","roi":"10.00","roi_max":"10.00","minimum":"10000.00","maximum":"500000.00","earning_duration":"1440","duration_timeframe":"7","duration":"1440","commission":"5.00","benefit":"Monitoring Profits Daily","created_at":"2025-01-11 11:15:46","updated_at":"2025-01-11 11:15:46"}
+[2025-01-22 22:30:54] Raw input: {"crypto_id":7,"plan_id":15,"investment_amount":"15000.00"}
+[2025-01-22 22:30:54] Received investment request. User ID: 233216, Crypto ID: 7, Plan ID: 15, Investment Amount: 15000
+[2025-01-22 22:30:54] Crypto symbol found: USDT for crypto_id: 7
+[2025-01-22 22:30:54] User 233216's balance updated. New balance: 10000
+[2025-01-22 22:30:54] Investment added successfully for User ID: 233216
+[2025-01-22 22:30:54] Transaction added successfully. Transaction ID: txn_6791719e11016, User ID: 233216, Amount: 15000
+[2025-01-22 22:30:54] Investment email notification sent to waterparkdre@gmail.com for Transaction ID: txn_6791719e11016
+[2025-01-22 22:30:54] Investment notification inserted for User ID: 233216
+[2025-01-22 23:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-22 23:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-22 23:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-22 23:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 00:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 00:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-23 00:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 00:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 01:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 01:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-23 01:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 01:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 02:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 02:00:01] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-23 02:00:01] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 02:00:01] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 03:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 03:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-23 03:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 03:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 04:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 04:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-23 04:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 04:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 05:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 05:00:02] Investment 18: Not enough time has elapsed for earnings to be added.
+[2025-01-23 05:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 05:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 06:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 06:00:02] Investment 18 completed. Total earnings: 780
+[2025-01-23 06:00:02] User 219584's balance updated. New balance: 6600
+[2025-01-23 06:00:02] Transaction added successfully. Transaction ID: txn_6791dae259d0d, User ID: 219584, Amount: 5980, Crypto Symbol: BTC
+[2025-01-23 06:00:02] Investment completion email sent to laneraig@gmail.com for Transaction ID: txn_6791dae259d0d
+[2025-01-23 06:00:02] Investment completion notification sent to User ID: 219584
+[2025-01-23 07:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 07:00:01] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 07:00:01] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 08:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 08:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 08:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 09:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 09:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 09:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 10:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 10:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 10:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 11:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 11:00:01] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 11:00:01] Investment 21: Not enough time has elapsed for earnings to be added.
+Response: {"success":true,"message":"A new OTP has been sent to your email."}[2025-01-23 12:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 12:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 12:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 12:03:42] - Request received: user_id = 290754, crypto_id = 2
+[2025-01-23 12:03:42] - Success: Crypto symbol found: ETH for crypto_id = 2.
+[2025-01-23 12:03:43] - Request received: user_id = 290754, crypto_symbol = ETH
+[2025-01-23 12:03:43] - Available balance for crypto_symbol (ETH): 6503
+[2025-01-23 12:03:43] - Response sent: success = true, available_balance = 6503
+[2025-01-23 12:04:35] - Request received: user_id = 290754, crypto_id = 2
+[2025-01-23 12:04:35] - Success: Crypto symbol found: ETH for crypto_id = 2.
+[2025-01-23 12:04:37] - Request received: user_id = 290754, crypto_symbol = ETH
+[2025-01-23 12:04:37] - Available balance for crypto_symbol (ETH): 6503
+[2025-01-23 12:04:37] - Response sent: success = true, available_balance = 6503
+[2025-01-23 12:04:38] Received request for investment plan with plan_id: 8
+[2025-01-23 12:04:38] Investment plan found. Plan details: {"id":8,"crypto_id":2,"name":"ETH Bronze Mining","roi":"1.50","roi_max":"2.00","minimum":"3000.00","maximum":"4999.00","earning_duration":"1440","duration_timeframe":"3","duration":"1440","commission":"5.00","benefit":"Monitoring profits daily","created_at":"2025-01-11 10:59:20","updated_at":"2025-01-11 10:59:20"}
+[2025-01-23 12:04:39] Raw input: {"crypto_id":2,"plan_id":8,"investment_amount":"3200.00"}
+[2025-01-23 12:04:39] Received investment request. User ID: 290754, Crypto ID: 2, Plan ID: 8, Investment Amount: 3200
+[2025-01-23 12:04:39] Crypto symbol found: ETH for crypto_id: 2
+[2025-01-23 12:04:39] User 290754's balance updated. New balance: 9533
+[2025-01-23 12:04:39] Investment added successfully for User ID: 290754
+[2025-01-23 12:04:39] Transaction added successfully. Transaction ID: txn_67923057cf542, User ID: 290754, Amount: 3200
+[2025-01-23 12:04:39] Investment email notification sent to laneraig@gmail.com for Transaction ID: txn_67923057cf542
+[2025-01-23 12:04:39] Investment notification inserted for User ID: 290754
+[2025-01-23 13:00:02] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 13:00:02] Investment 20: Not enough time has elapsed for earnings to be added.
+[2025-01-23 13:00:02] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 13:00:02] Investment 22: Not enough time has elapsed for earnings to be added.
+[2025-01-23 14:00:01] Investment 8: Not enough time has elapsed for earnings to be added.
+[2025-01-23 14:00:01] Investment 20 updated. Incremental earnings added: 250, Total earnings: 250
+[2025-01-23 14:00:01] Investment 21: Not enough time has elapsed for earnings to be added.
+[2025-01-23 14:00:01] Investment 22: Not enough time has elapsed for earnings to be added.
+[2025-01-23 15:00:02] Investment 8 completed. Total earnings: 200
+[2025-01-23 15:00:02] User 810175's balance updated. New balance: 15580
+[2025-01-23 15:00:02] Transaction added successfully. Transaction ID: txn_6792597202b81, User ID: 810175, Amount: 2200, Crypto Symbol: BTC
+[2025-01-23 15:00:02] Investment completion email sent to dannywiz480@gmail.com for Transaction ID: txn_6792597202b81
+[2025-01-23 15:00:02] Investment completion notification sent to User ID: 810175

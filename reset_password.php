@@ -105,23 +105,21 @@
 							?>
    						 <?php endif; ?>
                         <!-- <div id="error" class="error_message">Login error!</div> -->
-                        <div class="input-group">
-                            <input type="text" id="email_input" name="email" required>
-                            <label for="">Email Address</label>
-                        </div>
+                        <form method="POST" action="reset_password_logic.php">
+                            <div class="input-group">
+                                <input type="text" id="email_input" name="email" required>
+                                <label for="email_input">Email Address</label>
+                            </div>
 
+                            <div class="forgot_password">
+                                <span>Remember your password? <a href="./login.php">Login here</a></span>
+                            </div>
 
+                            <div class="submit_btn_wrapper">
+                                <button type="submit" name="reset_btn">Reset Password</button>
+                            </div>
+                        </form>
 
-
-                        <div class="forgot_password">
-                            <span>Remember your password? <a id="" href="./login.php">Login here</a></span>
-                             
-
-                        </div>
-
-                        <div class="submit_btn_wrapper">
-                            <button type="submit" name="signin_btn">Reset Password</button>
-                        </div>
 
                      
 

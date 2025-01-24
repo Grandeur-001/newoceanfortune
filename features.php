@@ -67,13 +67,13 @@ addLoginNotification($user_lname);
     animation: none;
   }
   :root {
---background: #0f172a;
---surface: #1e293b;
---text-color: #ffffff;
---secondary-text: #8b8ca7;
---primary-dark: #4f46e5;
---primary-color: #6366f1;
---border-color: #2a2f3e;
+--background: #1a1a1a;
+--surface: #222222;
+--text-color: #F5F5F5;
+--secondary-text: #A9A9A9;
+--primary-dark: #A6841C;
+--primary-color: #C9A227;
+--border-color: #2A2A2A;
 --hover-color: rgba(255, 255, 255, 0.05);
 --positive-color: #00c853;
 --negative-color: #ff0000;
@@ -912,7 +912,7 @@ background-color: var(--primary-dark);
 
         <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
         <div class="crypto-ticker">
-          <div style="height:62px; background-color: #1e293b; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
+          <div style="height:62px; background-color: #222222; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
               <div style="height:40px; padding:0px; margin:0px; width: 100%;">
                   <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
                   <!-- <script>
@@ -928,7 +928,7 @@ background-color: var(--primary-dark);
                           };
                   </script> -->
               </div>
-              <div style="color: #1e293b; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+              <div style="color: #222222; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
                   <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a>
               </div>
           </div>
@@ -1867,10 +1867,7 @@ background-color: var(--primary-dark);
                             <div class="plans-card">
                                 <div class="plans-card-header">
                                     <h5>${plan.name}
-                                    <div class="plans-card-dropdown">
-                                        <div class="plans-card-dropdown-item edit_mining" data-edit-popup="${uniqueEditPopupId}">Edit <span>${plan.name}</span></div>
-                                        <div class="plans-card-dropdown-item delete_mining" data-delete-popup="${uniqueDeletePopupId}">Delete <span>${plan.name}</span></div>
-                                    </div>
+                                    
                                     </h5>
                                 </div>
                                 <div class="card-body">

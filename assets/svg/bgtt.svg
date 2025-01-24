@@ -388,10 +388,10 @@
     </g>
     <defs>
         <mask id="SvgjsMask1000">
-            <rect width="1440" height="560" fill="#ffffff"></rect>
+            <rect width="1440" height="560" fill="#F5F5F5"></rect>
         </mask>
         <radialGradient id="SvgjsRadialGradient1001">
-            <stop stop-color="#ffffff" offset="0.1"></stop>
+            <stop stop-color="#F5F5F5" offset="0.1"></stop>
             <stop stop-color="#1735b3" offset="0.2"></stop>
             <stop stop-color="rgba(23, 53, 179, 0)" offset="1"></stop>
         </radialGradient>

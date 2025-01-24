@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-session_start();
+// session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 $user_fname = $_SESSION['user_firstname'];
 $user_lname = $_SESSION['user_lastname'];
-$email = $_SESSION['user_email'];
+$email = $_SESSION['email'];
 $phone = $_SESSION['user_phone'];
 
 // Initialize feedback messages
@@ -37,7 +37,7 @@ if (isset($_POST['update_profile'])) {
     if (mysqli_query($conn, $update_query)) {
         $_SESSION['user_firstname'] = $new_fname;
         $_SESSION['user_lastname'] = $new_lname;
-        $_SESSION['user_email'] = $new_email;
+        $_SESSION['email'] = $new_email;
         $_SESSION['user_phone'] = $new_phone;
 
         $update_success = 'Profile updated successfully.';

@@ -88,6 +88,7 @@ if ($stmt = $conn->prepare($processQuery)) {
                     // Finalize the investment
                     $finalEarnings = $total_earnings + $current_earnings + $incrementalEarnings;
 
+                    // Update the investment status and total earnings
                     $updateQuery = "UPDATE investments SET total_earnings = ?, earnings = 0, status = 'completed', completed_at = ?, last_earning_time = ? WHERE investment_id = ?";
                     if ($stmtUpdate = $conn->prepare($updateQuery)) {
                         $completed_at = $currentDateTime->format('Y-m-d H:i:s');
@@ -104,7 +105,8 @@ if ($stmt = $conn->prepare($processQuery)) {
                         $stmtUser->execute();
                         $userResult = $stmtUser->get_result();
                         if ($user = $userResult->fetch_assoc()) {
-                            $newBalance = $user['balance'] + $finalEarnings;
+                            // Calculate the new balance as the original investment + total earnings
+                            $newBalance = $user['balance'] + $investment_amount + $finalEarnings;  // Add investment amount + earnings
                             $updateBalanceQuery = "UPDATE users SET balance = ? WHERE user_id = ?";
                             if ($stmtUpdateBalance = $conn->prepare($updateBalanceQuery)) {
                                 $stmtUpdateBalance->bind_param("di", $newBalance, $user_id);
@@ -113,12 +115,13 @@ if ($stmt = $conn->prepare($processQuery)) {
 
                                 // Add transaction to the transactions table
                                 $transaction_id = txn_time();
+                                $totalTransactionAmount = $investment_amount + $finalEarnings; // Calculate the total amount
                                 $transactionQuery = "INSERT INTO transactions (transaction_id, user_id, crypto_symbol, amount, transaction_type, wallet_address, status) 
                                                      VALUES (?, ?, ?, ?, 'deposit', 'earnings', 'completed')";
                                 if ($stmtTransaction = $conn->prepare($transactionQuery)) {
-                                    $stmtTransaction->bind_param("sisd", $transaction_id, $user_id, $crypto_symbol, $finalEarnings);
+                                    $stmtTransaction->bind_param("sisd", $transaction_id, $user_id, $crypto_symbol,$totalTransactionAmount);
                                     $stmtTransaction->execute();
-                                    logMessage("Transaction added successfully. Transaction ID: {$transaction_id}, User ID: {$user_id}, Amount: {$finalEarnings}, Crypto Symbol: {$crypto_symbol}");
+                                    logMessage("Transaction added successfully. Transaction ID: {$transaction_id}, User ID: {$user_id}, Amount: {$totalTransactionAmount}, Crypto Symbol: {$crypto_symbol}");
                                     
                                     // Send email notification
                                     $userQuery = "SELECT firstname, email FROM users WHERE user_id = '$user_id'";
@@ -195,4 +198,3 @@ if ($stmt = $conn->prepare($processQuery)) {
 }
 $conn->close();
 ?>
-

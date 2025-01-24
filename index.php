@@ -71,7 +71,7 @@
                     align-items: center;
                     justify-content: center;
                     line-height: inherit;
-                    color: var(--color-five-white) !important;
+                    color: var(--text-color) !important;
                     padding: 10px 15px;
                     box-shadow: 7px 7px 15px 0px #0e101597;
                     transform: translateX(10%);
@@ -1280,7 +1280,7 @@
             }
     
             .toast {
-                background-color: var(--color-six-black);
+                background-color: var(--background);
                 color: var(--color-four-gray);
                 padding: 10px 20px;
                 border-radius: 5px;

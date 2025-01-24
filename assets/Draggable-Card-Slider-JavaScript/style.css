@@ -19,11 +19,11 @@ body {
   --color-one-purple: #AC01FF;
   --color-two-blue2: #1dcffc56;
   --color-two-blue: #1DCFFC;
-  --color-three-darkblue: #1F232F;
-  --color-three-darkblue2: #2b3141;
+  --background: #1F232F;
+  --surface: #222222;
   --color-four-gray: #9AA0A7; /* text color*/
-  --color-four-gray2: #9aa0a752;
-  --color-five-white: #ffffff;
+  --border-color: #9aa0a752;
+  --text-color: #F5F5F5;
   --border-radius:26px 26px 26px 26px;
   --box-shadow: 7px 7px 15px 0px #0E1015;
 }
@@ -97,7 +97,7 @@ body {
   scroll-snap-align: start;
   height: 372px;
   list-style: none;
-  background: var(--color-three-darkblue);
+  background: var(--background);
   cursor: pointer;
   flex-direction: column;
   border-radius: 8px;
@@ -112,13 +112,13 @@ body {
 }
 
 .carousel .card:hover{
-  border: 2px solid var(--color-five-white);
+  border: 2px solid var(--text-color);
   box-shadow: none;
 
 }
 
 .carousel .card .img {
-  background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+  background: linear-gradient(135deg, #C9A227, #B68E2E);
   height: 148px;
   width: 148px;
   border-radius: 50%;
@@ -134,7 +134,7 @@ body {
   font-weight: 500;
   font-size: 1.10rem;
   margin: 30px 0 5px;
-  color: var(--color-five-white);
+  color: var(--text-color);
 }
 .carousel .card span {
   color: var(--color-four-gray);

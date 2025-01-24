@@ -187,7 +187,7 @@
     font-size: 13.6px;
     color: #fff;
     padding-inline: 10px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     outline: none;
     border: none;
     font-weight: 500;
@@ -203,10 +203,10 @@
 }
 .input-group input:focus ~ label,
 .input-group input:valid ~ label{
-    color: var(--color-five-white);
+    color: var(--text-color);
     top: 0;
     font-size: 12px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
 
 
 }
@@ -218,7 +218,7 @@
     font-size: 13.6px;
     color: #fff;
     padding-inline: 10px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     outline: none;
     border: none;
     font-weight: 500;
@@ -234,10 +234,10 @@
 }
 .input-group select:focus ~ label,
 .input-group select:valid ~ label{
-    color: var(--color-five-white);
+    color: var(--text-color);
     top: 0;
     font-size: 12px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
 
 
 }
@@ -351,7 +351,7 @@
 
 .terms-conditions_checkbox_wrapper > label{
     cursor: pointer;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: PRO-FONT1;
     font-size: 13px;
 
@@ -380,7 +380,7 @@
     border-radius: var(--border-radius);
     border: none;
     outline: none;
-    color: var(--color-five-white);
+    color: var(--text-color);
     cursor: pointer;
     background: #5b36ff4b;
     transition: all 0.4s ease;
@@ -393,7 +393,7 @@
 .submit_btn_wrapper > button:hover{
     transition: 0.3s ease;
     box-shadow: 4px 13px 30px #1dcffc15, -40px 0 100px #aa01ff22;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
 .forgot_password,
@@ -404,12 +404,12 @@
     justify-content: space-between;
     font-family: PRO-FONT3;
     margin-block: 6px;
-    color: var(--color-five-white);
+    color: var(--text-color);
 
 }
 .already_have_an_account span{
     font-size: 14px;
-    color: var(--color-five-white);
+    color: var(--text-color);
 
 }
 .already_have_an_account a,

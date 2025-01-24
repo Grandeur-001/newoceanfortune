@@ -5,13 +5,18 @@
 -->
 <?php
 
-    // session_start();
+    session_start();
         
     $user_lname = $_SESSION['user_lastname'] ;
     $email = $_SESSION['user_email'] ;
 
 ?>
+<?php
+include 'access_control.php';
+checkAdminAccess(); // Ensure only admins can access this page
 
+// The rest of the admin dashboard code goes here
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,7 +58,7 @@
     </style>
 <body>
     
-      <header class="dashboard_header">
+     <header class="dashboard_header">
           <div class="wrapper">
             <div class="logo">
               <div class="image_wrapper">
@@ -69,43 +74,20 @@
                   <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
                       <div class="notification_box">
                         <div class="wrapper">
-                          <header>
-                              <span>Notifications</span>
-                              <a href="#">Clear All</a>
-                          </header>
-                          <ul>
-                              <li>
-                                  <a href="#">
-                                      <i class="fa fa-user"></i>
-                                      <span>Your OTP is <p>487887</p></span>
-                                  </a>
-                              </li>
+                        <header>
+                            <span>Notifications</span>
+                            <a href="#" id="clearAll">Clear All</a>
+                        </header>
 
-                              <li>
-                                  <a href="#">
-                                      <i class="fa fa-user"></i>
-                                      <span>Your OTP is <p>651902</p></span>
-                                  </a>
-                              </li>
+                        <ul id="notificationList">
+                            <!-- Notifications will be dynamically loaded here -->
+                        </ul>
 
-                              <li>
-                                  <a href="#">
-                                      <i class="fa fa-user"></i>
-                                      <span>Your OTP is <p>651902</p></span>
-                                  </a>
-                              </li>
-
-                              <li>
-                                  <a href="#">
-                                      <i class="fa fa-user"></i>
-                                      <span>Your OTP is <p>651902</p></span>
-                                  </a>
-                              </li>
-                          </ul>
-                          <div class="view_all"><a href="#">View All</a></div>
+                        <div class="view_all">
+                            <a href="#" id="viewToggleLink" style="display: none;">View All</a>
                         </div>
-                      </div>
-                  </li>
+
+
 
                   <li><a><i class="material-icons account-icon">account_circle</i></a>
                       <div class="profile_box">
@@ -139,30 +121,224 @@
             </div>
           </div>
 
+          <script>
+    // Fetch notifications when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchNotifications();
+    });
+
+    let allNotifications = []; // To store all notifications
+    let showAll = false; // Flag to track whether to show all notifications or not
+
+    // Function to fetch notifications
+    function fetchNotifications() {
+        fetch('fetch_notifications.php') // PHP file to fetch notifications from the database
+            .then(response => response.json())
+            .then(data => {
+                const notificationList = document.getElementById('notificationList');
+                notificationList.innerHTML = ''; // Clear previous notifications
+                allNotifications = data.notifications || [];
+
+                // If there are no notifications, display "No notifications"
+                if (allNotifications.length === 0) {
+                    notificationList.innerHTML = '<li>No notifications</li>';
+                } else {
+                    // Display notifications based on whether we're showing all or not
+                    const notificationsToDisplay = showAll ? allNotifications : allNotifications.slice(0, 3);
+                    
+                    // Loop through the notifications to append them
+                    notificationsToDisplay.forEach(notification => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>${notification.message}</span> <!-- Display the message -->
+                            </a>
+                        `;
+                        notificationList.appendChild(li);
+                    });
+
+                    // Toggle the "View All" and "View Less" link visibility and text
+                    const viewToggleLink = document.getElementById('viewToggleLink');
+                    if (allNotifications.length === 3) {
+                        viewToggleLink.style.display = 'block';
+                        viewToggleLink.textContent = 'View All';
+                    } else if (allNotifications.length > 3) {
+                        viewToggleLink.style.display = 'block';
+                        viewToggleLink.textContent = showAll ? 'View Less' : 'View All';
+                    } else {
+                        viewToggleLink.style.display = 'block'; // Hide button if there are 3 or fewer notifications
+                    }
+
+                    // Make the container scrollable if there are more than 5 notifications
+                    if (allNotifications.length > 5) {
+                        document.querySelector('.notification-container').style.maxHeight = '300px';
+                        document.querySelector('.notification-container').style.overflowY = 'auto'; // Enable scrolling
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching notifications:', error));
+    }
+
+    // Handle the toggle between "View All" and "View Less"
+    document.getElementById('viewToggleLink').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        showAll = !showAll; // Toggle the showAll flag
+        fetchNotifications(); // Reload notifications based on the new state
+    });
+
+    // Mark notifications as read when the user clicks 'Clear All'
+    document.getElementById('clearAll').addEventListener('click', function() {
+        fetch('clear_notifications.php', { method: 'POST' })
+            .then(response => response.text())
+            .then(data => {
+                // Refresh the notification list after clearing
+                fetchNotifications();
+            })
+            .catch(error => console.error('Error clearing notifications:', error));
+    });
+</script>
 
         <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
-        <div class="crypto-ticker">
-          <div style="height:62px; background-color: #1e293b; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
-              <div style="height:40px; padding:0px; margin:0px; width: 100%;">
-                  <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
-                  <script>
-                      document.addEventListener('contextmenu', (event) => event.preventDefault());
-                          document.onkeydown = function(e) {
-                              // Disable F12, Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Console), Ctrl+U (View Source)
-                              if (e.keyCode == 123 || // F12
-                                  (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-                                  (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-                                  (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
-                                  return false; // Prevent the event
-                              }
-                          };
-                  </script>
-              </div>
-              <div style="color: #1e293b; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
-                  <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a>
-              </div>
-          </div>
+
+<style>
+
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--base-clr);
+    padding: 12px 0;
+    margin-top: 25px;
+
+}
+
+.ticker {
+    white-space: nowrap;
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+    width: 100%;
+}
+.ticker:hover {
+    animation-play-state: paused;
+}
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    border-right: 1px solid var(--border-color);
+}
+
+.crypto-symbol {
+    color: var(--secondary-text-clr);
+    margin: 0 8px;
+}
+
+.crypto-price {
+    margin-right: 8px;
+}
+
+.crypto-change {
+    font-size: 0.9em;
+}
+
+.crypto-change.positive {
+    color: #00ff88;
+}
+
+.crypto-change.negative {
+    color: #ff4444;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.crypto-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+</style>
+
+<div class="ticker-container">
+<div class="ticker" id="ticker">
+    <!-- Content will be populated by Jquery -->
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/crypto_ticker.js"></script>
+
+<script>
+  const COINGECKO_API = 'https://api.coingecko.com/api/v3';
+const REFRESH_INTERVAL = 30000; 
+
+function fetchTopCryptos() {
+    return $.ajax({
+        url: `${COINGECKO_API}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&sparkline=false&price_change_percentage=1h`,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            return data;
+        },
+        error: function(error) {
+            console.error('Error fetching crypto data:', error);
+            return [];
+        }
+    });
+}
+
+function formatPrice(price) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(price);
+}
+
+function formatPercentage(percentage) {
+    return percentage.toFixed(2);
+}
+
+function createTickerItem(crypto) {
+    return `
+        <div class="ticker-item">
+            <img src="${crypto.image}" alt="${crypto.name}" class="crypto-icon">
+            <span>${crypto.name}</span>
+            <span class="crypto-symbol">[${crypto.symbol.toUpperCase()}]</span>
+            <span class="crypto-price">${formatPrice(crypto.current_price)}</span>
+            <!-- 1-hour price change -->
+            <span class="crypto-change ${crypto.price_change_percentage_1h_in_currency >= 0 ? 'positive' : 'negative'}">
+                ${crypto.price_change_percentage_1h_in_currency >= 0 ? '+' : ''}${formatPercentage(crypto.price_change_percentage_1h_in_currency)}%
+            </span>
         </div>
+    `;
+}
+
+function updateTicker() {
+    fetchTopCryptos().then(function(cryptos) {
+        if (cryptos.length === 0) return;
+
+        const tickerElement = $('#ticker');
+        const tickerContent = cryptos.map(createTickerItem).join('');
+        
+        tickerElement.html(tickerContent + tickerContent);
+    });
+}
+ 
+updateTicker();
+
+setInterval(updateTicker, REFRESH_INTERVAL);
+</script>
+
+
+
       </header>
              
       <?php

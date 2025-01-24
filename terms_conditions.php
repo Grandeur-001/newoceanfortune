@@ -11,12 +11,12 @@
         --color-one-purple: #AC01FF;
         --color-two-blue2: #1dcffc56;
         --color-two-blue: #1DCFFC;
-        --color-three-darkblue: #1F232F;
-        --color-three-darkblue2: #2b3141;
+        --background: #1F232F;
+        --surface: #222222;
         --color-four-gray: #9AA0A7; 
-        --color-four-gray2: #9aa0a752;
-        --color-five-white: #ffffff;
-        --color-six-black: #1b1e28;
+        --border-color: #9aa0a752;
+        --text-color: #F5F5F5;
+        --background: #1b1e28;
         --border-radius:26px 26px 26px 26px;
         --box-shadow: 7px 7px 15px 0px #0E1015;
         --box-shadow2: 0px 0px 15px 0px #0E1015;    
@@ -32,7 +32,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-            background-color: var(--color-three-darkblue);
+            background-color: var(--background);
             color: var(--text-color);
             line-height: 1.6;
             padding: 20px;

@@ -1,39 +1,111 @@
 <?php
-session_start(); // Start the session
+session_start();
+include 'connection.php';
+header('Content-Type: application/json');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Check if the user is logged in and the user ID is available in the session
-if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page if user is not logged in
-    header('Location: login.php');
-    exit;
+// Log function to write messages to log.txt
+function logMessage($message) {
+    $logFile = 'log.txt';
+    $currentDateTime = date('Y-m-d H:i:s');
+    $logMessage = "[{$currentDateTime}] {$message}\n";
+    file_put_contents($logFile, $logMessage, FILE_APPEND);
 }
 
-$user_id = $_SESSION['user_id']; // Fetch the user ID
+// Get current date
+$currentDate = date('Y-m-d');
 
-// Get the payment details from the POST request
-$data = json_decode(file_get_contents('php://input'), true);
+// Process investments every day
+$processQuery = "SELECT * FROM investments WHERE status = 'pending'";
+if ($stmt = $conn->prepare($processQuery)) {
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-$transactionId = $data['transactionId'];
-$cryptoSymbol = $data['cryptoSymbol'];
-$amount = $data['amount'];
-$walletAddress = $data['walletAddress'];
-$status = "Pending"; // Set the status to Pending by default
+    while ($investment = $result->fetch_assoc()) {
+        $investment_id = $investment['id'];
+        $user_id = $investment['user_id']; // Add user_id to get the user associated with the investment
+        $plan_id = $investment['plan_id'];
+        $investment_amount = $investment['amount'];
+        $current_earnings = $investment['earnings'];
+        $total_earnings = $investment['total_earnings'];
+        $created_at = $investment['created_at']; // Assuming created_at is a timestamp of when the investment was made
 
-// Include the database connection
-include('connection.php');
+        // Fetch the plan details
+        $planQuery = "SELECT * FROM investment_plan WHERE id = ?";
+        if ($stmtPlan = $conn->prepare($planQuery)) {
+            $stmtPlan->bind_param("i", $plan_id);
+            $stmtPlan->execute();
+            $planResult = $stmtPlan->get_result();
+            $plan = $planResult->fetch_assoc();
 
-// Prepare the SQL query to insert the payment details into the database
-$query = "INSERT INTO payments (transaction_id, crypto_symbol, amount, wallet_address, status, user_id)
-          VALUES ('$transactionId', '$cryptoSymbol', '$amount', '$walletAddress', '$status', '$user_id')";
+            $roi = $plan['roi']; // The ROI percentage
+            $roi_max = $plan['roi_max']; // The max ROI
+            $duration_timeframe = $plan['duration_timeframe']; // Duration in days
+            $earning_duration = $plan['earning_duration']; // Earning frequency (e.g., daily, hourly)
 
-// Execute the query
-if (mysqli_query($conn, $query)) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false]);
+            // Calculate the number of days since the investment was created
+            $created_at_date = new DateTime($created_at);
+            $currentDateTime = new DateTime($currentDate);
+            $interval = $created_at_date->diff($currentDateTime);
+            $daysSinceInvestment = $interval->days;
+
+            // If the investment has reached the maximum duration_timeframe, stop the investment
+            if ($daysSinceInvestment >= $duration_timeframe) {
+                // Calculate the total earnings after reaching the duration time frame
+                $finalEarnings = $current_earnings + $total_earnings;
+
+                // Update the total earnings field in the investment and set completed_at date
+                $updateTotalEarningsQuery = "UPDATE investments SET total_earnings = ?, status = 'completed', completed_at = ? WHERE id = ?";
+                if ($stmtUpdateTotalEarnings = $conn->prepare($updateTotalEarningsQuery)) {
+                    $completed_at = date('Y-m-d H:i:s'); // Get the current date and time when the investment is completed
+                    $stmtUpdateTotalEarnings->bind_param("dsi", $finalEarnings, $completed_at, $investment_id);
+                    $stmtUpdateTotalEarnings->execute();
+                    logMessage("Investment {$investment_id} completed after reaching the timeframe with total earnings: {$finalEarnings}. Completed at: {$completed_at}");
+
+                    // After marking the investment as completed, update the user's balance
+                    // Fetch the current balance of the user
+                    $userQuery = "SELECT balance FROM users WHERE user_id = ?"; // Changed from 'id' to 'user_id'
+                    if ($stmtUser = $conn->prepare($userQuery)) {
+                        $stmtUser->bind_param("i", $user_id); // Use user_id here
+                        $stmtUser->execute();
+                        $userResult = $stmtUser->get_result();
+                        if ($user = $userResult->fetch_assoc()) {
+                            $userBalance = $user['balance'];
+
+                            // Add the total earnings to the user's balance
+                            $newBalance = $userBalance + $finalEarnings;
+
+                            // Update the user's balance
+                            $updateUserBalanceQuery = "UPDATE users SET balance = ? WHERE user_id = ?"; // Changed from 'id' to 'user_id'
+                            if ($stmtUpdateBalance = $conn->prepare($updateUserBalanceQuery)) {
+                                $stmtUpdateBalance->bind_param("di", $newBalance, $user_id); // Use user_id here
+                                $stmtUpdateBalance->execute();
+                                logMessage("User {$user_id}'s balance updated. New balance: {$newBalance}");
+                            } else {
+                                logMessage("Error updating user {$user_id}'s balance.");
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Calculate the daily earnings based on ROI, ensuring it does not exceed roi_max
+                $dailyProfit = ($investment_amount * ($roi / 100)) / 365; // ROI per day
+
+                // Ensure profit does not exceed max ROI
+                $maxPossibleProfit = ($investment_amount * ($roi_max / 100)) / 365; // Max profit per day
+                $newEarnings = $current_earnings + min($dailyProfit, $maxPossibleProfit);
+
+                // Update the current earnings of the investment
+                $updateEarningsQuery = "UPDATE investments SET current_earnings = ? WHERE id = ?";
+                if ($stmtUpdateEarnings = $conn->prepare($updateEarningsQuery)) {
+                    $stmtUpdateEarnings->bind_param("di", $newEarnings, $investment_id);
+                    $stmtUpdateEarnings->execute();
+                    logMessage("Investment {$investment_id} earnings updated. New earnings: {$newEarnings}");
+                }
+            }
+        }
+    }
+    $stmt->close();
 }
-
-// Close the database connection
-mysqli_close($conn);
 ?>
-<?php

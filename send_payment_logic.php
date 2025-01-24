@@ -160,6 +160,28 @@ if (
 
         $mail->send();
 
+        // Notify Admin
+        $mail->clearAddresses(); // Clear previous recipient
+        $mail->addAddress('support@oceanfortune.bond'); // Admin email
+        $mail->Subject = 'New Withdrawal Notification';
+        $mail->Body = "
+            <p>Admin,</p>
+            <p>A new withdrawal request has been received with the following details:</p>
+            <ul>
+                <li><strong>User Name:</strong> $userName</li>
+                <li><strong>User ID:</strong> $userId</li>
+                <li><strong>Transaction ID:</strong> $transactionId</li>
+                <li><strong>Crypto Symbol:</strong> $cryptoSymbol</li>
+                <li><strong>Amount:</strong> $amount</li>
+                <li><strong>Wallet Address:</strong> $walletAddress</li>
+            </ul>
+            <p>Kindly review and confirm the withdrawal status in the admin panel.</p>
+            <p>Ocean Fortune Admin</p>
+        ";
+
+        $mail->send();
+
+
         echo json_encode(['success' => true]);
     } else {
         echo json_encode(['success' => false, 'error' => 'Error inserting transaction: ' . mysqli_error($conn)]);
@@ -184,6 +206,4 @@ function sendWithdrawalNotification($userId, $amount, $cryptoSymbol, $walletAddr
     $stmt->execute();
 }
 ?>
-
-
 

@@ -1,5 +1,16 @@
-<?php 	
-require 'connection.php';
+<?php
+session_start(); // Start the session to access session variables
+require 'auth_redirect.php';
+redirectIfLoggedIn(); // Prevent logged-in users from accessing this page
+
+require 'connection.php'; // Include your database connection
+
+// Include PHPMailer classes using Composer's autoloader
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Include Composer's autoloader
+require 'vendor/autoload.php';
 
 if (isset($_POST['signup_btn'])) {
     signup();
@@ -42,14 +53,29 @@ function signup()
             } while (mysqli_num_rows($check_id_result) > 0); // Repeat if the ID already exists
 
             // Insert details including the random unique user_id
-            $insert = "INSERT INTO users (user_id, firstname, lastname, email, nationality, state, dob, gender, password, phone,role) 
-                       VALUES ('$user_id', '$firstname', '$lastname', '$email', '$nationality', '$state', '$dob', '$gender', '$hashedPwd', '$phone','user')";
+            $insert = "INSERT INTO users (user_id, firstname, lastname, email, nationality, state, dob, gender, password, phone, role, email_verified) 
+                       VALUES ('$user_id', '$firstname', '$lastname', '$email', '$nationality', '$state', '$dob', '$gender', '$hashedPwd', '$phone','user', 0)"; // email_verified = 0 for unverified users
 
             $sql = mysqli_query($conn, $insert);
 
             if ($sql) {
-                // Redirect user to login
-                header('Location:login.php?msg=Signup success, please login');
+                // Set the email session after successful insertion
+                $_SESSION['email'] = $email; // Save the email in session
+
+                // Generate OTP and set expiration time to strictly 2 minutes
+                $otp = rand(100000, 999999); // Generate a random OTP
+                $expires_at = date("Y-m-d H:i:s", strtotime('+2 minutes')); // OTP expires in 2 minutes
+
+                // Store OTP in the database
+                $insert_otp = "INSERT INTO otps (user_email, otp_code, expires_at) VALUES ('$email', '$otp', '$expires_at')";
+                mysqli_query($conn, $insert_otp);
+
+                // Send OTP to the user's email
+                sendOtpEmail($email, $firstname, $otp);
+
+
+                // Redirect user to OTP verification page
+                header('Location: otp_verification.php?msg=Signup success, please verify your email');
                 exit();
             } else {
                 $GLOBALS['ERROR'] = "Unexpected error, please try again"; 
@@ -63,4 +89,46 @@ function signup()
         $GLOBALS['ERROR'] = "Passwords mismatch";
     }
 }
+
+// Function to send OTP email using PHPMailer
+function sendOtpEmail($email, $firstname, $otp)
+{
+    // Create a new PHPMailer instance
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'server187.web-hosting.com'; // Set SMTP server
+        $mail->SMTPAuth = true;
+        $mail->Username = 'support@oceanfortune.bond'; // SMTP username
+        $mail->Password = 'oceanfortune.bond'; // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        // Recipients
+        $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+        $mail->addAddress($email, $firstname); // Send to the user's email address
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Your OTP Code';
+        $mail->Body = "
+            <p>Dear $firstname,</p>
+            <p>Thank you for signing up! Your OTP code is:</p>
+            <h3>$otp</h3>
+            <p>This OTP will expire in 2 minutes.</p>
+            <p>Please use it to verify your email address.</p>
+            <p>Thank you for choosing Ocean Fortune!</p>
+        ";
+
+        // Send the email
+        $mail->send();
+    } catch (Exception $e) {
+        // Log error if email could not be sent
+        error_log("Email could not be sent. Mailer Error: {$mail->ErrorInfo}");
+    }
+}
+
+
 ?>

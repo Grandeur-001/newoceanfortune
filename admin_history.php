@@ -1,3 +1,13 @@
+<?php
+include 'access_control.php';
+session_start();
+
+checkAdminAccess(); // Ensure only admins can access this page
+
+// The rest of the admin dashboard code goes here
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -54,15 +64,6 @@
         .main_content{
             margin-top: 8rem;
         }
-        .app-container{
-            margin-bottom: 70px;
-
-        }
-        @media (max-width: 768px) {
-            .app-container{
-                margin-bottom: 200px;
-            }
-        }
 
   
     </style>
@@ -103,13 +104,13 @@
                       <div class="profile_box">
                           <ul>
                               <li>
-                                  <a href="profile.php">
+                                  <a href="admin_profile.php">
                                       <i class="material-icons">person_outline</i>
                                       <span>Profile </span>
                                   </a>
                               </li>
                               <li>
-                                  <a href="wallet_page.php">
+                                  <a href="admin_wallet_page.php">
                                       <i class="material-icons">account_balance_wallet</i>
                                       <span>Wallet</span>
                                   </a>
@@ -210,27 +211,145 @@
 </script>
 
 
+
         <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
-        <div class="crypto-ticker">
-          <div style="height:62px; background-color: #1e293b; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
-              <div style="height:40px; padding:0px; margin:0px; width: 100%;">
-                  <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
-                  <script>
-                      document.addEventListener('contextmenu', (event) => event.preventDefault());
-                          document.onkeydown = function(e) {
-                              if (e.keyCode == 123 || 
-                                  (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || 
-                                  (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || 
-                                  (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
-                              }
-                          };
-                  </script>
-              </div>
-              <div style="color: #1e293b; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
-                  <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a>
-              </div>
-          </div>
+
+        <style>
+
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--base-clr);
+    padding: 12px 0;
+    margin-top: 25px;
+
+}
+
+.ticker {
+    white-space: nowrap;
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+    width: 100%;
+}
+.ticker:hover {
+    animation-play-state: paused;
+}
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    border-right: 1px solid var(--border-color);
+}
+
+.crypto-symbol {
+    color: var(--secondary-text-clr);
+    margin: 0 8px;
+}
+
+.crypto-price {
+    margin-right: 8px;
+}
+
+.crypto-change {
+    font-size: 0.9em;
+}
+
+.crypto-change.positive {
+    color: #00ff88;
+}
+
+.crypto-change.negative {
+    color: #ff4444;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.crypto-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+</style>
+
+<div class="ticker-container">
+<div class="ticker" id="ticker">
+    <!-- Content will be populated by Jquery -->
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/crypto_ticker.js"></script>
+
+<script>
+  const COINGECKO_API = 'https://api.coingecko.com/api/v3';
+const REFRESH_INTERVAL = 30000; 
+
+function fetchTopCryptos() {
+    return $.ajax({
+        url: `${COINGECKO_API}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&sparkline=false&price_change_percentage=1h`,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            return data;
+        },
+        error: function(error) {
+            console.error('Error fetching crypto data:', error);
+            return [];
+        }
+    });
+}
+
+function formatPrice(price) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(price);
+}
+
+function formatPercentage(percentage) {
+    return percentage.toFixed(2);
+}
+
+function createTickerItem(crypto) {
+    return `
+        <div class="ticker-item">
+            <img src="${crypto.image}" alt="${crypto.name}" class="crypto-icon">
+            <span>${crypto.name}</span>
+            <span class="crypto-symbol">[${crypto.symbol.toUpperCase()}]</span>
+            <span class="crypto-price">${formatPrice(crypto.current_price)}</span>
+            <!-- 1-hour price change -->
+            <span class="crypto-change ${crypto.price_change_percentage_1h_in_currency >= 0 ? 'positive' : 'negative'}">
+                ${crypto.price_change_percentage_1h_in_currency >= 0 ? '+' : ''}${formatPercentage(crypto.price_change_percentage_1h_in_currency)}%
+            </span>
         </div>
+    `;
+}
+
+function updateTicker() {
+    fetchTopCryptos().then(function(cryptos) {
+        if (cryptos.length === 0) return;
+
+        const tickerElement = $('#ticker');
+        const tickerContent = cryptos.map(createTickerItem).join('');
+        
+        tickerElement.html(tickerContent + tickerContent);
+    });
+}
+ 
+updateTicker();
+
+setInterval(updateTicker, REFRESH_INTERVAL);
+</script>
+
       </header>
 
       <?php
@@ -369,6 +488,15 @@
                     </a>
                 </li>
             </ul>
+            
+            <ul>
+                <li>
+                    <a href="users.php">
+                        <i class="fa fa-user-o"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            </ul>
 
             <ul>
                 <li>
@@ -435,124 +563,125 @@
 
      
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                    const popupTriggers = document.querySelectorAll('.popup_trigger');
-                    const confirmDecline = document.querySelector('.confirm_decline');
-                    const popupBox = document.querySelector('.popup_box');
-                    const closeButtons = document.querySelectorAll('.close_confirm_decline, #close');
-                    const toastContainer = document.getElementById('toastContainer');
+    document.addEventListener('DOMContentLoaded', function () {
+    const popupTriggers = document.querySelectorAll('.popup_trigger');
+    const confirmDecline = document.querySelector('.confirm_decline');
+    const popupBox = document.querySelector('.popup_box');
+    const closeButtons = document.querySelectorAll('.close_confirm_decline, #close');
+    const toastContainer = document.getElementById('toastContainer');
 
-                    let currentTransactionId = null;
+    let currentTransactionId = null;
 
-                    // Open popup on button click
-                    popupTriggers.forEach(trigger => {
-                        trigger.addEventListener('click', function () {
-                            const status = this.getAttribute('data-status').trim().toLowerCase();
-                            currentTransactionId = this.getAttribute('data-transaction-id');
-                            const firstname = this.getAttribute('data-firstname');
-                            const lastname = this.getAttribute('data-lastname');
+    // Open popup on button click
+    popupTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function () {
+            const status = this.getAttribute('data-status').trim().toLowerCase();
+            currentTransactionId = this.getAttribute('data-transaction-id');
+            const firstname = this.getAttribute('data-firstname');
+            const lastname = this.getAttribute('data-lastname');
 
-                            if (status === 'pending') {
-                                confirmDecline.querySelector('.firstname').textContent = firstname + " ";
-                                confirmDecline.querySelector('.lastname').textContent = lastname + " ";
-                                confirmDecline.style.visibility = 'visible';
-                                confirmDecline.style.opacity = '1';
-                                popupBox.style.opacity = '1';
-                                popupBox.style.transform = 'translateY(0)';
-                            } else {
-                                alert('This transaction cannot be confirmed or declined because it is not pending.');
-                            }
-                        });
-                    });
+            if (status === 'pending') {
+                confirmDecline.querySelector('.firstname').textContent = firstname + " ";
+                confirmDecline.querySelector('.lastname').textContent = lastname + " ";
+                confirmDecline.style.visibility = 'visible';
+                confirmDecline.style.opacity = '1';
+                popupBox.style.opacity = '1';
+                popupBox.style.transform = 'translateY(0)';
+            } else {
+                alert('This transaction cannot be confirmed or declined because it is not pending.');
+            }
+        });
+    });
 
-                    // Close popup on button click
-                    closeButtons.forEach(btn => {
-                        btn.addEventListener('click', function () {
-                            confirmDecline.style.visibility = 'hidden';
-                            confirmDecline.style.opacity = '0';
-                            popupBox.style.opacity = '0';
-                            popupBox.style.transform = 'translateY(-90%)';
-                        });
-                    });
+    // Close popup on button click
+    closeButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            confirmDecline.style.visibility = 'hidden';
+            confirmDecline.style.opacity = '0';
+            popupBox.style.opacity = '0';
+            popupBox.style.transform = 'translateY(-90%)';
+        });
+    });
 
-                    // Show toast message
-                    function showToast(type, message) {
-                        const toast = document.createElement('div');
-                        toast.className = `toast ${type}`;
-                        toast.innerHTML = `
-                            <div class="toast-icon">${type === 'success' ? '✓' : '✕'}</div>
-                            <div class="toast-content">
-                                <div class="toast-title">${type === 'success' ? 'Success' : 'Error'}</div>
-                                <div class="toast-message">${message}</div>
-                            </div>
-                            <button class="close-btn" onclick="this.parentElement.remove()">×</button>
-                        `;
-                        toastContainer.appendChild(toast);
-                        setTimeout(() => toast.remove(), 4000);
-                    }
+    // Show toast message
+    function showToast(type, message) {
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerHTML = `
+            <div class="toast-icon">${type === 'success' ? '✓' : '✕'}</div>
+            <div class="toast-content">
+                <div class="toast-title">${type === 'success' ? 'Success' : 'Error'}</div>
+                <div class="toast-message">${message}</div>
+            </div>
+            <button class="close-btn" onclick="this.parentElement.remove()">×</button>
+        `;
+        toastContainer.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+    }
 
-                    // Confirm transaction
-                    window.confirmTransaction = function () {
-                        
-                        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
+    // Confirm transaction
+    window.confirmTransaction = function () {
+        
+        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
 
-                        fetch('admin_confirm_decline.php', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'confirm' })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.status === 'success') {
-                                showToast('success', 'Transaction confirmed successfully.');
-                                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
-                                if (transactionCard) {
-                                    const statusBadge = transactionCard.querySelector('.status-badge');
-                                    statusBadge.textContent = 'Completed';
-                                }
-                            } else {
-                                showToast('error', data.message || 'Failed to confirm transaction.');
-                            }
-                        })
-                        .catch(() => showToast('error', 'An error occurred while confirming the transaction.'))
-                        .finally(() => closePopup());
-                    };
+        fetch('admin_confirm_decline.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'confirm' })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                showToast('success', 'Transaction confirmed successfully.');
+                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
+                if (transactionCard) {
+                    const statusBadge = transactionCard.querySelector('.status-badge');
+                    statusBadge.textContent = 'Completed';
+                }
+            } else {
+                showToast('error', data.message || 'Failed to confirm transaction.');
+            }
+        })
+        .catch(() => showToast('error', 'An error occurred while confirming the transaction.'))
+        .finally(() => closePopup());
+    };
 
-                    // Decline transaction
-                    window.declineTransaction = function () {
-                        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
+    // Decline transaction
+    window.declineTransaction = function () {
+        if (!currentTransactionId) return showToast('error', 'No transaction selected.');
 
-                        fetch('admin_confirm_decline.php', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'decline' })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.status === 'success') {
-                                showToast('success', 'Transaction declined successfully.');
-                                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
-                                if (transactionCard) {
-                                    const statusBadge = transactionCard.querySelector('.status-badge');
-                                    statusBadge.textContent = 'Failed';
-                                }
-                            } else {
-                                showToast('error', data.message || 'Failed to decline transaction.');
-                            }
-                        })
-                        .catch(() => showToast('error', 'An error occurred while declining the transaction.'))
-                        .finally(() => closePopup());
-                    };
+        fetch('admin_confirm_decline.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ transaction_id: currentTransactionId, action: 'decline' })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                showToast('success', 'Transaction declined successfully.');
+                const transactionCard = document.querySelector(`[data-transaction-id="${currentTransactionId}"]`);
+                if (transactionCard) {
+                    const statusBadge = transactionCard.querySelector('.status-badge');
+                    statusBadge.textContent = 'Failed';
+                }
+            } else {
+                showToast('error', data.message || 'Failed to decline transaction.');
+            }
+        })
+        .catch(() => showToast('error', 'An error occurred while declining the transaction.'))
+        .finally(() => closePopup());
+    };
 
-                    // Close popup helper
-                    function closePopup() {
-                        confirmDecline.style.visibility = 'hidden';
-                        confirmDecline.style.opacity = '0';
-                        popupBox.style.opacity = '0';
-                        popupBox.style.transform = 'translateY(-90%)';
-                    }
-            });
-        </script>
+    // Close popup helper
+    function closePopup() {
+        confirmDecline.style.visibility = 'hidden';
+        confirmDecline.style.opacity = '0';
+        popupBox.style.opacity = '0';
+        popupBox.style.transform = 'translateY(-90%)';
+    }
+});
+
+</script>
 </body>
 <script src="assets/user/javascript/popup.js"></script>
 <script src="assets/user/javascript/function.js"></script>

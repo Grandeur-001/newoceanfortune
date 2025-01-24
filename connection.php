@@ -1,9 +1,9 @@
 <?php 
 
-	$server = 'localhost';
-	$username = 'root';
-	$password = '';
-	$db = 'oceanfortune_db4';
+$server = 'localhost';
+$username = 'root';
+$password = '';
+$db = 'oceanfortune_db5';
 
 
 

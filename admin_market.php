@@ -1,3 +1,69 @@
+<?php
+include 'connection.php'; // Include the database connection
+
+// Initialize totals
+$total_amount = 0;
+$total_earnings = 0;
+$investments = [];
+
+if (isset($_GET['user_id'])) {
+    $user_id = intval($_GET['user_id']); // Sanitize user_id
+
+    // Query to fetch individual investments
+    $query_investments = "
+        SELECT 
+            investments.investment_id,
+            investments.amount,
+            investments.roi,
+            investments.earnings,
+            investments.started_at,
+            investments.completed_at,
+            investments.last_earning_time,
+            cryptos.crypto_name,
+            cryptos.symbol
+        FROM 
+            investments
+        INNER JOIN 
+            cryptos
+        ON 
+            investments.crypto_id = cryptos.crypto_id
+        WHERE 
+            investments.user_id = $user_id
+    ";
+    $result_investments = mysqli_query($conn, $query_investments);
+
+    if ($result_investments && mysqli_num_rows($result_investments) > 0) {
+        while ($investment = mysqli_fetch_assoc($result_investments)) {
+            $investments[] = $investment; // Store investments in an array
+        }
+    }
+
+    // Query to calculate totals
+    $query_totals = "
+        SELECT 
+            SUM(amount) AS total_amount, 
+            SUM(earnings) AS total_earnings 
+        FROM 
+            investments 
+        WHERE 
+            user_id = $user_id
+    ";
+    $result_totals = mysqli_query($conn, $query_totals);
+
+    if ($result_totals && $row = mysqli_fetch_assoc($result_totals)) {
+        $total_amount = $row['total_amount'];
+        $total_earnings = $row['total_earnings'];
+    }
+}
+?>
+
+<?php
+include 'access_control.php';
+checkAdminAccess(); // Ensure only admins can access this page
+
+// The rest of the admin dashboard code goes here
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -68,13 +134,13 @@
         }
 
         :root {
-            --background: #0f172a;
-            --surface: #1e293b;
-            --text-color: #ffffff;
-            --secondary-text: #8b8ca7;
-            --primary-dark: #4f46e5;
-            --primary-color: #6366f1;
-            --border-color: #2a2f3e;
+            --background: #1a1a1a;
+            --surface: #222222;
+            --text-color: #F5F5F5;
+            --secondary-text: #A9A9A9;
+            --primary-dark: #A6841C;
+            --primary-color: #C9A227;
+            --border-color: #2A2A2A;
             --hover-color: rgba(255, 255, 255, 0.05);
             --positive-color: #00c853;
             --negative-color: #ff3d3d;
@@ -706,7 +772,7 @@
 
         <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
         <div class="crypto-ticker">
-          <div style="height:62px; background-color: #1e293b; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
+          <div style="height:62px; background-color: #222222; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
               <div style="height:40px; padding:0px; margin:0px; width: 100%;">
                   <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
                   <script>
@@ -720,7 +786,7 @@
                           };
                   </script>
               </div>
-              <div style="color: #1e293b; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
+              <div style="color: #222222; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
                   <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a>
               </div>
           </div>
@@ -795,7 +861,7 @@
         </div>
     </aside>
 
-        <main class="main_content">
+    <main class="main_content">
             <?php
                 include 'users_logic.php';
             ?>
@@ -803,16 +869,17 @@
             <div class="app-container">
             <section class="stats">
                 <h2>Total Amount Invested</h2>
-
                 
-                <div class="total-amount">$0.00</div> <!-- backend here -->
-
-                <div class="total-earnings">Total Earnings: $0.00</div>
-
+                
+                <div class="total-amount">$<?= htmlspecialchars(number_format($total_amount, 2)) ?></div> <!-- backend here -->
+                
+                <div class="total-earnings">Total Earnings: $<?= htmlspecialchars(number_format($total_earnings, 2)) ?></div>
+                
                 <div class="percentage">0.00 %</div>
-
+                
+                <?php if (empty($investments)): ?>
                 <div class="no-investments">No investments. Stake your assests and make profit</div>
-
+                <?php endif; ?>   
 
                 <!-- SEARCH ELEMENTS HERE -->
                 <div class="input-group-navbar">
@@ -837,7 +904,8 @@
                                 <tr>
                                     <!-- User Info -->
                                     <td class="user-info">
-                                        <strong><?= htmlspecialchars($user['name']) ?></strong>
+                                    <a style=" text-decoration: none; color: white; "href="admin_market.php?user_id=<?= htmlspecialchars($user['user_id']) ?>"><strong><?= htmlspecialchars($user['name']) ?></strong></a>
+
                                     </td>
                                 </tr>
                                 
@@ -847,17 +915,10 @@
                     </table>
                 </div>
 
-
-
-
-
-
-
-
             </section>
 
             <!-- TRANSACTIONS / PROFIT / INVESTMENT TABLE  -->
-            <div class="table-container">
+            <div class="table-container" id="investmentTable">
                 <table>
                     <thead>
                         <tr>
@@ -875,14 +936,15 @@
               
                     
                     <tbody>
-
+                    <?php if (!empty($investments)): ?>
+                        <?php foreach ($investments as $investment): ?>
                         <tr>
-                            <td>Bitcoin (BTC)</td>
-                            <td>$45,000.00</td>
-                            <td class="positive">+$2,500.00</td>
-                            <td class="positive">+5.5%</td>
-                            <td>2024-02-20</td>
-                            <td>7238492743928947234</td>
+                            <td><?= htmlspecialchars($investment['crypto_name']) ?>(<?= htmlspecialchars($investment['symbol']) ?>)</td>
+                            <td>$<?= htmlspecialchars($investment['amount']) ?></td>
+                            <td class="positive">+$<?= htmlspecialchars($investment['earnings']) ?></td>
+                            <td class="positive">+<?= htmlspecialchars($investment['roi']) ?>%</td>
+                            <td><?= htmlspecialchars($investment['completed_at']) ?></td>
+                            <td><?= htmlspecialchars($investment['last_earning_time']) ?></td>
 
                             <td data-label="Actions">
                                 <div class="btn-group">
@@ -894,6 +956,10 @@
                                 </div>
                             </td>
                         </tr>
+
+                        <?php endforeach; ?>
+            <?php else: ?>
+                <?php endif; ?>
 
 
                         <section class="update_transactions action_overlay" id="update_<?= htmlspecialchars($user['user_id']) ?>">
@@ -916,32 +982,7 @@
                                                 <input type="text" value="0" id="numberInput" style="width: 100%;">
                                                 <button id="increase" type="button" class="positive_btn">+</button>
 
-                                                <!-- SMALL SCRIPT FOR INCREMENT AND DECREMENT FUNCTIONALITY -->
-                                                <script>
-                                                    const decreaseButton = document.getElementById('decrease');
-                                                    const increaseButton = document.getElementById('increase');
-                                                    const numberInput = document.getElementById('numberInput');
-
-                                                    numberInput.addEventListener('input', () => {
-                                                    const value = numberInput.value;
-                                                    if (isNaN(value) || value === '') {
-                                                        numberInput.value = 0;
-                                                    } else {
-                                                        numberInput.value = parseInt(value, 10);
-                                                    }
-                                                    });
-
-                                                    decreaseButton.addEventListener('click', () => {
-                                                    let value = parseInt(numberInput.value, 10) || 0;
-                                                    numberInput.value = value - 1;
-                                                    });
-
-                                                    increaseButton.addEventListener('click', () => {
-                                                    let value = parseInt(numberInput.value, 10) || 0;
-                                                    numberInput.value = value + 1;
-                                                    });
-                                                </script>
-
+                                               
 
 
 
@@ -952,21 +993,17 @@
                                                     <!-- CHECKBOX FOR BACKEND FUNCTIONALITY -->
                                                     <input type="checkbox">
                                                     <span class="checkmark"></span>
-
-
+                                                    
+                                                    
                                                     <!-- BACKEND WILL CHANGE THE TEXT HERE BASE ON THE CHECKBOX -->
                                                     <span class="label-text">Can Not Takeprofit</span>
-
+                                                    
                                                 </label>
                                                 
                                                 <label class="custom-checkbox">
-
                                                     <!-- CHECKBOX FOR BACKEND FUNCTIONALITY -->
                                                     <input type="checkbox">
                                                     <span class="checkmark"></span>
-
-
-
                                                     <!-- BACKEND WILL CHANGE THE TEXT HERE BASE ON THE CHECKBOX -->
                                                     <span class="label-text">Downtrend</span>
                                                 </label>
@@ -978,145 +1015,78 @@
                                     </div>
                                 </div>
                             </section>
-                            
-
-
                     </tbody>
                 </table>
             </div>
-
-            <!-- SMALL SCRIPT FOR THE UPDATE TRANSACTION POPUP -->
-            <script>
-                function openUpdateTransaction(sectionId) {
-                    const section = document.getElementById(sectionId);
-                    if (!section) return; 
-
-                    document.querySelectorAll('.update_transactions').forEach(sec => {
-                        sec.style.visibility = 'hidden';
-                        sec.style.opacity = '0';
-                    });
-
-                    section.style.visibility = 'visible';
-                    section.style.opacity = '1';
-                }
-
-
-                document.querySelectorAll('.close_action').forEach(button => {
-                    button.addEventListener('click', function () {
-                        const actionOverlay = this.closest('.action_overlay');
-                        if (actionOverlay) {
-                            actionOverlay.style.visibility = 'hidden'; 
-                            actionOverlay.style.opacity = '0';
-                        }
-                    });
-                });
-            </script>
-
-
-
-
-                
-
-                          
-
-
-
-
-
-
-
-
-
-
-
-
-                          
-            </div>
-
-        </main>
-
-      
-      <footer class="dashboard_footer">
-        <div class="wrapper">
-          <span>© 2024 <a href="index.php">Creative Fortune</a>All Right Reserved</span>
-          <span><a href="#">Purchase Now</a></span>
+                   
         </div>
-      </footer>
+    </main>
+    <script>
 
-      <section class="bottom_nav">
-        <div class="wrapper">
-            <ul>
-                <li>
-                    <a href="admin_dashboard.php">
-                        <i class="material-icons">dashboard</i>
-                        <span>Home</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <li>
-                    <a href="admin_swap.php">
-                        <i class="material-icons">swap_calls</i>
-                        <span>Swap</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <li>
-                    <a href="admin_history.php">
-                        <i class="material-icons">history</i>
-                        <span>History</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <li>
-                    <a href="admin_features.php">
-                        <i class="material-icons">widgets</i>
-                        <span>Features</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <li>
-                    <a href="market.php">
-                        <i class="material-icons">store</i>
-                        <span>Market</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-      </section>
-
-      <script>
-
-            const toggleDropdown = (button) => {
-            const $dropdown = $(button).next('.action-dropdown-menu');
-            $('.action-dropdown-menu.show').not($dropdown).removeClass('show');
-            $dropdown.toggleClass('show');
-        };
-
-        $(document).on('click', (event) => {
-            const $target = $(event.target);
-            const isDropdownButton = $target.closest('.dropdown-toggle').length > 0;
-            const isDropdownMenu = $target.closest('.action-dropdown-menu').length > 0;
-
-            if (!isDropdownButton && !isDropdownMenu) {
-                $('.action-dropdown-menu.show').removeClass('show');
-            }
+        const decreaseButton = document.getElementById('decrease');
+        const increaseButton = document.getElementById('increase');
+        const numberInput = document.getElementById('numberInput');
+        
+        numberInput.addEventListener('input', () => {
+        const value = numberInput.value;
+        if (isNaN(value) || value === '') {
+            numberInput.value = 0;
+        } else {
+            numberInput.value = parseInt(value, 10);
+        }
+        });
+        
+        decreaseButton.addEventListener('click', () => {
+        let value = parseInt(numberInput.value, 10) || 0;
+        numberInput.value = value - 1;
+        });
+        
+        increaseButton.addEventListener('click', () => {
+        let value = parseInt(numberInput.value, 10) || 0;
+        numberInput.value = value + 1;
         });
 
-      </script>
-    
+        function openUpdateTransaction(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (!section) return; 
+        
+            document.querySelectorAll('.update_transactions').forEach(sec => {
+                sec.style.visibility = 'hidden';
+                sec.style.opacity = '0';
+            });
+        
+            section.style.visibility = 'visible';
+            section.style.opacity = '1';
+        }
+        
+        
+        document.querySelectorAll('.close_action').forEach(button => {
+            button.addEventListener('click', function () {
+                const actionOverlay = this.closest('.action_overlay');
+                if (actionOverlay) {
+                    actionOverlay.style.visibility = 'hidden'; 
+                    actionOverlay.style.opacity = '0';
+                }
+            });
+        });
+            
+                        const toggleDropdown = (button) => {
+                        const $dropdown = $(button).next('.action-dropdown-menu');
+                        $('.action-dropdown-menu.show').not($dropdown).removeClass('show');
+                        $dropdown.toggleClass('show');
+                    };
+            
+                    $(document).on('click', (event) => {
+                        const $target = $(event.target);
+                        const isDropdownButton = $target.closest('.dropdown-toggle').length > 0;
+                        const isDropdownMenu = $target.closest('.action-dropdown-menu').length > 0;
+            
+                        if (!isDropdownButton && !isDropdownMenu) {
+                            $('.action-dropdown-menu.show').removeClass('show');
+                        }
+                    });
 
 
-
-
-        <script>
             let currentPage = 1;
             const usersPerPage = 10;
 
@@ -1174,6 +1144,78 @@
             });
 
     </script>
+        
+        
+        <footer class="dashboard_footer">
+            <div class="wrapper">
+                <span>© 2024 <a href="index.php">Creative Fortune</a>All Right Reserved</span>
+                <span><a href="#">Purchase Now</a></span>
+            </div>
+        </footer>
+      
+        <section class="bottom_nav">
+            <div class="wrapper">
+                <ul>
+                <li>
+                    <a href="admin_dashboard.php">
+                        <i class="material-icons">dashboard</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <ul>
+                <li>
+                    <a href="admin_swap.php">
+                        <i class="material-icons">swap_calls</i>
+                        <span>Swap</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <ul>
+                <li>
+                    <a href="admin_history.php">
+                        <i class="material-icons">history</i>
+                        <span>History</span>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="users.php">
+                        <i class="fa fa-user-o"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <ul>
+                <li>
+                    <a href="admin_features.php">
+                        <i class="material-icons">widgets</i>
+                        <span>Features</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="admin_market.php">
+                        <i class="material-icons">store</i>
+                        <span>Market</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    
+    
+    
+    
+    
+    
 </body>
 <script src="assets/user/javascript/popup.js"></script>
 <script src="assets/user/javascript/function.js"></script>

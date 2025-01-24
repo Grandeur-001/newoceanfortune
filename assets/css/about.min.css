@@ -14,7 +14,7 @@
     
   }
   .mobile_navbar .wrapper ul li:nth-of-type(2)  span a{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -31,7 +31,7 @@
 
 .about header .head_text{
     font-size: 32px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: uppercase;
     margin-block-end: 10px;
@@ -40,7 +40,7 @@
 .about header > .dash{
     width: 60px;
     height: 3px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 
 }
@@ -81,7 +81,7 @@
     align-items: center;
 }
 .text_grid .card header .small_heading .text{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -91,11 +91,11 @@
 .text_grid .card header .small_heading .dash{
     width: 60px;
     height: 3px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 }
 .text_grid .card header .big_heading{
     font-size: 25px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: capitalize;
 }
@@ -113,12 +113,12 @@
     
 }
 .text_grid .card article:hover{
-    color: var(--color-five-white);
+    color: var(--text-color);
 }
 .text_grid .card article > div{
     display: flex;
     flex-direction: column;
-    color: var(--color-five-white);
+    color: var(--text-color);
 }
 .text_grid .card article > div b{
     font-family: 'MTN Brighter Sans';
@@ -145,7 +145,7 @@
 }
 .about .about_main_content > .wrapper .image_grid > .text .big_text{
     font-size: 20px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: capitalize;
 }
@@ -191,7 +191,7 @@
 
 }
 .our_team header .small_heading .text{
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -202,11 +202,11 @@
 .our_team header .small_heading .dash{
     width: 60px;
     height: 3px;
-    background: radial-gradient(at top left, var(--color-two-blue) 30%, var(--color-one-purple) 100%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 }
 .our_team header .big_heading{
     font-size: 25px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     text-transform: capitalize;
 }
@@ -221,7 +221,7 @@
     height: 400px;
     width: 100%;
     padding-block: 50px;
-    background: var(--color-three-darkblue);
+    background: var(--background);
     border-radius: 9px;
     display: flex;
     align-items: center;
@@ -236,13 +236,13 @@
     position: absolute;
     height: 101%;
     width: 101%;
-    background: radial-gradient(at top left, var(--color-three-darkblue2) 30%, var(--color-three-darkblue2) 100%);
+    background: radial-gradient(at top left, var(--surface) 30%, var(--surface) 100%);
     border-radius: inherit;
     z-index: -1;
     box-shadow: var(--box-shadow);
 }
 .our_team > .wrapper .card:hover:after{
-    background: var(--color-five-white);
+    background: var(--text-color);
 
 }
 .our_team > .wrapper .card > .wrapper{
@@ -268,11 +268,11 @@
     padding: 3px;
     box-shadow: var(--box-shadow);
     transition: all 0.2s ease-in-out;
-    background: var(--color-three-darkblue2);
+    background: var(--surface);
 }
 .our_team > .wrapper .card:hover .wrapper .image .image_wrapper{
     scale: 1.07;
-    background: var(--color-five-white);
+    background: var(--text-color);
 
 }
 
@@ -293,7 +293,7 @@
 }
 .our_team > .wrapper .card > .wrapper .text span:nth-of-type(1){
     font-size: 20px;
-    color: var(--color-five-white);
+    color: var(--text-color);
     font-family: 'MTN Brighter Sans';
     margin-block: 10px;
 
@@ -321,7 +321,7 @@
 	transition: all 0.5s ease;
 }
 .our_team > .wrapper .card:hover .social-links a{
-	color: var(--color-five-white);
+	color: var(--text-color);
 }
 @media only screen and (max-width: 1044px) {
     .about header .head_text{

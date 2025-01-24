@@ -6,7 +6,7 @@
     <title>Ocean Fortune</title>
     <link rel="stylesheet" href="assets/css/deposit.css">
     <link rel="stylesheet" href="assets/css/toastify.css">
-    <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/table-wallet.css">
     <link rel="stylesheet" href="assets/css/mediaquery.css">
@@ -180,29 +180,142 @@
     });
 </script>
         
-        <!-- ============ CRYPTO STICKER ============= //--AT THE TOP, BELOW THE NAV BAR--//-->
-        <div class="crypto-ticker">
-            <div style="height:62px; background-color: #1e293b; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
-                <div style="height:40px; padding:0px; margin:0px; width: 100%;">
-                    <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe>
-                    <script>
-                        document.addEventListener('contextmenu', (event) => event.preventDefault());
-                            document.onkeydown = function(e) {
-                                // Disable F12, Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Console), Ctrl+U (View Source)
-                                if (e.keyCode == 123 || // F12
-                                    (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-                                    (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-                                    (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
-                                    return false; // Prevent the event
-                                }
-                            };
-                    </script>
-                </div>
-                <div style="color: #1e293b; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
-                    <a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px"></a>
-                </div>
-            </div>
+
+<style>
+
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--base-clr);
+    padding: 12px 0;
+    margin-top: 25px;
+
+}
+
+.ticker {
+    white-space: nowrap;
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+    width: 100%;
+}
+.ticker:hover {
+    animation-play-state: paused;
+}
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    border-right: 1px solid var(--border-color);
+}
+
+.crypto-symbol {
+    color: var(--secondary-text-clr);
+    margin: 0 8px;
+}
+
+.crypto-price {
+    margin-right: 8px;
+}
+
+.crypto-change {
+    font-size: 0.9em;
+}
+
+.crypto-change.positive {
+    color: #00ff88;
+}
+
+.crypto-change.negative {
+    color: #ff4444;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.crypto-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+</style>
+
+<div class="ticker-container">
+<div class="ticker" id="ticker">
+    <!-- Content will be populated by Jquery -->
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  const COINGECKO_API = 'https://api.coingecko.com/api/v3';
+const REFRESH_INTERVAL = 30000; 
+
+function fetchTopCryptos() {
+    return $.ajax({
+        url: `${COINGECKO_API}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&sparkline=false&price_change_percentage=1h`,
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            return data;
+        },
+        error: function(error) {
+            console.error('Error fetching crypto data:', error);
+            return [];
+        }
+    });
+}
+
+function formatPrice(price) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(price);
+}
+
+function formatPercentage(percentage) {
+    return percentage.toFixed(2);
+}
+
+function createTickerItem(crypto) {
+    return `
+        <div class="ticker-item">
+            <img src="${crypto.image}" alt="${crypto.name}" class="crypto-icon">
+            <span>${crypto.name}</span>
+            <span class="crypto-symbol">[${crypto.symbol.toUpperCase()}]</span>
+            <span class="crypto-price">${formatPrice(crypto.current_price)}</span>
+            <!-- 1-hour price change -->
+            <span class="crypto-change ${crypto.price_change_percentage_1h_in_currency >= 0 ? 'positive' : 'negative'}">
+                ${crypto.price_change_percentage_1h_in_currency >= 0 ? '+' : ''}${formatPercentage(crypto.price_change_percentage_1h_in_currency)}%
+            </span>
         </div>
+    `;
+}
+
+function updateTicker() {
+    fetchTopCryptos().then(function(cryptos) {
+        if (cryptos.length === 0) return;
+
+        const tickerElement = $('#ticker');
+        const tickerContent = cryptos.map(createTickerItem).join('');
+        
+        tickerElement.html(tickerContent + tickerContent);
+    });
+}
+ 
+updateTicker();
+
+setInterval(updateTicker, REFRESH_INTERVAL);
+</script>
+
 
         
     </header>
@@ -276,9 +389,335 @@
         </div>
     </aside>
 
+    <style>
 
+        
+        .main_content > header{
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .edit_crypto_buttons{
+            display: flex;
+            justify-content: start;
+            flex-direction: column;
+            margin: 20px 0;
+            align-items: start;
+            padding: 20px;
+            gap: 20px;
+        }
+        .add_wallet{
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }.add_wallet:hover{
+            background-color: #222222;
+            color: white;
+        }
+        .btn_group{
+            position: relative;
+        }
+        .btn_group .edit_crypto{
+            padding: 10px 20px;
+            color: white;
+            background-color: var(--surface);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }.edit_crypto:hover{
+            background-color: var(--border-color);
+            color: white;
+
+        }
+      
+        .dropdown_down {
+            position: absolute;
+            
+            /* right: 20%; */
+            top: 100%;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 8px 10px;
+            margin-top: 8px;
+            min-width: 180px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(2px);
+            transition: all 0.2s ease;
+            background: var(--background);
+            z-index: 200;
+        
+        }
+        .dropdown_container:hover .dropdown_down{
+            visibility: visible;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .dropdown_down .dropdown_item {
+            padding: 12px 16px;
+            display: block;
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+            border-radius: 10px;
+            border: none;
+            background: transparent;
+            width: 100%;
+            display: flex;
+            cursor: pointer;
+        
+        }
+        .dropdown_down .dropdown_item:hover{
+            background-color: var(--hover-color);
+        }
+
+        .dropdown_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            position: relative;
+        }
+        .dropdown_item > button{
+            color: var(--secondary-text);
+        }
+        .dropdown_item:hover button,
+        .dropdown_item:hover i{
+            color: var(--text-color);
+
+        }
+        .crypto_item{
+            width: 80%;
+            text-align: left;
+        }
+
+
+#edit_wallet_popup{
+    visibility: hidden;
+    opacity: 0;
+}
+        
+.action_overlay{
+    position: fixed;
+    width: 100%;
+    max-width: 100vw;
+    background: #000000b1;
+    backdrop-filter: blur(8px); 
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99999999;
+    height: 100vh;
+    transition: all 0.6s ease;
+
+    display: grid;
+    place-content: center;
+    place-items: center;
+
+
+}
+.show_action{
+ display: block;
+}
+.action_overlay > .wrapper{
+  background: var(--surface);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 10px;
+  justify-content: center;
+  width: 420px;
+
+}
+.action_overlay > .wrapper > header{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.315);
+  padding-bottom: 12px;
+  cursor: default;
+  color: var(--text-color);
+}
+.action_overlay > .wrapper > header img{
+  cursor: pointer;
+  background: var(--text-color);
+  padding: 2px;
+  width: 25px;
+  scale: 0.88;
+}
+.action_overlay > .wrapper > main{
+  display: flex;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.315);
+  padding-bottom: 20px
+}
+
+.action_overlay > .wrapper > main select{
+  width: 200px;
+  padding: 0.50rem 0.6rem;
+  background-color: var(--background);
+  border: 1px solid rgba(128, 128, 128, 0.315);
+  border-radius: 4px;
+  color: white;
+}
+
+.action_overlay > .wrapper > main label{
+  color: var(--secondary-text);
+  font-size: 14px;
+}
+.action_overlay > .wrapper > main input,
+.action_overlay > .wrapper > main textarea{
+  background-color: var(--background);
+  border: 1px solid rgba(128, 128, 128, 0.315);
+  padding: 0.50rem 0.6rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 200px;
+  color: var(--text-color);
+
+}
+.action_overlay > .wrapper > main textarea{
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+
+  max-height: 180px;
+  min-height: 180px;
+  height: 180px;
+}
+.action_overlay > .wrapper > main select:focus,
+.action_overlay > .wrapper > main input:focus,
+.action_overlay > .wrapper > main textarea:focus{
+
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(94, 99, 255, 0.1);
+}
+
+.qr_code_wrapper{
+    margin-top: 20px;
+}
+
+.qr_code_wrapper h6{
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+
+.negative_btn,
+.positive_btn{
+  padding: 11px 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--background);
+  border-radius: 5px;
+  background: var(--text-color);
+
+}
+.positive_btn{
+  background: var(--primary-color);
+  color: var(--text-color);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+    </style>
 
     <main class="main_content">
+        <header>
+            <h1>Select Crypto Wallet and make deposit</h1>
+        </header>
+
+
+
+
+        <div class="edit_crypto_buttons">
+            <button class="add_wallet">Add Wallet</button>
+
+            <div class="btn_group">
+                <div class="dropdown_container">
+                    <button class="edit_crypto">Edit Crypto</button>
+                    <div class="dropdown_down">
+                        <div class="dropdown_item">
+                            <!-- the complete id from the backend should be add to the data-popup like this below "show_edit_wallet_popup `<?php echo $row['id']; ?>` " -->
+                            <button class="crypto_item" data-popup="edit_wallet_popup">BTC</button>
+                            <i class="fa fa-trash"></i>
+                        </div>
+                        
+                    </div>
+
+
+
+                    <section class="action_overlay" id="edit_wallet_popup">
+                        <div class="wrapper">
+                            <header>
+                                <h4>
+                                    <!-- name from the backend -->
+                                    Edit <strong>BTC Wallet</strong> info
+
+
+
+                                </h4>
+                                <img class="close_action" src="assets/images/c-close-svgrepo-com.svg" alt="Close" width="20">
+                            </header>
+                            <main style="display: flex; flex-direction: column; gap: 10px;">
+                                <form action="" method="POST">
+                                    <input type="hidden" name="user_id" value="">
+
+                                    <label for="payment_method_address">Payment Method Address*</label>
+                                    <input id="payment_method_address" name="payment_method_address" type="text" placeholder="..." style="width: 100%;">
+
+
+                                    <label for="payment_method_network">Payment Method Network*</label>
+                                    <input id="payment_method_network" name="payment_method_network" type="text" placeholder="..." style="width: 100%;">
+
+
+                                    <div class="qr_code_wrapper">
+                                        <img src="https://th.bing.com/th/id/OIP.8GITPU9X6qcG6ESNNoBcjwHaHa?rs=1&pid=ImgDetMain" width="140" style="border-radius: 7px;" alt="">
+                                        <h6>QR Code</h6>
+                                    </div>
+                                
+                                
+                                </form>
+                            </main>
+                            <div style="display: flex; gap: 10px;">
+                                <button id="close" class="close_action negative_btn" type="button">Close</button>
+                                <button id="" class="positive_btn" type="submit">Save Changes</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+
+
+            
+
+            
+        </div>
+
+
       <div class="app-container">
         <main class="main-content">
             <div class="amount-section">
@@ -302,7 +741,7 @@
 
                             event.target.value = inputValue;
                         }
-                </script>
+                    </script>
                 </div>
                 <br>
 
@@ -445,6 +884,22 @@
         </div>
     </section>
 
+
+
+
+
+
+
+
+
+  
+
+
+                            
+
+
+
+
     <script src="assets/user/javascript/popup.js"></script>
     <script>
         const cryptoOptions = document.querySelectorAll('.crypto-option');
@@ -457,7 +912,6 @@
 
         cryptoOptions.forEach(option => {
             option.addEventListener('click', () => {
-                // Remove previous selection
                 if (currentSelection) {
                     currentSelection.classList.remove('selected');
                 }
@@ -538,8 +992,49 @@
 
 
 
+
+
+        // EDIT WALLET POPUPS
+        const cryptoItems = document.querySelectorAll(".crypto_item");
+         cryptoItems.forEach((item) => {
+            item.addEventListener('click', function() {
+                const popupId = item.getAttribute("data-popup")
+                const popup = document.getElementById(popupId);
+                if (popup) {
+                    popup.style.visibility = "visible";
+                    popup.style.opacity = "1";
+                }
+            })
+         })
+
+             
+        document.querySelectorAll('.close_action').forEach(button => {
+            button.addEventListener('click', function () {
+                const actionOverlay = this.closest('.action_overlay');
+                if (actionOverlay) {
+                    actionOverlay.style.visibility = 'hidden'; 
+                    actionOverlay.style.opacity = '0';
+                }
+            });
+        });
+
+
+
+
+
+        
+
+
+
         
     </script>
+
+
+
+
+
+
+
     <script src="assets/javascript/active-tab.js"></script>
 
 
