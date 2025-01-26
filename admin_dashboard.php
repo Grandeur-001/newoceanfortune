@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_lname = $_SESSION['user_lastname'] ;
-$email = $_SESSION['user_email'] ;
+$email = $_SESSION['email'] ;
 
 
 if (!isset($_SESSION['notifications'])) {
@@ -41,7 +41,7 @@ checkAdminAccess(); // Ensure only admins can access this page
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
       <!-- ============TITLE============= -->
-      <title>Ocean Fortune</title>
+      <title>Simart Pro</title>
   
       <!-- ============HEAD-ICON-LOGO============= -->
       <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -92,6 +92,9 @@ checkAdminAccess(); // Ensure only admins can access this page
                     
                     <div class="icons">
                     <ul>
+                        <li>
+                            <?php include("google_translator.php") ?>
+                        </li>
                         <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
                         <span class="login-status"></span>
                         </h4>
@@ -139,6 +142,7 @@ checkAdminAccess(); // Ensure only admins can access this page
 
                             
                         </li>
+                     
 
                         
                     </ul>

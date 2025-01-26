@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_lname = $_SESSION['user_lastname'] ;
-$email = $_SESSION['user_email'] ;
+$email = $_SESSION['email'] ;
 
 
 if (!isset($_SESSION['notifications'])) {
@@ -42,7 +42,7 @@ checkAdminAccess(); // Ensure only admins can access this page
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
       <!-- ============TITLE============= -->
-      <title>Ocean Fortune</title>
+      <title>Simart Pro</title>
   
       <!-- ============HEAD-ICON-LOGO============= -->
       <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -79,7 +79,7 @@ checkAdminAccess(); // Ensure only admins can access this page
 --text-color: #F5F5F5;
 --secondary-text: #A9A9A9;
 --primary-dark: #A6841C;
---primary-color: #C9A227;
+--primary-color: #6e591a;
 --border-color: #2A2A2A;
 --hover-color: rgba(255, 255, 255, 0.05);
 --positive-color: #00c853;
@@ -734,6 +734,8 @@ position: absolute;
 left: 0;
 }
 
+
+
 .button-wrapper {
 text-align: center;
 }
@@ -763,6 +765,7 @@ background-color: var(--primary-dark);
 
 .plans-container {
   grid-template-columns: 1fr;
+  padding-bottom: 70px;
 }
 }
 
@@ -1417,7 +1420,8 @@ setInterval(updateTicker, REFRESH_INTERVAL);
 
 
         <div class="container">
-            <div class="plans-container">
+
+            <div class="plans-container" style="margin-botto">
                     <!-- <div class="plans-card">
                         <div class="plans-card-header">
                             <h5>${plan.name}

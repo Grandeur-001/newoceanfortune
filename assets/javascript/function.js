@@ -123,21 +123,21 @@ if(firstEntry && performance.navigation.type === 0){
 
 
 }
-if(performance.navigation.type === 1) {
-	alertBox.style.setProperty(
-		'visibility',
-		'hidden'
-	);
+// if(performance.navigation.type === 1) {
+// 	alertBox.style.setProperty(
+// 		'visibility',
+// 		'hidden'
+// 	);
 	
-	preloaderAnimation.classList.add(`show_preloader`);
-	setTimeout(() => {
-		preloaderAnimation.classList.remove(`show_preloader`);
-		window.location.href = location.href;}, 6000);
+// 	preloaderAnimation.classList.add(`show_preloader`);
+// 	setTimeout(() => {
+// 		preloaderAnimation.classList.remove(`show_preloader`);
+// 		window.location.href = location.href;}, 6000);
  
-} 
-else{
-	preloaderAnimation.classList.remove(`show_preloader`);
-}
+// } 
+// else{
+// 	preloaderAnimation.classList.remove(`show_preloader`);
+// }
 
 
 
@@ -205,18 +205,6 @@ window.addEventListener(`scroll`, () => {
 
 
 
-
-
-document.addEventListener('contextmenu', (event) => event.preventDefault());
-document.onkeydown = function(e) {
-    // Disable F12, Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Console), Ctrl+U (View Source)
-    if (e.keyCode == 123 || // F12
-        (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-        (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-        (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
-        return false; // Prevent the event
-    }
-};
 
 
 

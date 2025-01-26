@@ -18,7 +18,7 @@
   
 }
 .mobile_navbar .wrapper ul li:nth-of-type(3)  span a{
-  background: linear-gradient(135deg, #C9A227, #B68E2E);
+  background: linear-gradient(135deg, #6e591a, #B68E2E);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -45,7 +45,7 @@
 .faq > header .dash{
   width: 60px;
   height: 3px;
-  background: linear-gradient(135deg, #C9A227, #B68E2E);
+  background: linear-gradient(135deg, #6e591a, #B68E2E);
 
 }
 .faq > .wrapper{
@@ -87,7 +87,7 @@
     text-align: left;
     width: 100%;
     padding: 1em 0;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     font-size: 1.15rem;
     font-weight: 400;
     border: none;
@@ -174,7 +174,7 @@
   .accordion .accordion-content p {
     font-size: 1rem;
     margin: 2em 0;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     font-family: 'MTN Brighter Sans';
     letter-spacing: 0.7px;
     line-height: 25px;
@@ -219,7 +219,7 @@
 
 }
 .support_axis > .wrapper .text .big_text span:nth-of-type(2){
-     background: radial-gradient(at top left, var(--color-two-blue), var(--color-one-purple) 90%);
+     background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -232,7 +232,7 @@
 }
 
 .support_axis > .wrapper .text .small_text{
-  color: var(--color-four-gray);
+  color: var(--secondary-text);
   font-family: PRO-FONT1;
   letter-spacing: 0.7px;
   line-height: 25px;
@@ -273,13 +273,13 @@
   position: absolute;
   height: 107%;
   width: 103%; 
-  background: linear-gradient(135deg, #C9A227, #B68E2E);
+  background: linear-gradient(135deg, #6e591a, #B68E2E);
   border-radius: inherit;
   transition: all 0.6s ease;
   z-index: -1;
 }
 .support_axis > .wrapper .btn a:hover{
-  background: linear-gradient(135deg, #C9A227, #B68E2E);
+  background: linear-gradient(135deg, #6e591a, #B68E2E);
 
 }
 .support_axis > .wrapper .address{
@@ -301,7 +301,7 @@
 }
 
 .support_axis > .wrapper .address > div span{
-  color: var(--color-four-gray);
+  color: var(--secondary-text);
   font-family: PRO-FONT4;
   font-weight: 500;
   text-align: left: 0;;

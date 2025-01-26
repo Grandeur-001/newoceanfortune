@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_lname = $_SESSION['user_lastname'] ;
-$email = $_SESSION['user_email'] ;
+$email = $_SESSION['email'] ;
 
 
 ?>
@@ -22,7 +22,7 @@ $email = $_SESSION['user_email'] ;
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
       <!-- ============TITLE============= -->
-      <title>Ocean Fortune</title>
+      <title>Simart Pro</title>
   
       <!-- ============HEAD-ICON-LOGO============= -->
       <link rel="icon" type="image/png" href="assets/images/logo.png">

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include 'connection.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $mail->Port = 587;
 
                             // Recipients
-                            $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+                            $mail->setFrom('support@oceanfortune.bond', 'Simart Pro Admin');
                             $mail->addAddress($userEmail);
 
                             // Email content
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <li><strong>Amount:</strong> $amount</li>
                                 </ul>
                                 <p>If you have any questions, please contact our support team.</p>
-                                <p>Thank you for choosing Ocean Fortune!</p>
+                                <p>Thank you for choosing Simart Pro!</p>
                             ";
 
                             $mail->send();

@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms and Conditions - Ocean Fortune</title>
+    <title>Terms and Conditions - Simart Pro</title>
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <style>
     :root {
-        --color-one-purple: #AC01FF;
-        --color-two-blue2: #1dcffc56;
-        --color-two-blue: #1DCFFC;
+        --color-one-purple: #6e591a;
+        --color-two-blue2: #6e591a56;
+        --color-two-blue: #6e591a;
         --background: #1F232F;
         --surface: #222222;
-        --color-four-gray: #9AA0A7; 
+        --secondary-text: #9AA0A7; 
         --border-color: #9aa0a752;
         --text-color: #F5F5F5;
         --background: #1b1e28;
@@ -143,11 +143,11 @@
         <h1>Terms and Conditions</h1>
         <p><strong>Last Updated:</strong> [Insert Date]</p>
 
-        <p>Welcome to <em>Ocean Fortune</em>! These Terms and Conditions ("Terms") govern your access to and use of the <em>Ocean Fortune</em> website and services. By accessing or using our platform, you agree to comply with and be bound by these Terms. Please read them carefully before engaging in any activity on our site.</p>
+        <p>Welcome to <em>Simart Pro</em>! These Terms and Conditions ("Terms") govern your access to and use of the <em>Simart Pro</em> website and services. By accessing or using our platform, you agree to comply with and be bound by these Terms. Please read them carefully before engaging in any activity on our site.</p>
 
         <div class="section">
             <h2>1. Acceptance of Terms</h2>
-            <p>By registering, accessing, or using <em>Ocean Fortune</em>, you confirm that you have read, understood, and agree to these Terms, as well as our Privacy Policy. If you do not agree, you must discontinue using our services immediately.</p>
+            <p>By registering, accessing, or using <em>Simart Pro</em>, you confirm that you have read, understood, and agree to these Terms, as well as our Privacy Policy. If you do not agree, you must discontinue using our services immediately.</p>
         </div>
 
         <div class="section">
@@ -160,7 +160,7 @@
 
         <div class="section">
             <h2>3. Services Offered</h2>
-            <p><em>Ocean Fortune</em> provides investment opportunities in cryptocurrencies. Our services include:</p>
+            <p><em>Simart Pro</em> provides investment opportunities in cryptocurrencies. Our services include:</p>
             <ul>
                 <li>Various investment plans tailored to different risk levels and preferences.</li>
                 <li>Real-time portfolio monitoring and management tools.</li>
@@ -172,7 +172,7 @@
             <h2>4. Investment Disclaimer</h2>
             <ul>
                 <li><strong>Risk of Loss:</strong> Cryptocurrency investments carry inherent risks, including market volatility and the potential for significant financial loss. You acknowledge that you are solely responsible for your investment decisions.</li>
-                <li><em>Ocean Fortune</em> does not guarantee any specific return on investment (ROI).</li>
+                <li><em>Simart Pro</em> does not guarantee any specific return on investment (ROI).</li>
                 <li>Past performance does not indicate future results.</li>
             </ul>
         </div>
@@ -189,9 +189,9 @@
         <div class="section">
             <h2>6. Payment and Fees</h2>
             <ul>
-                <li>All payments made on <em>Ocean Fortune</em> are processed securely.</li>
+                <li>All payments made on <em>Simart Pro</em> are processed securely.</li>
                 <li>You agree to pay any applicable fees as outlined in your chosen investment plan.</li>
-                <li><em>Ocean Fortune</em> reserves the right to update fees at any time. Users will be notified in advance of such changes.</li>
+                <li><em>Simart Pro</em> reserves the right to update fees at any time. Users will be notified in advance of such changes.</li>
             </ul>
         </div>
 
@@ -207,7 +207,7 @@
 
         <div class="section">
             <h2>8. Termination of Service</h2>
-            <p><em>Ocean Fortune</em> reserves the right to suspend or terminate your account at our sole discretion if:</p>
+            <p><em>Simart Pro</em> reserves the right to suspend or terminate your account at our sole discretion if:</p>
             <ul>
                 <li>You violate these Terms.</li>
                 <li>We suspect fraudulent or malicious activity associated with your account.</li>
@@ -218,7 +218,7 @@
         <div class="section">
             <h2>9. Intellectual Property</h2>
             <ul>
-                <li>All content on <em>Ocean Fortune</em>, including text, graphics, logos, and software, is the property of <em>Ocean Fortune</em> or its licensors.</li>
+                <li>All content on <em>Simart Pro</em>, including text, graphics, logos, and software, is the property of <em>Simart Pro</em> or its licensors.</li>
                 <li>You may not copy, reproduce, or distribute any content without prior written consent.</li>
             </ul>
         </div>
@@ -226,7 +226,7 @@
         <div class="section">
             <h2>10. Limitation of Liability</h2>
             <ul>
-                <li><em>Ocean Fortune</em> shall not be liable for any direct, indirect, incidental, or consequential damages arising out of your use of our services.</li>
+                <li><em>Simart Pro</em> shall not be liable for any direct, indirect, incidental, or consequential damages arising out of your use of our services.</li>
                 <li>We do not assume responsibility for third-party actions or services linked to our platform.</li>
             </ul>
         </div>
@@ -239,7 +239,7 @@
         <div class="section">
             <h2>12. Changes to Terms</h2>
             <ul>
-                <li><em>Ocean Fortune</em> reserves the right to update these Terms at any time.</li>
+                <li><em>Simart Pro</em> reserves the right to update these Terms at any time.</li>
                 <li>Any changes will be effective immediately upon posting on our website. Continued use of our platform signifies acceptance of the updated Terms.</li>
             </ul>
         </div>
@@ -252,12 +252,12 @@
         <div class="contact-info">
             <h2>14. Contact Us</h2>
             <p>If you have any questions about these Terms, please contact us at:</p>
-            <p><strong>Ocean Fortune Support</strong><br>
+            <p><strong>Simart Pro Support</strong><br>
             Email: <a href="mailto:support@Oceanfortune.com">support@Oceanfortune.com</a><br>
             Phone: [Insert Phone Number]</p>
         </div>
 
-        <p>By using <em>Ocean Fortune</em>, you acknowledge that you have read, understood, and agree to these Terms and Conditions.</p>
+        <p>By using <em>Simart Pro</em>, you acknowledge that you have read, understood, and agree to these Terms and Conditions.</p>
     </div>
     <?php $buttonText = "Back" ?>
     <div id="go_back">Back</div>

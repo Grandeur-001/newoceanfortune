@@ -18,7 +18,7 @@
 }
 .go_back a{
     text-decoration: none;
-    color: #369effb9;
+    color: var(--primary-dark);
     font-size: 13px;
 }
 .go_back a:hover{
@@ -64,7 +64,7 @@
 .wrapper .form_wrapper{
     width: 35%;
     height: 100%;
-    background: #252a36;
+    background: var(--surface);
     border-radius: var(--border-radius);
     padding-bottom: 29px;
 
@@ -96,7 +96,8 @@
     font-size: 20px;
     margin-block: 10px;
     padding-inline: 30px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
+
 }
 
 .wrapper .form_wrapper > form{
@@ -115,7 +116,7 @@
     padding: 3px;
     background: rgba(190, 31, 55, 0.201);
     text-align: center;
-    color: rgba(255, 0, 38, 0.737);
+    color: var(--negative-color);
     border: 1px solid rgba(255, 0, 38, 0.507);
     border-radius: 5px;
     font-family: sans-serif;
@@ -171,7 +172,7 @@
     left: 5px;
     transform: translateY(-50%);
     font-size: 14.5px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     padding: 0 5px;
     pointer-events: none;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
@@ -197,7 +198,7 @@
     text-size-adjust: none;
 }
 .input-group input:focus{
-    border: 1.9px solid #313848;
+    border: 1.9px solid #6e591ab1;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.095);
     
 }
@@ -283,7 +284,7 @@
     border-radius: 50%;
     transform: scale(1);
     vertical-align: middle;
-    border: 1px solid #5cbbd356;
+    border: 1px solid var(--primary-dark);
     transition: all 0.2s ease;
   }
   .checkbox-wrapper-15 .cbx span:first-child svg {
@@ -306,7 +307,7 @@
     content: "";
     width: 100%;
     height: 100%;
-    background: #506EEC;
+    background: var(--primary-dark);
     display: block;
     transform: scale(0);
     opacity: 1;
@@ -318,12 +319,12 @@
   }
 
   .checkbox-wrapper-15 .cbx:hover span:first-child {
-    border-color: #5b36ff4b;
+    border-color: var(--primary-color);
   }
 
   .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:first-child {
-    border-color: #5b36ff4b;
-    background: #5b36ff4b;
+    border-color: var(--primary-color);
+    background: var(--primary-color);
     animation: check-15 0.6s ease;
   }
   .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:first-child svg {
@@ -358,11 +359,11 @@
     
 }
 .terms-conditions_checkbox_wrapper > label:hover{
-    color: #98bac3;
+    color: var(--primary-color);
 
 }
 .terms-conditions_checkbox_wrapper > label a{
-    color: #369effb9;
+    color: var(--primary-color);
     text-decoration: underline;
 }
 
@@ -382,7 +383,7 @@
     outline: none;
     color: var(--text-color);
     cursor: pointer;
-    background: #5b36ff4b;
+    background: var(--primary-color);
     transition: all 0.4s ease;
     
 }
@@ -392,7 +393,7 @@
 }
 .submit_btn_wrapper > button:hover{
     transition: 0.3s ease;
-    box-shadow: 4px 13px 30px #1dcffc15, -40px 0 100px #aa01ff22;
+    box-shadow: 4px 13px 30px #8f70286f, -40px 0 100px #8f702880;
     background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
 
 }
@@ -414,14 +415,14 @@
 }
 .already_have_an_account a,
 .forgot_password span a{
-    color: #369effb9;
+    color: #D4AF37;
     font-size: 13.4px;
     transition: all 0.3s ease;
     text-decoration: none;
 
 }
 .already_have_an_account a:hover{
-    color: #369eff33;
+    color: var(--primary-color);
 
 }
 

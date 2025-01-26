@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             <!-- ============TITLE============= -->
-            <title>Ocean Fortune</title>
+            <title>Simart Pro</title>
 
             <!-- ============HEAD-ICON-LOGO============= -->
             <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -73,7 +73,7 @@
             <div class="wrapper" id="login_html">
                 <div class="image">
                     <div class="image_wrapper">
-                        <img src="assets/svg/undraw_mobile_login_re_9ntv.svg" srcset="">
+                        <img src="assets/svg/login iill.jpg" srcset="">
 
                     </div>
                 </div>

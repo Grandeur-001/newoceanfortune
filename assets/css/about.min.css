@@ -106,7 +106,7 @@
     padding-inline-end: 30px;
     line-height: 34px;
     margin-block-start: 10px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -156,7 +156,7 @@
     padding-inline-end: 30px;
     line-height: 27px;
     margin-block-start: 10px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -299,7 +299,7 @@
 
 }
 .our_team > .wrapper .card > .wrapper .text span{
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     font-family: 'MTN Brighter Sans';
 
 }
@@ -317,7 +317,7 @@
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	color: var(--color-four-gray);
+	color: var(--secondary-text);
 	transition: all 0.5s ease;
 }
 .our_team > .wrapper .card:hover .social-links a{

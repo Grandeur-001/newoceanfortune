@@ -71,7 +71,7 @@ function sendResetPasswordEmail($email, $firstname, $new_password)
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+        $mail->setFrom('support@oceanfortune.bond', 'Simart Pro Admin');
         $mail->addAddress($email, $firstname); // Send to the user's email address
 
         // Content
@@ -82,7 +82,7 @@ function sendResetPasswordEmail($email, $firstname, $new_password)
             <p>As per your request, your password has been reset. Your new password is:</p>
             <h3>$new_password</h3>
             <p>Please log in using this password and change it immediately for security reasons.</p>
-            <p>Thank you for choosing Ocean Fortune!</p>
+            <p>Thank you for choosing Simart Pro!</p>
         ";
 
         // Send the email

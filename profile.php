@@ -28,7 +28,7 @@ $phone = $_SESSION['user_phone'];
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <!-- ============TITLE============= -->
-        <title>Ocean Fortune</title>
+        <title>Simart Pro</title>
     
         <!-- ============HEAD-ICON-LOGO============= -->
         <link rel="icon" type="image/png" href="assets/images/logo.png">

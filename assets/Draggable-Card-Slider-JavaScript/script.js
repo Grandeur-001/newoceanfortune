@@ -84,22 +84,3 @@ wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
 
 
-
-     // Prevent horizontal scrolling
-     carousel.addEventListener('wheel', function(event) {
-        if (event.deltaX !== 0) {
-            event.preventDefault(); // Prevent default horizontal scrolling
-        }
-    }, { passive: false });
-
-
-document.addEventListener('contextmenu', (event) => event.preventDefault());
-document.onkeydown = function(e) {
-    // Disable F12, Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Console), Ctrl+U (View Source)
-    if (e.keyCode == 123 || // F12
-        (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-        (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-        (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
-        return false; // Prevent the event
-    }
-};

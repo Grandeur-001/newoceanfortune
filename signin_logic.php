@@ -129,7 +129,7 @@ function sendOtpEmail($email, $firstname, $otp)
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+        $mail->setFrom('support@oceanfortune.bond', 'Simart Pro Admin');
         $mail->addAddress($email, $firstname); // Send to the user's email address
 
         // Content
@@ -140,7 +140,7 @@ function sendOtpEmail($email, $firstname, $otp)
             please use the One-Time Password (OTP) below:</p> <h3>$otp</h3> 
             <p>This OTP will expire in 2 minutes. Please use it to verify your login.</p> 
             <p>If you did not request this login, please disregard this message.
-            </p> <p>Thank you for choosing Ocean Fortune!</p>
+            </p> <p>Thank you for choosing Simart Pro!</p>
         ";
 
         // Send the email

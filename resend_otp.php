@@ -99,7 +99,7 @@ function sendOtpEmail($email, $firstname, $otp)
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+        $mail->setFrom('support@oceanfortune.bond', 'Simart Pro Admin');
         $mail->addAddress($email, $firstname);
 
         // Email content

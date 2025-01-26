@@ -7,7 +7,7 @@
         /* display: none; */
     }
     .desktop_navbar{
-        background-image: radial-gradient(at top right, var(--background) 25%, #222633 100%);
+        background-image: var(--background);
     }
     
     .desktop_navbar .wrapper > nav{

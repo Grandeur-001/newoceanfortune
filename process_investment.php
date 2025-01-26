@@ -144,7 +144,7 @@ if ($stmt = $conn->prepare($processQuery)) {
                                             $mail->Port = 587;
 
                                             // Recipients
-                                            $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+                                            $mail->setFrom('support@oceanfortune.bond', 'Simart Pro Admin');
                                             $mail->addAddress($userEmail);
 
                                             // Content
@@ -154,7 +154,7 @@ if ($stmt = $conn->prepare($processQuery)) {
                                                 <p>Dear {$userName},</p>
                                                 <p>Congratulations! Your investment of <strong>{$investment_amount}</strong> in <strong>{$crypto_symbol}</strong> has been successfully completed.</p>
                                                 <p>Your total earnings of <strong>{$finalEarnings}</strong> have been added to your balance and are now available for withdrawal.</p>
-                                                <p>Thank you for investing with Ocean Fortune!</p>
+                                                <p>Thank you for investing with Simart Pro!</p>
                                             ";
 
                                             $mail->send();

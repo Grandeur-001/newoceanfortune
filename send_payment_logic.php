@@ -78,7 +78,7 @@ if (
         $mail->Port = 587;
 
         // Recipients
-        $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+        $mail->setFrom('support@oceanfortune.bond', 'Simart Pro Admin');
         $mail->addAddress($userEmail);
 
         // Content based on KYC status
@@ -89,7 +89,7 @@ if (
                 <p>Dear $userName,</p>
                 <p>We noticed that your KYC status is currently <strong>unverified</strong>.</p>
                 <p>Please complete your KYC process in order to proceed with withdrawals.</p>
-                <p>Thank you for choosing Ocean Fortune!</p>
+                <p>Thank you for choosing Simart Pro!</p>
             ";
         } else {
             $mail->isHTML(true);
@@ -98,7 +98,7 @@ if (
                 <p>Dear $userName,</p>
                 <p>We are pleased to inform you that your KYC status is <strong>verified</strong>.</p>
                 <p>You are now eligible to proceed with withdrawals and other actions on your account.</p>
-                <p>Thank you for choosing Ocean Fortune!</p>
+                <p>Thank you for choosing Simart Pro!</p>
             ";
         }
 
@@ -155,7 +155,7 @@ if (
                 <li><strong>Wallet Address:</strong> $walletAddress</li>
             </ul>
             <p>Your withdrawal status is currently <strong>Pending</strong>. We will notify you once it is processed.</p>
-            <p>Thank you for choosing Ocean Fortune!</p>
+            <p>Thank you for choosing Simart Pro!</p>
         ";
 
         $mail->send();
@@ -176,7 +176,7 @@ if (
                 <li><strong>Wallet Address:</strong> $walletAddress</li>
             </ul>
             <p>Kindly review and confirm the withdrawal status in the admin panel.</p>
-            <p>Ocean Fortune Admin</p>
+            <p>Simart Pro Admin</p>
         ";
 
         $mail->send();

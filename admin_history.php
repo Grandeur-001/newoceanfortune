@@ -1,6 +1,25 @@
 <?php
-include 'access_control.php';
+
+
+            
+// include 'session_handler.php';
+ini_set('session.cookie_lifetime', 0);
+ini_set('session.gc_maxlifetime', 0);
 session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$user_lname = $_SESSION['user_lastname'] ;
+$email = $_SESSION['email'] ;
+
+
+if (!isset($_SESSION['notifications'])) {
+  $_SESSION['notifications'] = [];
+}
+include 'access_control.php';
 
 checkAdminAccess(); // Ensure only admins can access this page
 
@@ -15,7 +34,7 @@ checkAdminAccess(); // Ensure only admins can access this page
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <!-- ============TITLE============= -->
-        <title>Ocean Fortune</title>
+        <title>Simart Pro</title>
     
         <!-- ============HEAD-ICON-LOGO============= -->
         <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -41,12 +60,6 @@ checkAdminAccess(); // Ensure only admins can access this page
         <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
     </head>
 
-
-        <?php
-            
-            include 'session_handler.php';
-
-        ?>
 
 
     <style>

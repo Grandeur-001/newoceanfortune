@@ -172,7 +172,7 @@ if ($stmt_plan = $conn->prepare($plan_query)) {
                                 $mail->Port = 587;
 
                                 // Recipients
-                                $mail->setFrom('support@oceanfortune.bond', 'Ocean Fortune Admin');
+                                $mail->setFrom('support@oceanfortune.bond', 'Simart Pro Admin');
                                 $mail->addAddress($userEmail);
 
                                 // Content
@@ -181,14 +181,14 @@ if ($stmt_plan = $conn->prepare($plan_query)) {
                                 $mail->Body = "
                                         <p>Hi $userName,</p>
 
-                                        <p>Thank you for choosing Ocean Fortune! We&apos;re excited to let you know that we&apos;ve received your investment of $investment_amount in $crypto_symbol.</p>
+                                        <p>Thank you for choosing Simart Pro! We&apos;re excited to let you know that we&apos;ve received your investment of $investment_amount in $crypto_symbol.</p>
 
                                         <p>At the moment, your investment status is <em>processing</em>. We&apos;ll keep you updated as soon as it&apos;s completed and provide any additional details you need.</p>
 
                                         <p>If you have any questions or need assistance, feel free to reach out to our support team at any time.</p>
 
                                         <p>Thanks again for trusting us with your investment!</p>
-                                        <p>Best regards,<br>Ocean Fortune Team</p>
+                                        <p>Best regards,<br>Simart Pro Team</p>
 
                                 ";
 

@@ -1,4 +1,20 @@
 <?php
+// include 'session_handler.php';
+
+ini_set('session.cookie_lifetime', 0);
+ini_set('session.gc_maxlifetime', 0);
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$user_lname = $_SESSION['user_lastname'] ;
+$email = $_SESSION['email'] ;
+
+
+
 // Include the database connection file
 include 'connection.php';
 
@@ -18,7 +34,7 @@ checkAdminAccess(); // Ensure only admins can access this page
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocean Fortune</title>
+    <title>Simart Pro</title>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="stylesheet" href="assets/css/swap.css">
     <!-- <link rel="stylesheet" href="assets/css/users.css"> -->
@@ -70,7 +86,6 @@ checkAdminAccess(); // Ensure only admins can access this page
 
 <body>
     <?php
-    include 'session_handler.php';
 
 
    include 'users_logic.php';
@@ -437,7 +452,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
     --text-color: #F5F5F5;
     --secondary-text: #A9A9A9;
     --primary-dark: #A6841C;
-    --primary-color: #C9A227;
+    --primary-color: #6e591a;
     --border-color: #2A2A2A;
     --hover-color: rgba(255, 255, 255, 0.05);
     --positive-color: #00c853;

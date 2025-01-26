@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             <!-- ============TITLE============= -->
-            <title>Ocean Fortune</title>
+            <title>Simart Pro</title>
 
             <!-- ============HEAD-ICON-LOGO============= -->
             <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -72,7 +72,7 @@
 
                 <div class="image">
                     <div class="image_wrapper">
-                        <img src="assets/svg/undraw_sign_up_n6im.svg" srcset="">
+                        <img src="https://img.freepik.com/free-vector/mobile-wireframe-concept-illustration_114360-7091.jpg?t=st=1737905445~exp=1737909045~hmac=c308c5371ed26da3115dd89fc0dec78a0648dd9efd1bf379541d58404ad01c2d&w=740" srcset="">
                         
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="text">
-                            <div class="span">Get started with Ocean Fortune</div>
+                            <div class="span">Get started with Simart Pro</div>
                         </div>
                     </header>
 

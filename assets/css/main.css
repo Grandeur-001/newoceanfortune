@@ -1,20 +1,12 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* ============THE COLOR VARIABLES FOR THE WEBSITE============= */
 :root {
-    --color-one-purple: #AC01FF;
-    --color-two-blue2: #1dcffc56;
-    --color-two-blue: #1DCFFC;
-    --background: #1F232F;
-    /* --surface: #222222; */
-    --color-four-gray: #9AA0A7; 
-    /* --border-color: #9aa0a752; */
-    /* --text-color: #F5F5F5; */
-    --background: #1b1e28;
+
     --border-radius:26px 26px 26px 26px;
     --box-shadow: 7px 7px 15px 0px #0E1015;
     
 }
-/* background: linear-gradient(135deg, #C9A227, #B68E2E); */
+/* background: linear-gradient(135deg, #6e591a, #B68E2E); */
 
 
 :root {
@@ -23,7 +15,7 @@
     --text-color: #F5F5F5;
     --secondary-text: #A9A9A9;
     --primary-dark: #A6841C;
-    --primary-color: #C9A227;
+    --primary-color: #6e591a;
     --border-color: #383838;
     --hover-color: rgba(255, 255, 255, 0.05);
     --positive-color: #00c853;
@@ -94,7 +86,7 @@ body{
 .scroll_watcher{
     height: 5px;
     background: var(--text-color);
-    /* background: linear-gradient(135deg, #C9A227, #B68E2E); */
+    /* background: linear-gradient(135deg, #6e591a, #B68E2E); */
     width: 100%;
     position: fixed;
     top: 0px;
@@ -246,7 +238,9 @@ body{
 .desktop_navbar .wrapper > nav .logo .logo_name, 
 .footer .logo .logo_name{
     color: var(--text-color);
-    font-family: LOGO-FONT;
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
     font-size: 20px;
     font-weight: inherit;
 
@@ -331,7 +325,7 @@ body{
 }
 .desktop_navbar .wrapper > nav > ul > li:nth-of-type(3) .sub_menu > li:hover{
     border-bottom: 1px solid var(--color-two-blue);
-    background: #242834;
+    background: var(--surface);
 
 }
 
@@ -603,7 +597,7 @@ body{
     font-size: 30px;
     letter-spacing: 0.7px;
     margin-block-start: 10px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
 
 }
 .home_banner .text_content .small_text_wrapper .small_text:nth-of-type(2){
@@ -680,7 +674,7 @@ body{
 .home_banner .evoloution > .wrapper .left_axiz .text{
     margin-block-start: 30px;
     font-family: 'MTN Brighter Sans';
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     font-size: 20px;
 
 
@@ -710,7 +704,7 @@ body{
     padding-inline: 40px;
     line-height: 32px;
     margin-block-start: 10px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     text-align: center;
 
 }
@@ -770,7 +764,7 @@ body{
     padding-inline-end: 30px;
     line-height: 34px;
     margin-block-start: 10px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -893,7 +887,7 @@ body{
     padding-inline-end: 30px;
     line-height: 34px;
     margin-block-start: 10px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
 }
 
 .section_3{
@@ -934,7 +928,7 @@ body{
     padding-inline-end: 30px;
     line-height: 34px;
     margin-block-start: 10px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
 }
 .section_3 .wrapper header .small_text a{
     padding-inline: 45px;
@@ -953,7 +947,7 @@ body{
     width: 200px;
 }
 .section_3 .wrapper header .small_text a:hover{
-    background: radial-gradient(at top left, var(--color-two-blue), var(--color-one-purple) 90%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1030,7 +1024,7 @@ body{
     letter-spacing: 0.7px;
     padding-inline-end: 30px;
     line-height: 34px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
 }
 
 
@@ -1154,7 +1148,7 @@ body{
     transition-delay: 1.7s;
  }
  .blog-slider__item:nth-of-type(1) .blog-slider__img{
-     box-shadow: 4px 12px 30px #1dcffc15, -30px 0 100px #aa01ff22;
+     box-shadow: 4px 12px 30px #6e591a15, -30px 0 100px #aa01ff22;
  }
   .blog-slider__img {
     width: 300px;
@@ -1246,7 +1240,7 @@ body{
     padding-inline-end: 30px;
     padding-block-end: 20px;
     line-height: 34px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
 
  }
   .blog-slider__button {
@@ -1255,7 +1249,7 @@ body{
     padding: 15px 35px;
     border-radius: 50px;
     color: #fff;
-    box-shadow: 4px 13px 30px #1dcffc15, -40px 0 100px #aa01ff22;
+    box-shadow: 4px 13px 30px #6e591a15, -40px 0 100px #aa01ff22;
     text-decoration: none;
     font-weight: 500;
     justify-content: center;
@@ -1315,7 +1309,7 @@ body{
     height: 11px;
     display: block;
     border-radius: 10px;
-    background: var(--color-four-gray);
+    background: var(--secondary-text);
     opacity: 0.2;
     transition: all 0.3s;
  }
@@ -1423,7 +1417,7 @@ body{
     font-size: 22px;
     color: var(--text-color);
     font-family: 'MTN Brighter Sans';
-    background: radial-gradient(at top left, var(--color-two-blue), var(--color-one-purple) 90%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1445,7 +1439,7 @@ body{
 }
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper header .percentage > span:nth-of-type(2){
     font-family: 'MTN Brighter Sans';
-        background: radial-gradient(at top left, var(--color-two-blue), var(--color-one-purple) 90%);
+        background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1475,7 +1469,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 22px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
     font-family: 'MTN Brighter Sans';
 
 }
@@ -1491,7 +1485,7 @@ body{
 .section_4 > .wrapper > .card_wrapper  > .card > .wrapper .list ul li span:nth-of-type(1){
     font-family: 'MTN Brighter Sans';
     font-weight: 600;
-    background: radial-gradient(at top left, var(--color-two-blue), var(--color-one-purple) 90%);
+    background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1581,7 +1575,7 @@ body{
     font-family: 'MTN Brighter Sans';
     font-weight: 600;
     font-size: 15px;
-    border: 2px solid var(--color-four-gray);
+    border: 2px solid var(--secondary-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1593,8 +1587,8 @@ body{
     /* width: 22vw; */
     width: 80%;
     height: 1.5px ;
-    /* background: linear-gradient(135deg, #C9A227, #B68E2E); */
-    background: var(--color-four-gray);
+    /* background: linear-gradient(135deg, #6e591a, #B68E2E); */
+    background: var(--secondary-text);
 
 }
 
@@ -1610,7 +1604,7 @@ body{
     letter-spacing: 0.7px;
     padding-inline-end: 30px;
     line-height: 34px;
-    color: var(--color-four-gray);
+    color: var(--secondary-text);
 }
 .section_5 > .wrapper > .card .small_text:hover{
     color: var(--text-color);
@@ -1706,7 +1700,7 @@ body{
 	text-transform: capitalize;
 	text-decoration: none;
 	font-weight: 300;
-	color: var(--color-four-gray);
+	color: var(--secondary-text);
 	display: block;
 	transition: all 0.3s ease;
 }
