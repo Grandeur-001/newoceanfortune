@@ -98,66 +98,77 @@ checkAdminAccess(); // Ensure only admins can access this page
 
 <header class="dashboard_header">
           <div class="wrapper">
-            <div class="logo">
-              <div class="image_wrapper">
-                  <img src="assets/images/logo.png" width="42" height="42" alt="">
-              </div>
-            </div>
-            
-            <div class="icons">
-              <ul>
-                <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
-                  <span class="login-status"></span>
-                </h4>
-                  <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
-                      <div class="notification_box">
-                        <div class="wrapper">
-                        <header>
-                            <span>Notifications</span>
-                            <a href="#" id="clearAll">Clear All</a>
-                        </header>
+                    <div class="logo">
+                    <div class="image_wrapper">
+                        <img src="assets/images/logo.png" width="42" height="42" alt="">
+                    </div>
+                    </div>
+                    
+                    <div class="icons">
+                    <ul>
+                        
+                        <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
+                        <span class="login-status"></span>
+                        </h4>
 
-                        <ul id="notificationList">
-                            <!-- Notifications will be dynamically loaded here -->
-                        </ul>
 
-                        <div class="view_all">
-                            <a href="#" id="viewToggleLink" style="display: none;">View All</a>
+                        <div>
+                            <?php include("google_translator.php") ?>
+                            <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
                         </div>
 
 
 
-                  <li><a><i class="material-icons account-icon">account_circle</i></a>
-                      <div class="profile_box">
-                          <ul>
-                              <li>
-                                  <a href="admin_profile.php">
-                                      <i class="material-icons">person_outline</i>
-                                      <span>Profile </span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="admin_wallet_page.php">
-                                      <i class="material-icons">account_balance_wallet</i>
-                                      <span>Wallet</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="logout.php">
-                                      <i class="material-icons">logout</i>
-                                      <span>Logout</span>
-                                  </a>
-                              </li>
-                          </ul>
-                      </div>
+                        <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
+                            <div class="notification_box">
+                                <div class="wrapper">
+                                <header>
+                                    <span>Notifications</span>
+                                    <a href="#" id="clearAll">Clear All</a>
+                                </header>
 
-                      
-                  </li>
+                                <ul id="notificationList">
+                                    <!-- Notifications will be dynamically loaded here -->
+                                </ul>
 
-                
-              </ul>
-            </div>
-          </div>
+                                <div class="view_all">
+                                    <a href="#" id="viewToggleLink" style="display: none;">View All</a>
+                                </div>
+
+
+
+                        <li><a><i class="material-icons account-icon">account_circle</i></a>
+                            <div class="profile_box">
+                                <ul>
+                                    <li>
+                                        <a href="admin_profile.php">
+                                            <i class="material-icons">person_outline</i>
+                                            <span>Profile </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_wallet_page.php">
+                                            <i class="material-icons">account_balance_wallet</i>
+                                            <span>Wallet</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="logout.php">
+                                            <i class="material-icons">logout</i>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            
+                        </li>
+                     
+
+                        
+                    </ul>
+                    </div>
+                </div>
 
           <script>
     // Fetch notifications when the page loads
@@ -394,7 +405,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                       <li>
                           <a href="admin_swap.php">
                               <i class="material-icons">swap_calls</i>
-                              <span>Swap</span>
+                              <span>Convert</span>
                           </a>
                       </li>
 
@@ -414,7 +425,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                       <li>
                           <a href="admin_features.php">
                               <i class="material-icons">widgets</i>
-                              <span>Features</span>
+                              <span>Investments</span>
                           </a>
                       </li>
                       <li>
@@ -489,7 +500,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
     .input-group-navbar input:focus {
       outline: none;
       border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
     }
     
     .input-group-navbar button {
@@ -1229,7 +1240,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
      
     <footer class="dashboard_footer">
         <div class="wrapper">
-          <span>© 2024 <a href="index.php">Creative Fortune</a>All Right Reserved</span>
+          <span>© 2020 <a href="index.php">Simart Pro</a>All Right Reserved</span>
           <span><a href="#">Purchase Now</a></span>
         </div>
     </footer>
@@ -1249,7 +1260,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                 <li>
                     <a href="admin_swap.php">
                         <i class="material-icons">swap_calls</i>
-                        <span>Swap</span>
+                        <span>Convert</span>
                     </a>
                 </li>
             </ul>
@@ -1276,7 +1287,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                 <li>
                     <a href="admin_features.php">
                         <i class="material-icons">widgets</i>
-                        <span>Features</span>
+                        <span>Investments</span>
                     </a>
                 </li>
             </ul>

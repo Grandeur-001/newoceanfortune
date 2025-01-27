@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="assets/css/main-mediaquery.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
   
   
@@ -49,9 +49,17 @@
             
             <div class="icons">
               <ul>
+
+                
+                
                 <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
                   <span class="login-status"></span>
                 </h4>
+
+                <div>
+                    <?php include("google_translator.php") ?>
+                    <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
+                </div>
                   <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
                       <div class="notification_box">
                         <div class="wrapper">
@@ -340,16 +348,16 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                     <li>
                         <a href="admin_swap.php">
                             <i class="material-icons">swap_calls</i>
-                            <span>Swap</span>
+                            <span>Convert</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="users.php">
-                            <i class="fa fa-user-o"></i>
-                            <span>Users</span>
-                        </a>
-                    </li>
+                          <a href="users.php">
+                              <i class="fa fa-user"></i>
+                              <span>Users</span>
+                          </a>
+                      </li>
 
                     <li>
                         <a href="admin_history.php">
@@ -360,7 +368,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                     <li>
                         <a href="admin_features.php">
                             <i class="material-icons">widgets</i>
-                            <span>Features</span>
+                            <span>Investments</span>
                         </a>
                     </li>
                     <li>
@@ -535,6 +543,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
   border-radius: 10px;
   justify-content: center;
   width: 420px;
+  scale: 0.87;
 
 }
 .action_overlay > .wrapper > header{
@@ -630,6 +639,30 @@ setInterval(updateTicker, REFRESH_INTERVAL);
 
 }
 
+#image_input{
+    appearance: none;
+}
+
+
+@media (max-width: 768px) {
+    .action_overlay > .wrapper{
+        scale: 0.88;
+    }
+}
+
+@media (max-width: 480px) {
+    .action_overlay > .wrapper{
+        scale: 0.79;
+    }
+}
+
+@media (max-width: 350px) {
+    .action_overlay > .wrapper{
+        scale: 0.69;
+    }
+}
+
+
 
 
 
@@ -668,9 +701,10 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                     </div>
 
 
-
-                    <section class="action_overlay" id="edit_wallet_popup">
+                    <section class="action_overlay" id="edit_wallet_popup" style="overflow-y: scroll; ">
+                    
                         <div class="wrapper">
+                            
                             <header>
                                 <h4>
                                     <!-- name from the backend -->
@@ -682,8 +716,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                                 <img class="close_action" src="assets/images/c-close-svgrepo-com.svg" alt="Close" width="20">
                             </header>
                             <main style="display: flex; flex-direction: column; gap: 10px;">
-                                <form action="" method="POST">
-                                    <input type="hidden" name="user_id" value="">
+                                    <input type="hidden" name="crypto_id" value=""> <!-- id from the backend here -->
 
                                     <label for="payment_method_address">Payment Method Address*</label>
                                     <input id="payment_method_address" name="payment_method_address" type="text" placeholder="..." style="width: 100%;">
@@ -694,17 +727,56 @@ setInterval(updateTicker, REFRESH_INTERVAL);
 
 
                                     <div class="qr_code_wrapper">
-                                        <img src="https://th.bing.com/th/id/OIP.8GITPU9X6qcG6ESNNoBcjwHaHa?rs=1&pid=ImgDetMain" width="140" style="border-radius: 7px;" alt="">
-                                        <h6>QR Code</h6>
+
+                                        <!--   QR CODE FROM THE BACKEND  -->
+                                        <img src="https://th.bing.com/th/id/OIP.8GITPU9X6qcG6ESNNoBcjwHaHa?rs=1&pid=ImgDetMain" width="190" style="border-radius: 7px;" alt="">
+                                        <br>
+                                        <br>
+                                        <label for="image_input" class="button ">Change QR Code</label><br>
+                                        <input type="file" name="qr_code_input" id="image_input" accept=".jpg, .jpeg, .png" style="display: ; margin-bottom: 10px;">
+                                        <br>
+                                        
+
+
                                     </div>
                                 
-                                
-                                </form>
+                                    <div style="display: flex; gap: 10px;">
+                                        <button id="close" class="close_action negative_btn" type="button">Close</button>
+                                        <button name="" id="submit-btn" class="positive_btn" type="submit">Save Changes</button>
+                                    </div>
+                                <script>
+                                    document.getElementById("submit-btn").addEventListener("click", function () {
+                                        const walletAddress = document.getElementById("payment_method_address").value.trim();
+                                        const walletNetwork = document.getElementById("payment_method_network").value.trim();
+                                        const qrCodeFile = document.getElementById("image_input").files[0];
+
+                                        if (!walletAddress || !walletNetwork || !qrCodeFile) {
+                                            alert("Please fill all fields.");
+                                            return;
+                                        }
+
+                                        const formData = new FormData();
+                                        formData.append("wallet_address", walletAddress);
+                                        formData.append("wallet_network", walletNetwork);
+                                        formData.append("qr_code", qrCodeFile);
+
+                                        const xhr = new XMLHttpRequest();
+                                        xhr.open("POST", "upload_qr_code.php", true);
+
+                                        xhr.onload = function () {
+                                            if (xhr.status === 200) {
+                                                alert(xhr.responseText);
+                                            } else {
+                                                alert("Error occurred during submission.");
+                                            }
+                                        };
+
+                                        xhr.send(formData);
+                                    });
+
+                                </script>
                             </main>
-                            <div style="display: flex; gap: 10px;">
-                                <button id="close" class="close_action negative_btn" type="button">Close</button>
-                                <button id="" class="positive_btn" type="submit">Save Changes</button>
-                            </div>
+                           
                         </div>
                     </section>
                 </div>
@@ -828,7 +900,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
 
     <footer class="dashboard_footer">
         <div class="wrapper">
-            <span>© 2024 <a href="index.php">Creative Fortune</a>All Right Reserved</span>
+            <span>© 2020 <a href="index.php">Simart Pro</a>All Right Reserved</span>
             <span><a href="#">Purchase Now</a></span>
         </div>
     </footer>
@@ -850,7 +922,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                 <li>
                     <a href="swap.php">
                         <i class="material-icons">swap_calls</i>
-                        <span>Swap</span>
+                        <span>Convert</span>
                     </a>
                 </li>
             </ul>
@@ -866,16 +938,16 @@ setInterval(updateTicker, REFRESH_INTERVAL);
 
             <ul>
                 <li>
-                    <a href="dashboard.php">
+                    <a href="features.php">
                         <i class="material-icons">widgets</i>
-                        <span>Features</span>
+                        <span>Investments</span>
                     </a>
                 </li>
             </ul>
 
             <ul>
                 <li>
-                    <a href="dashboard.php">
+                    <a href="market.php">
                         <i class="material-icons">store</i>
                         <span>Market</span>
                     </a>

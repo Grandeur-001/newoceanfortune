@@ -31,6 +31,7 @@
 <body>
     <!-- ============SCROLL WATCHER============= -->
     <div class="scroll_watcher"></div>
+   
 
 
 
@@ -38,10 +39,12 @@
 
     <!-- ============ DESKTOP-NAVIGATION-BAR============= -->
     <header id="desktop_navbar" class="desktop_navbar">
+   
         <div class="wrapper">
             <nav>
-                <div style="z-index: 3; opacity: 0; cursor: pointer; position: absolute; height: 50px; width: 50px; background-color: red;">
-                    <input type="checkbox" name="" id="check_nav" style="cursor: pointer;">
+                <div style="z-index: 3; opacity: 0; cursor: pointer; position: absolute; height: 50px; width: 50px; background-color: red; display: grid; place-content: center; place-items: center;">
+                  
+                    <input type="checkbox" name="" id="check_nav" style="cursor: pointer; height: 50px; width: 50px;">
                 </div>
                     <div class="hamburger" id="hamburger-6">
                         <span class="line"></span>
@@ -56,8 +59,18 @@
 
                     <div class="logo_name">Simart Pro</div>
                 </div>
-
+                <style>
+                  @media only screen and (max-width: 888px) {
+                  .desktop_navbar .wrapper > nav > ul {
+                    display: block;
+                  }
+                  .desktop_navbar .wrapper > nav > ul li{
+                        display: none;
+                    }
+                  }
+                </style>
                 <ul>
+                  
                     <li><a class="links" href="index.php">Home</a></li>
                     <li><a class="links" href="about.php">about us</a></li>            
                     <li><a>support</a>
@@ -68,6 +81,11 @@
                     </li>
                     <li><a class="links" href="login.php">Login</a></li>
                     <li><a class="links" href="signup.php">signup</a></li>
+
+                    <div style="margin: 20px;">
+                      <?php include("google_translator.php") ?>
+                      <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
+                  </div>
                 </ul>
             </nav>
         </div>
@@ -474,16 +492,102 @@
           </div>
       </div>
     </section>
+<script>
+const html = document.querySelector(`html`)
+const body = document.querySelector(`body`);
+const hamBurger = document.querySelector(`.hamburger`);
+const mobileNavbar = document.querySelector(`.mobile_navbar`);
+const checkNav = document.querySelector(`#check_nav`);
+const allLinks = document.querySelector('.links');
+const preloaderAnimation = document.querySelector(`.preloader_animation`);
+const mobileNavigation = document.querySelector(`.navigation_wrapper`);
+let thisHref = allLinks.getAttribute(`href`);
+const alertBox = document.querySelector(`#toast-container`);
 
+
+
+
+checkNav.addEventListener(`click`, () => {
+
+	if(checkNav.checked){
+		hamBurger.classList.add('is-active');
+		mobileNavbar.style.setProperty(
+			'transform',
+			'translateX(+0)'
+		);
+		mobileNavbar.style.setProperty(
+			'transition',
+			'0.6s cubic-bezier(0.23, 1, 0.32, 1)'
+		);
+	}else {
+		hamBurger.classList.remove('is-active');
+		mobileNavbar.style.setProperty(
+			'transform',
+			'translateX(-50vh)'
+		);
+
+		mobileNavbar.style.setProperty(
+			'transition',
+			'1s'
+		);
+	};
+
+	mobileNavbar.style.setProperty(
+		'width',
+		'70px'
+	 );
+	 document.querySelectorAll(`.menu_link`).forEach((menuLink) =>{
+		menuLink.style.setProperty(
+				'transform',
+				'translateX(20px)'
+			 );
+	 });
+});
+
+
+
+document.querySelectorAll(`.menu_icon`).forEach((icon) => {
+	icon.addEventListener(`click`, () => {
+		if (mobileNavbar.style.width === `70px`) {
+			 mobileNavbar.style.setProperty(
+				'width',
+				'160px'
+			 );
+			 document.querySelectorAll(`.menu_link`).forEach((menuLink) =>{
+				menuLink.style.setProperty(
+						'transform',
+						'translateX(0)'
+					 );
+			 });
+		}else {
+			mobileNavbar.style.setProperty(
+				'width',
+				'70px'
+			 );
+			 document.querySelectorAll(`.menu_link`).forEach((menuLink) =>{
+				menuLink.style.setProperty(
+						'transform',
+						'translateX(20px)'
+					 );
+			 });
+		}
+
+
+	});
+});
+
+</script>
 
     
 </body>
 
     <!-- ============JAVASCRIPT-LINKS============= -->
-    <script src="assets/javascript/function.js"></script>
+    <!-- <script src="assets/javascript/function.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="assets/javascript/typed.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
     <script src="assets/javascript/node_modules/lodash/lodash.min.js"></script>
+
+
 </html>

@@ -984,3 +984,27 @@ Response: {"success":true,"message":"A new OTP has been sent to your email."}[20
 [2025-01-23 15:00:02] Transaction added successfully. Transaction ID: txn_6792597202b81, User ID: 810175, Amount: 2200, Crypto Symbol: BTC
 [2025-01-23 15:00:02] Investment completion email sent to dannywiz480@gmail.com for Transaction ID: txn_6792597202b81
 [2025-01-23 15:00:02] Investment completion notification sent to User ID: 810175
+Raw POST Data:
+
+
+Parsed Form Data:
+Array
+(
+    [crypto_id] => 1
+    [plan_id] => 2
+    [name] => BTC Trial Mining
+    [roi] => 2.00
+    [roi_max] => 5.00
+    [minimum] => 1000.00
+    [maximum] => 2999.00
+    [earning_duration] => 1440
+    [duration_timeframe] => 6
+    [duration] => 1440
+    [commission] => 5.00
+    [benefit] =>  Monitoring profits daily
+)
+
+
+Response:
+{"success":true,"message":"Investment plan updated successfully!"}
+

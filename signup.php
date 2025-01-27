@@ -61,11 +61,17 @@
         </style>
         <body>
             
-            <div class="go_back">
-                <div class="left-arrow">
-                    <img src="assets/images/SLIDEUPARROW.PNG" alt="">
+        <div class="go_back" style="display: flex; justify-content: space-between;">
+                
+                <a class="links" href="index.php">
+                    <i class="fa fa-arrow-circle-left"></i>
+                    back to home
+                </a>
+
+                <div>
+                    <?php include("google_translator.php") ?>
+                    <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
                 </div>
-                <a class="links" href="index.php">back to home</a>
             </div>
 
             <div class="wrapper" id="signup_html">
@@ -206,22 +212,127 @@
 
                             </span>
 
-                        <div class="terms-conditions_checkbox_wrapper">
-                            <div class="checkbox-wrapper-15">
-                                <input type="checkbox" name="" id="hidden_cbx" style="position: absolute; opacity: 0; z-index: 999; height: 25px; width: 100px; left: -30px;">
-                                <input class="inp-cbx terms-conditions_checkbox" id="cbx-15" type="checkbox" style="display: none;"/>
-                                <label class="cbx" for="cbx-15">
-                                <span>
-                                    <svg width="12px" height="9px" viewbox="0 0 12 9">
-                                    <polyline points="1 5 4 8 11 1"></polyline>
-                                    </svg>
-                                </span>
-                                </label>
-                                
-                            </div>
-                            <label id="terms-conditions_label" for="cbx-15">I agree to the <a href="./terms_conditions.php">Terms and Conditions</a></label>
-                        </div>
 
+                            <style>
+                                   .terms-container {
+                                        /* padding: 2rem; */
+                                        border-radius: 1rem;
+                                        width: 100%;
+                                        transition: transform 0.2s ease;
+                                    }
+
+                                    .terms-container:hover {
+                                        transform: translateY(-2px);
+                                    }
+
+                                    .checkbox-wrapper {
+                                        display: flex;
+                                        align-items: flex-start;
+                                        gap: 0.75rem;
+                                        position: relative;
+                                        padding: 0.5rem;
+                                        border-radius: 0.5rem;
+                                    }
+
+                                    .custom-checkbox {
+                                        position: relative;
+                                        width: 24px;
+                                        height: 24px;
+                                        flex-shrink: 0;
+                                    }
+
+                                    .custom-checkbox input {
+                                        position: absolute;
+                                        opacity: 0;
+                                        cursor: pointer;
+                                        height: 100%;
+                                        width: 100%;
+                                        z-index: 1;
+                                    }
+
+                                    .checkmark {
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        height: 24px;
+                                        width: 24px;
+                                        background-color: #6e591a;
+                                        border: 2px solid ;
+                                        border-radius: 6px;
+                                        transition: all 0.2s ease;
+                                    }
+
+                                    .custom-checkbox input:checked ~ .checkmark {
+                                        background-color:  #B68E2E;
+                                        border-color: #6e591a;
+                                    }
+
+                                    .checkmark:after {
+                                        content: "";
+                                        position: absolute;
+                                        display: none;
+                                        left: 8px;
+                                        top: 4px;
+                                        width: 5px;
+                                        height: 10px;
+                                        border: solid white;
+                                        border-width: 0 2px 2px 0;
+                                        transform: rotate(45deg);
+                                    }
+
+                                    .custom-checkbox input:checked ~ .checkmark:after {
+                                        display: block;
+                                    }
+
+                                    .terms-text {
+                                        font-size: 1rem;
+                                        line-height: 1.5;
+                                        color: #6e591a;
+                                    }
+
+                                    .terms-link {
+                                        
+                                        color: #B68E2E;
+                                        text-decoration: none;
+                                        font-weight: 500;
+                                        position: relative;
+                                        transition: color 0.2s ease;
+                                    }
+
+                                    .terms-link:hover {
+                                        color: #6e591a;
+                                    }
+
+                                    .terms-link::after {
+                                        content: '';
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 2px;
+                                        bottom: -2px;
+                                        left: 0;
+                                        background-color: currentColor;
+                                        transform: scaleX(0);
+                                        transition: transform 0.2s ease;
+                                    }
+
+                                    .terms-link:hover::after {
+                                        transform: scaleX(1);
+                                    }
+
+                                   
+                                 
+                            </style>
+                            <div class="terms-container">
+                                <label class="checkbox-wrapper">
+                                    <div class="custom-checkbox">
+                                        <input type="checkbox" name="terms" id="terms" checked>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                    <span class="terms-text">
+                                        I agree to these <a href="./terms_conditions.php" class="terms-link">Terms and Conditions</a>
+                                    </span>
+                                </label>
+                            </div>
                             <div class="submit_btn_wrapper">
                                 <button type="submit" name="signup_btn">Sign up</button>
                             </div>

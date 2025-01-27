@@ -42,7 +42,7 @@
                 "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)",
                 "thenetworg/oauth2-azure": "Needed for Microsoft XOAUTH2 authentication"
             },
-            "time": "2024-11-24T18:04:13+00:00",
+            "time": "2020-11-24T18:04:13+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {

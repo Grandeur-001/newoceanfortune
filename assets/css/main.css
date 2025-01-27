@@ -522,13 +522,14 @@ body{
 
 }
 .mobile_navbar .wrapper ul li:nth-of-type(1) span{
-    background: #242834;
+    background: var(--surface);
     box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.406);
 
 
 }
 .mobile_navbar .wrapper ul li span:hover{
-    background: #242834;
+    background: var(--surface);
+
 }
 .mobile_navbar .wrapper ul li:nth-of-type(1)  span a{
     background: linear-gradient(135deg, #D4AF37, #8f7028, #6e591a);

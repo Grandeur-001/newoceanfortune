@@ -7,22 +7,20 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <style>
-    :root {
-        --color-one-purple: #6e591a;
-        --color-two-blue2: #6e591a56;
-        --color-two-blue: #6e591a;
-        --background: #1F232F;
-        --surface: #222222;
-        --secondary-text: #9AA0A7; 
-        --border-color: #9aa0a752;
-        --text-color: #F5F5F5;
-        --background: #1b1e28;
-        --border-radius:26px 26px 26px 26px;
-        --box-shadow: 7px 7px 15px 0px #0E1015;
-        --box-shadow2: 0px 0px 15px 0px #0E1015;    
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+:root {
+    --background: #1a1a1a;
+    --surface: #222222;
+    --text-color: #F5F5F5;
+    --secondary-text: #A9A9A9;
+    --primary-dark: #A6841C;
+    --primary-color: #6e591a;
+    --border-color: #383838;
+    --hover-color: rgba(255, 255, 255, 0.05);
+    --positive-color: #00c853;
+    --negative-color: #ff3d3d;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
-    }
+}
 
         * {
             margin: 0;
@@ -102,7 +100,7 @@
         }
 
         .section {
-            background-color: #252a36;
+            background-color: var(--surface);
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 20px;
@@ -118,8 +116,11 @@
             position: fixed;
             z-index: 20;
             bottom: 30px;
-            color: var(--color-two-blue2);
+            color: var(--text-color);
+            background: var(--primary-dark);
             right: 30px;
+            padding: 7px 20px;
+            border-radius: 7px;
             cursor: pointer;
         }
 
@@ -139,6 +140,10 @@
     </style>
 </head>
 <body>
+    <div style="margin: 20px;">
+        <?php include("google_translator.php") ?>
+        <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
+    </div>
     <div class="container">
         <h1>Terms and Conditions</h1>
         <p><strong>Last Updated:</strong> [Insert Date]</p>

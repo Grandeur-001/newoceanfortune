@@ -98,9 +98,18 @@ $phone = $_SESSION['user_phone'];
             
             <div class="icons">
               <ul>
+
+                
+                
                 <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
                   <span class="login-status"></span>
                 </h4>
+
+
+                <div>
+                    <?php include("google_translator.php") ?>
+                    <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
+                </div>
                   <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
                       <div class="notification_box">
                         <div class="wrapper">
@@ -392,7 +401,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                       <li>
                           <a href="swap.php">
                               <i class="material-icons">swap_calls</i>
-                              <span>Swap</span>
+                              <span>Convert</span>
                           </a>
                       </li>
                       <li>
@@ -404,7 +413,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                       <li>
                           <a href="features.php">
                               <i class="material-icons">widgets</i>
-                              <span>Features</span>
+                              <span>Investments</span>
                           </a>
                       </li>
                       <li>
@@ -617,7 +626,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
       
       <footer class="dashboard_footer">
         <div class="wrapper">
-          <span>© 2024 <a href="index.php">Creative Fortune</a>All Right Reserved</span>
+          <span>© 2020 <a href="index.php">Simart Pro</a>All Right Reserved</span>
           <span><a href="#">Purchase Now</a></span>
         </div>
       </footer>
@@ -637,7 +646,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                 <li>
                     <a href="swap.php">
                         <i class="material-icons">swap_calls</i>
-                        <span>Swap</span>
+                        <span>Convert</span>
                     </a>
                 </li>
             </ul>

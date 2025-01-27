@@ -245,13 +245,13 @@ visibility: visible;
 }
 
 .modal-content {
-background: var(--surface);
-padding: 20px;
-display: flex;
-flex-direction: column;
-border-radius: 10px;
-justify-content: center;
-width: 420px;
+    background: var(--surface);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: center;
+    width: 420px;
 
 
 
@@ -260,8 +260,8 @@ width: 420px;
 
 
 .modal-title {
-margin-bottom: 1.5rem;
-font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .modal-input {
@@ -279,13 +279,14 @@ margin-bottom: 25px;
 .modal-input:focus {
 outline: none;
 border-color: var(--primary-color);
-box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
 }
 
 .modal-buttons {
 display: flex;
 gap: 1rem;
 justify-content: flex-end;
+color: ;
 }
 
 .modal-button {
@@ -343,7 +344,7 @@ background-color: var(--hover-color);
 /* Selection Options Styles */
 .selection-options {
 display: none;
-background: #2a3547;
+background: var(--background);
 border-radius: 8px;
 padding: 1rem;
 margin-top: 1rem;
@@ -368,7 +369,7 @@ border-radius: 4px;
 }
 
 .selection-options a:hover {
-background-color: #374151;
+background-color: var(--surface);
 color: white;
 }
 
@@ -783,7 +784,17 @@ background-color: var(--primary-dark);
                         <h4 style="color: white;"><?php echo htmlspecialchars($user_lname); ?>
                         <span class="login-status"></span>
                         </h4>
-                        <li class=""><a href="#"><i class="material-icons notification-icon">notifications_none</i></a>
+
+                        <div>
+                            <?php include("google_translator.php") ?>
+                            <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
+                        </div>
+                        <li class="">
+                            <a href="#">
+                                <i class="material-icons notification-icon">
+                                    notifications_none
+                                </i>
+                            </a>
                             <div class="notification_box">
                                 <div class="wrapper">
                                 <header>
@@ -1092,7 +1103,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
                     <li>
                         <a href="features.php">
                             <i class="material-icons">widgets</i>
-                            <span>Features</span>
+                            <span>Investments</span>
                         </a>
                     </li>
                     <li>
@@ -1121,7 +1132,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
         </div>
     </aside>
       
-      <main class="main_content">
+      <main class="main_content" style="padding: 20px;">
 
         <div class="investment-header">
             <h1 class="investment-title">Investment</h1>
@@ -3083,7 +3094,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
        <footer  class="dashboard_footer">
         <div class="wrapper">
-          <span>© 2024 <a href="index.php">Creative Fortune</a>All Right Reserved</span>
+          <span>© 2020 <a href="index.php">Simart Pro</a>All Right Reserved</span>
           <span><a href="#">Purchase Now</a></span>
         </div>
        </footer>
@@ -3103,7 +3114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>
                     <a href="swap.php">
                         <i class="material-icons">swap_calls</i>
-                        <span>Swap</span>
+                        <span>Convert</span>
                     </a>
                 </li>
             </ul>

@@ -52,50 +52,61 @@
 
 
 
-
     <!-- ============ DESKTOP-NAVIGATION-BAR============= -->
     <header id="desktop_navbar" class="desktop_navbar">
+   
         <div class="wrapper">
-
             <nav>
-                
-                <div class="check_nav_wrapper">
-                    <input type="checkbox" name="" id="check_nav" style="cursor: pointer;">
+                <div style="z-index: 3; opacity: 0; cursor: pointer; position: absolute; height: 50px; width: 50px; background-color: red; display: grid; place-content: center; place-items: center;">
+                  
+                    <input type="checkbox" name="" id="check_nav" style="cursor: pointer; height: 50px; width: 50px;">
                 </div>
-                <div class="hamburger" id="hamburger-6">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </div>
+                    <div class="hamburger" id="hamburger-6">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
 
                 <div class="logo">
-                    <a href="index.php" class="links"  style="display: flex; align-items: center; gap: 20px; text-decoration: none;">
-                    <div class="logo_wrapper">
+                    <div class="logo_wrapper" onclick="location.href=`index.php`">
                         <img src="assets/images/logo.png" alt="">
                     </div>
 
                     <div class="logo_name">Simart Pro</div>
-                    </a>
                 </div>
-
+                <style>
+                  @media only screen and (max-width: 888px) {
+                  .desktop_navbar .wrapper > nav > ul {
+                    display: block;
+                  }
+                  .desktop_navbar .wrapper > nav > ul li{
+                        display: none;
+                    }
+                  }
+                </style>
                 <ul>
+                  
                     <li><a class="links" href="index.php">Home</a></li>
                     <li><a class="links" href="about.php">about us</a></li>            
                     <li><a>support</a>
                         <ul class="sub_menu">
-                            <li><a class="links" href="faq.php">faq</a></li>
-                            <li><a class="links" href="contact.php">contact us</a></li>
+                                <li><a class="links" href="faq.php">faq</a></li>
+                                <li><a class="links" href="contact.php">contact us</a></li>
                         </ul>
                     </li>
                     <li><a class="links" href="login.php">Login</a></li>
                     <li><a class="links" href="signup.php">signup</a></li>
+
+                    <div style="margin: 20px;">
+                      <?php include("google_translator.php") ?>
+                      <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
+                  </div>
                 </ul>
             </nav>
         </div>
         
     </header>
     <!-- ============ DESKTOP-NAVIGATION-BAR END HERE============= -->
-
 
 
 
@@ -1416,7 +1427,7 @@ setInterval(updateTicker, REFRESH_INTERVAL);
             }
     
             // Show a toast notification every set seconds
-            setInterval(showToast, 10000);
+            setInterval(showToast, 30000);
         </script>
     </section>
 

@@ -67,11 +67,17 @@
 
 
         <body>
-            <div class="go_back">
-                <div class="left-arrow">
-                    <img src="assets/images/SLIDEUPARROW.PNG" alt="">
+        <div class="go_back" style="display: flex; justify-content: space-between;">
+                
+                <a class="links" href="index.php">
+                    <i class="fa fa-arrow-circle-left"></i>
+                    back to home
+                </a>
+
+                <div>
+                    <?php include("google_translator.php") ?>
+                    <img  style="cursor: pointer;" onclick="openTranslator()" width="23" src="https://th.bing.com/th/id/R.41d2ce8e8a978b24248ac44af2322f65?rik=gj58ngXoj7iaIw&pid=ImgRaw&r=0" alt="">
                 </div>
-                <a class="links" href="index.php">back to home</a>
             </div>
 
             <div class="wrapper" id="login_html">
